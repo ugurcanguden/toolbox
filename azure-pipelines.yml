@@ -23,13 +23,9 @@ variables:
   # SERVER_PORT : "4003"     # Sunucunuzda yönlendirme yapılan  port
 
 steps:
-  # Next.js uygulamasını build etmek (Production)
-  - script: |
-      cd $(NEXT_APP_PATH)
-      npm ci
-      npm run build
-    displayName: 'Build Next.js App'
-
+  # Skip Next.js build - Dockerfile uses dev mode due to next-intl compatibility
+  # Build happens inside Docker container on first run
+  
   # Docker Login with Custom Registry
   - script: |
       echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
