@@ -1,7 +1,7 @@
 trigger:
   branches:
     include:
-      - prod-master  # Hangi branch'te tetikleneceğini belirtin
+      - main # Hangi branch'te tetikleneceğini belirtin
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -27,13 +27,13 @@ variables:
 steps:
  
 
-  # Next.js uygulamasını build etmek (Production)
-  
-  - script: |
-      cd $(NEXT_APP_PATH)
-      npm install --legacy-peer-deps
-      npm run build
-    displayName: 'Build Next.js App'
+   # Next.js uygulamasını build etmek (Production)
+   
+   - script: |
+       cd $(NEXT_APP_PATH)
+       npm ci
+       npm run build
+     displayName: 'Build Next.js App'
 
   # Docker Login with Custom Registry
   - script: |
