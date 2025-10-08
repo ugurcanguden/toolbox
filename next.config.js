@@ -11,15 +11,6 @@ const nextConfig = {
   // Output configuration for Docker
   output: 'standalone',
   
-  // Disable static optimization for pages (required for next-intl)
-  experimental: {
-    // This allows dynamic rendering
-  },
-  
-  // Force dynamic rendering (no static export)
-  // This is required for next-intl with App Router
-  dynamicIO: false,
-  
   // Compression
   compress: true,
   

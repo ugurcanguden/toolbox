@@ -1,52 +1,41 @@
-# Install dependencies only when needed
-FROM node:22-alpine AS deps
-# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+# Toolbox - Production Dockerfile
+# Uses development mode due to next-intl compatibility
+# Performance is still excellent with Next.js dev mode
+
+FROM node:22-alpine
+
+# Install system dependencies
 RUN apk add --no-cache libc6-compat
+
 WORKDIR /app
 
-# Install dependencies based on the preferred package manager
-COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN \
-  if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
-  elif [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then yarn global add pnpm && pnpm i --frozen-lockfile; \
-  else echo "Lockfile not found." && exit 1; \
-  fi
+# Copy package files
+COPY package.json package-lock.json* ./
 
+# Install dependencies
+RUN npm ci
 
-# Rebuild the source code only when needed
-FROM node:22-alpine AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
+# Copy source code
 COPY . .
 
-  # Next.js collects completely anonymous telemetry data about general usage.
-  # Learn more here: https://nextjs.org/telemetry
-  ENV NEXT_TELEMETRY_DISABLED=1
-  
-  # Skip build for now - will use development mode
-  # next-intl + Next.js 14 static rendering has compatibility issues
-  # Development mode works perfectly and will be used in production
+# Clean any existing .next directory to avoid conflicts
+RUN rm -rf .next
 
-# Production image - using development mode for compatibility
-FROM node:22-alpine AS runner
-WORKDIR /app
-
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-
-# Copy everything from builder (as root first)
-COPY --from=builder /app ./
-
-# Create nextjs user and fix permissions
+# Create nextjs user
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs && \
     chown -R nextjs:nodejs /app
 
+# Switch to non-root user
 USER nextjs
 
-EXPOSE 4003 
+# Environment variables
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=4003
 
-# Run in development mode (works with next-intl)
+# Expose port
+EXPOSE 4003
+
+# Start in development mode (required for next-intl compatibility)
 CMD ["npm", "run", "dev"]
