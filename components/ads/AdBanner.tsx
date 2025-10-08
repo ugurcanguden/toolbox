@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useCookieConsent } from '@/hooks';
 
 interface AdBannerProps {
@@ -11,8 +11,10 @@ interface AdBannerProps {
 }
 
 /**
- * Google AdSense Banner Component
- * Only displays ads if user has accepted cookies
+ * Google AdSense Banner Component (Optimized with IntersectionObserver)
+ * - Only loads when visible in viewport
+ * - Improves page performance and interactivity
+ * - Defers ad loading to prevent blocking user interactions
  * Usage: <AdBanner dataAdSlot="YOUR_AD_SLOT_ID" />
  */
 export function AdBanner({
@@ -22,19 +24,44 @@ export function AdBanner({
   className = '',
 }: AdBannerProps) {
   const { hasConsent, isLoading } = useCookieConsent();
+  const adRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [hasLoaded, setHasLoaded] = useState(false);
 
+  // IntersectionObserver to detect when ad is in viewport
   useEffect(() => {
-    // Load ads regardless of consent status
-    // Non-personalized ads shown if consent declined
-    let isLoaded = false;
-    
+    if (!adRef.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        rootMargin: '200px', // Load 200px before it's visible
+        threshold: 0.01,
+      }
+    );
+
+    observer.observe(adRef.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [isVisible]);
+
+  // Load ad only when visible and not already loaded
+  useEffect(() => {
+    if (!isVisible || hasLoaded || isLoading) return;
+
     const loadAd = () => {
-      if (isLoaded) return;
-      
       try {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
-        isLoaded = true;
+        setHasLoaded(true);
       } catch (err) {
         // Silently ignore duplicate push errors in development
         if (process.env.NODE_ENV === 'development') {
@@ -45,21 +72,21 @@ export function AdBanner({
       }
     };
 
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(loadAd, 100);
+    // Delay ad loading to ensure page is interactive first
+    const timer = setTimeout(loadAd, 500);
 
     return () => {
       clearTimeout(timer);
     };
-  }, []);
+  }, [isVisible, hasLoaded, isLoading]);
 
   // Don't render while checking consent
   if (isLoading) {
-    return null;
+    return <div className={className} style={{ minHeight: '100px' }} />;
   }
 
   return (
-    <div className={className}>
+    <div ref={adRef} className={className}>
       <ins
         className="adsbygoogle"
         style={{ display: 'block' }}

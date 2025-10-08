@@ -120,13 +120,16 @@ export default function RootLayout({
         {/* Favicon */}
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         
-        {/* Google AdSense */}
-        <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9339461513261360"
-          crossOrigin="anonymous"
-        />
+              {/* Google AdSense - Deferred for better performance */}
+              <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
+              <script
+                async
+                defer
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9339461513261360"
+                crossOrigin="anonymous"
+                // @ts-ignore
+                onLoad="console.log('AdSense loaded')"
+              />
         
         {/* Structured Data */}
         <script
