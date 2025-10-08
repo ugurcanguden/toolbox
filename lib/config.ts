@@ -1,9 +1,9 @@
 /**
  * Site configuration
- * Update SITE_URL with your server domain after deployment
+ * Production domain: toolbox.curioboxapp.info
  */
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://toolbox.curioboxapp.info';
 
 export const SITE_CONFIG = {
   name: 'Toolbox - 30+ Developer Tools',

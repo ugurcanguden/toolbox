@@ -26,8 +26,8 @@ variables:
   # SSH_HOST: '164.92.135.142'  # Deployment server IP address
   # SSH_PASSWORD: '.48Qqrchef'  # SSH password
   # CONTAINER_PORT: "3000"  # Docker container internal port (Next.js default)
-  # SERVER_PORT: "3000"  # Server external port (can be different, e.g., 80, 443, 3000)
-  # NEXT_PUBLIC_SITE_URL: "http://your-domain.com"  # Application public URL
+  # SERVER_PORT: "80"  # Server external port (80 for HTTP, 443 for HTTPS)
+  # NEXT_PUBLIC_SITE_URL: "https://toolbox.curioboxapp.info"  # Application public URL
 
 steps:
   # Step 1: Install Node.js dependencies and build Next.js app
@@ -149,8 +149,8 @@ steps:
       # Wait a bit more for app to fully start
       sleep 20
       
-      # Check if application responds
-      HEALTH_CHECK_URL="http://$(SSH_HOST):$(SERVER_PORT)"
+      # Check if application responds (use domain or IP)
+      HEALTH_CHECK_URL="$(NEXT_PUBLIC_SITE_URL)"
       echo "Checking: $HEALTH_CHECK_URL"
       
       HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $HEALTH_CHECK_URL || echo "000")
