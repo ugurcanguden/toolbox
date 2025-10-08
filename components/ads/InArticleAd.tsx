@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useCookieConsent } from '@/hooks';
 
 interface InArticleAdProps {
   dataAdSlot: string;
@@ -9,20 +10,31 @@ interface InArticleAdProps {
 
 /**
  * Google AdSense In-Article Ad Component
+ * Only displays ads if user has accepted cookies
  * For placing ads within content
  */
 export function InArticleAd({
   dataAdSlot,
   className = 'my-8',
 }: InArticleAdProps) {
+  const { hasConsent, isLoading } = useCookieConsent();
+
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error('AdSense error:', err);
+    // Only load ads if consent is given
+    if (hasConsent) {
+      try {
+        // @ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error('AdSense error:', err);
+      }
     }
-  }, []);
+  }, [hasConsent]);
+
+  // Don't render anything while checking consent or if declined
+  if (isLoading || !hasConsent) {
+    return null;
+  }
 
   return (
     <div className={className}>

@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useCookieConsent } from '@/hooks';
 
 interface AdBannerProps {
   dataAdSlot: string;
@@ -11,6 +12,7 @@ interface AdBannerProps {
 
 /**
  * Google AdSense Banner Component
+ * Only displays ads if user has accepted cookies
  * Usage: <AdBanner dataAdSlot="YOUR_AD_SLOT_ID" />
  */
 export function AdBanner({
@@ -19,14 +21,24 @@ export function AdBanner({
   dataFullWidthResponsive = true,
   className = '',
 }: AdBannerProps) {
+  const { hasConsent, isLoading } = useCookieConsent();
+
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (err) {
-      console.error('AdSense error:', err);
+    // Only load ads if consent is given
+    if (hasConsent) {
+      try {
+        // @ts-ignore
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      } catch (err) {
+        console.error('AdSense error:', err);
+      }
     }
-  }, []);
+  }, [hasConsent]);
+
+  // Don't render anything while checking consent or if declined
+  if (isLoading || !hasConsent) {
+    return null;
+  }
 
   return (
     <div className={className}>
