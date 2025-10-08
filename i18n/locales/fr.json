@@ -32,6 +32,13 @@
     "copy": "Copier",
     "download": "Télécharger"
   },
+  "cookieConsent": {
+    "title": "🍪 Nous Utilisons des Cookies",
+    "description": "Nous utilisons des cookies et des technologies similaires pour améliorer votre expérience, afficher des publicités personnalisées et analyser le trafic. En cliquant sur 'Tout Accepter', vous consentez à l'utilisation de cookies.",
+    "accept": "Tout Accepter",
+    "decline": "Refuser",
+    "learnMore": "En Savoir Plus"
+  },
   "navigation": {
     "home": "Accueil",
     "tools": "Outils",
@@ -736,7 +743,103 @@
   "footer": {
     "privacy": "Aucune donnée personnelle collectée",
     "madeWith": "Fait avec",
-    "by": "par des développeurs, pour des développeurs"
+    "by": "par des développeurs, pour des développeurs",
+    "privacyPolicy": "Politique de Confidentialité",
+    "cookieSettings": "Paramètres des Cookies"
+  },
+  "cookieSettings": {
+    "title": "Paramètres des Cookies",
+    "description": "Gérez vos préférences de cookies pour ce site web.",
+    "currentStatus": "État Actuel",
+    "accepted": "Accepté",
+    "declined": "Refusé",
+    "necessary": {
+      "title": "Cookies Nécessaires",
+      "description": "Ces cookies sont essentiels au bon fonctionnement du site web. Ils permettent des fonctionnalités de base comme la navigation et l'accès aux zones sécurisées.",
+      "alwaysActive": "Toujours Actif"
+    },
+    "analytics": {
+      "title": "Cookies d'Analyse & de Publicité",
+      "description": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site et à afficher des publicités pertinentes. Ils sont fournis par Google AdSense.",
+      "items": "Cookies utilisés : Cookies Google AdSense pour la personnalisation et la mesure des annonces"
+    },
+    "savePreferences": "Enregistrer les Préférences",
+    "acceptAll": "Tout Accepter",
+    "declineAll": "Tout Refuser"
+  },
+  "privacyPolicy": {
+    "title": "Politique de Confidentialité",
+    "lastUpdated": "Dernière Mise à Jour",
+    "introduction": {
+      "title": "Introduction",
+      "content1": "Bienvenue sur Toolbox. Nous respectons votre vie privée et nous nous engageons à protéger vos données personnelles. Cette politique de confidentialité explique comment nous gérons vos informations lorsque vous utilisez notre site web.",
+      "content2": "Toolbox est une collection d'outils en ligne gratuits. Tous les traitements se font localement dans votre navigateur, et nous ne collectons ni ne stockons aucune donnée personnelle."
+    },
+    "dataCollection": {
+      "title": "Collecte de Données",
+      "weDoNotCollect": {
+        "title": "Nous NE Collectons PAS:",
+        "item1": "Informations personnelles (nom, email, adresse)",
+        "item2": "Fichiers ou données que vous traitez avec nos outils",
+        "item3": "Comptes utilisateurs ou identifiants de connexion",
+        "item4": "Adresses IP ou informations sur l'appareil"
+      },
+      "localData": {
+        "title": "Stockage Local (Votre Appareil Uniquement):",
+        "item1": "Préférence de thème (clair/sombre)",
+        "item2": "Préférence de langue",
+        "item3": "Outils favoris et récents"
+      }
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "Nous utilisons des cookies pour améliorer votre expérience et afficher des publicités pertinentes.",
+      "essential": {
+        "title": "Cookies Essentiels",
+        "description": "Ces cookies sont nécessaires au fonctionnement du site web:",
+        "item1": "Préférence de thème (clair/sombre)",
+        "item2": "Sélection de langue",
+        "item3": "Statut du consentement aux cookies"
+      },
+      "advertising": {
+        "title": "Cookies Publicitaires (Google AdSense)",
+        "description": "Nous utilisons Google AdSense pour afficher des publicités. Ces cookies:",
+        "item1": "Affichent des publicités personnalisées",
+        "item2": "Suivent les performances publicitaires (anonyme)",
+        "item3": "Peuvent être désactivés dans votre navigateur ou les paramètres Google"
+      }
+    },
+    "adsense": {
+      "title": "Google AdSense",
+      "content1": "Ce site web utilise Google AdSense pour afficher des publicités. Google peut utiliser des cookies pour diffuser des annonces basées sur vos visites antérieures sur ce site ou d'autres sites web.",
+      "content2": "L'utilisation par Google de cookies publicitaires permet à Google et à ses partenaires de diffuser des annonces basées sur votre visite de ce site et/ou d'autres sites sur Internet.",
+      "optOut": {
+        "title": "Se Désinscrire",
+        "description": "Vous pouvez vous désinscrire de la publicité personnalisée en visitant"
+      }
+    },
+    "thirdParty": {
+      "title": "Services Tiers",
+      "description": "Nous utilisons les services tiers suivants:",
+      "adsense": "Pour afficher des publicités et générer des revenus",
+      "nextjs": "Framework web (pas de collecte de données)"
+    },
+    "rights": {
+      "title": "Vos Droits (RGPD)",
+      "description": "Si vous êtes dans l'Union Européenne, vous avez le droit de:",
+      "item1": "Accéder à toutes les données que nous détenons sur vous (nous n'en détenons aucune)",
+      "item2": "Demander la suppression de vos données (uniquement les cookies dans votre navigateur)",
+      "item3": "S'opposer au traitement (vous pouvez refuser les cookies)",
+      "item4": "Portabilité des données (non applicable car nous ne stockons pas de données)"
+    },
+    "changes": {
+      "title": "Modifications de Cette Politique",
+      "content": "Nous pouvons mettre à jour cette politique de confidentialité de temps en temps. Nous vous informerons de tout changement en publiant la nouvelle politique sur cette page avec une date de 'Dernière Mise à Jour' mise à jour."
+    },
+    "contact": {
+      "title": "Nous Contacter",
+      "content": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à : ugurcanguden@gmail.com"
+    }
   }
 }
 

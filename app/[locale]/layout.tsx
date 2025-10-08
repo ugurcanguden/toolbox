@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Inter } from 'next/font/google';
-import { ThemeProvider, Header, Footer } from '@/components';
+import { ThemeProvider, Header, Footer, CookieConsent } from '@/components';
 import { locales, type Locale } from '@/i18n/request';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
@@ -65,6 +65,7 @@ export default async function LocaleLayout({
               <main className="flex-1">{children}</main>
               <Footer />
             </div>
+            <CookieConsent />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>

@@ -32,6 +32,13 @@
     "copy": "Copy",
     "download": "Download"
   },
+  "cookieConsent": {
+    "title": "🍪 We Use Cookies",
+    "description": "We use cookies and similar technologies to improve your experience, show personalized ads, and analyze traffic. By clicking 'Accept', you consent to our use of cookies.",
+    "accept": "Accept All",
+    "decline": "Decline",
+    "learnMore": "Learn More"
+  },
   "navigation": {
     "home": "Home",
     "tools": "Tools",
@@ -736,7 +743,103 @@
   "footer": {
     "privacy": "No personal data collected",
     "madeWith": "Made with",
-    "by": "by developers, for developers"
+    "by": "by developers, for developers",
+    "privacyPolicy": "Privacy Policy",
+    "cookieSettings": "Cookie Settings"
+  },
+  "cookieSettings": {
+    "title": "Cookie Settings",
+    "description": "Manage your cookie preferences for this website.",
+    "currentStatus": "Current Status",
+    "accepted": "Accepted",
+    "declined": "Declined",
+    "necessary": {
+      "title": "Necessary Cookies",
+      "description": "These cookies are essential for the website to function properly. They enable basic features like page navigation and access to secure areas.",
+      "alwaysActive": "Always Active"
+    },
+    "analytics": {
+      "title": "Analytics & Advertising Cookies",
+      "description": "These cookies help us understand how visitors interact with our website and show relevant ads. They are provided by Google AdSense.",
+      "items": "Cookies used: Google AdSense cookies for ad personalization and measurement"
+    },
+    "savePreferences": "Save Preferences",
+    "acceptAll": "Accept All",
+    "declineAll": "Decline All"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated",
+    "introduction": {
+      "title": "Introduction",
+      "content1": "Welcome to Toolbox. We respect your privacy and are committed to protecting your personal data. This privacy policy explains how we handle your information when you use our website.",
+      "content2": "Toolbox is a collection of free online tools. All processing happens locally in your browser, and we do not collect or store any personal data."
+    },
+    "dataCollection": {
+      "title": "Data Collection",
+      "weDoNotCollect": {
+        "title": "We DO NOT Collect:",
+        "item1": "Personal information (name, email, address)",
+        "item2": "Files or data you process with our tools",
+        "item3": "User accounts or login credentials",
+        "item4": "IP addresses or device information"
+      },
+      "localData": {
+        "title": "Local Storage (Your Device Only):",
+        "item1": "Theme preference (light/dark mode)",
+        "item2": "Language preference",
+        "item3": "Favorite and recent tools"
+      }
+    },
+    "cookies": {
+      "title": "Cookies",
+      "description": "We use cookies to improve your experience and show relevant ads.",
+      "essential": {
+        "title": "Essential Cookies",
+        "description": "These cookies are necessary for the website to function:",
+        "item1": "Theme preference (light/dark)",
+        "item2": "Language selection",
+        "item3": "Cookie consent status"
+      },
+      "advertising": {
+        "title": "Advertising Cookies (Google AdSense)",
+        "description": "We use Google AdSense to display ads. These cookies:",
+        "item1": "Show personalized advertisements",
+        "item2": "Track ad performance (anonymous)",
+        "item3": "Can be disabled in your browser or Google settings"
+      }
+    },
+    "adsense": {
+      "title": "Google AdSense",
+      "content1": "This website uses Google AdSense to display advertisements. Google may use cookies to serve ads based on your prior visits to this website or other websites.",
+      "content2": "Google's use of advertising cookies enables it and its partners to serve ads based on your visit to this site and/or other sites on the Internet.",
+      "optOut": {
+        "title": "Opt-Out",
+        "description": "You can opt out of personalized advertising by visiting"
+      }
+    },
+    "thirdParty": {
+      "title": "Third-Party Services",
+      "description": "We use the following third-party services:",
+      "adsense": "For displaying advertisements and generating revenue",
+      "nextjs": "Web framework (no data collection)"
+    },
+    "rights": {
+      "title": "Your Rights (GDPR)",
+      "description": "If you are in the European Union, you have the right to:",
+      "item1": "Access any data we hold about you (we hold none)",
+      "item2": "Request deletion of your data (only cookies in your browser)",
+      "item3": "Object to processing (you can decline cookies)",
+      "item4": "Data portability (not applicable as we don't store data)"
+    },
+    "changes": {
+      "title": "Changes to This Policy",
+      "content": "We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page with an updated 'Last Updated' date."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "content": "If you have any questions about this Privacy Policy, please contact us at: ugurcanguden@gmail.com"
+    }
   }
 }
 

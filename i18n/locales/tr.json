@@ -32,6 +32,13 @@
     "copy": "Kopyala",
     "download": "İndir"
   },
+  "cookieConsent": {
+    "title": "🍪 Çerez Kullanımı",
+    "description": "Deneyiminizi iyileştirmek, kişiselleştirilmiş reklamlar göstermek ve trafiği analiz etmek için çerezler ve benzer teknolojiler kullanıyoruz. 'Kabul Et' butonuna tıklayarak çerez kullanımını kabul etmiş olursunuz.",
+    "accept": "Tümünü Kabul Et",
+    "decline": "Reddet",
+    "learnMore": "Daha Fazla Bilgi"
+  },
   "navigation": {
     "home": "Ana Sayfa",
     "tools": "Araçlar",
@@ -736,7 +743,103 @@
   "footer": {
     "privacy": "Hiçbir kişisel veri toplanmıyor",
     "madeWith": "Geliştiriciler tarafından,",
-    "by": "geliştiriciler için yapıldı"
+    "by": "geliştiriciler için yapıldı",
+    "privacyPolicy": "Gizlilik Politikası",
+    "cookieSettings": "Çerez Ayarları"
+  },
+  "cookieSettings": {
+    "title": "Çerez Ayarları",
+    "description": "Bu web sitesi için çerez tercihlerinizi yönetin.",
+    "currentStatus": "Mevcut Durum",
+    "accepted": "Kabul Edildi",
+    "declined": "Reddedildi",
+    "necessary": {
+      "title": "Gerekli Çerezler",
+      "description": "Bu çerezler web sitesinin düzgün çalışması için gereklidir. Sayfa gezinmesi ve güvenli alanlara erişim gibi temel özellikleri etkinleştirirler.",
+      "alwaysActive": "Her Zaman Aktif"
+    },
+    "analytics": {
+      "title": "Analitik & Reklam Çerezleri",
+      "description": "Bu çerezler, ziyaretçilerin web sitemizle nasıl etkileşim kurduğunu anlamamıza ve ilgili reklamları göstermemize yardımcı olur. Google AdSense tarafından sağlanmaktadır.",
+      "items": "Kullanılan çerezler: Reklam kişiselleştirme ve ölçüm için Google AdSense çerezleri"
+    },
+    "savePreferences": "Tercihleri Kaydet",
+    "acceptAll": "Tümünü Kabul Et",
+    "declineAll": "Tümünü Reddet"
+  },
+  "privacyPolicy": {
+    "title": "Gizlilik Politikası",
+    "lastUpdated": "Son Güncelleme",
+    "introduction": {
+      "title": "Giriş",
+      "content1": "Toolbox'a hoş geldiniz. Gizliliğinize saygı duyuyoruz ve kişisel verilerinizi korumaya kararlıyız. Bu gizlilik politikası, web sitemizi kullandığınızda bilgilerinizi nasıl işlediğimizi açıklar.",
+      "content2": "Toolbox, ücretsiz çevrimiçi araçlar koleksiyonudur. Tüm işlemler tarayıcınızda yerel olarak gerçekleşir ve herhangi bir kişisel veri toplamaz veya saklamayız."
+    },
+    "dataCollection": {
+      "title": "Veri Toplama",
+      "weDoNotCollect": {
+        "title": "Toplamadığımız Veriler:",
+        "item1": "Kişisel bilgiler (isim, e-posta, adres)",
+        "item2": "Araçlarımızla işlediğiniz dosyalar veya veriler",
+        "item3": "Kullanıcı hesapları veya giriş bilgileri",
+        "item4": "IP adresleri veya cihaz bilgileri"
+      },
+      "localData": {
+        "title": "Yerel Depolama (Sadece Cihazınızda):",
+        "item1": "Tema tercihi (açık/koyu mod)",
+        "item2": "Dil tercihi",
+        "item3": "Favori ve son kullanılan araçlar"
+      }
+    },
+    "cookies": {
+      "title": "Çerezler",
+      "description": "Deneyiminizi iyileştirmek ve ilgili reklamları göstermek için çerezler kullanıyoruz.",
+      "essential": {
+        "title": "Temel Çerezler",
+        "description": "Bu çerezler web sitesinin çalışması için gereklidir:",
+        "item1": "Tema tercihi (açık/koyu)",
+        "item2": "Dil seçimi",
+        "item3": "Çerez onay durumu"
+      },
+      "advertising": {
+        "title": "Reklam Çerezleri (Google AdSense)",
+        "description": "Reklam göstermek için Google AdSense kullanıyoruz. Bu çerezler:",
+        "item1": "Kişiselleştirilmiş reklamlar gösterir",
+        "item2": "Reklam performansını takip eder (anonim)",
+        "item3": "Tarayıcınızda veya Google ayarlarında devre dışı bırakılabilir"
+      }
+    },
+    "adsense": {
+      "title": "Google AdSense",
+      "content1": "Bu web sitesi reklam göstermek için Google AdSense kullanır. Google, bu web sitesine veya diğer web sitelerine yaptığınız önceki ziyaretlere göre reklamlar göstermek için çerezler kullanabilir.",
+      "content2": "Google'ın reklam çerezlerini kullanması, Google'ın ve ortaklarının bu siteye ve/veya İnternet'teki diğer sitelere yaptığınız ziyaretlere dayalı reklamlar göstermesini sağlar.",
+      "optOut": {
+        "title": "Vazgeç",
+        "description": "Kişiselleştirilmiş reklamlardan vazgeçebilirsiniz:"
+      }
+    },
+    "thirdParty": {
+      "title": "Üçüncü Taraf Hizmetleri",
+      "description": "Aşağıdaki üçüncü taraf hizmetleri kullanıyoruz:",
+      "adsense": "Reklam gösterimi ve gelir elde etme için",
+      "nextjs": "Web framework (veri toplama yok)"
+    },
+    "rights": {
+      "title": "Haklarınız (GDPR)",
+      "description": "Avrupa Birliği'ndeyseniz, şu haklara sahipsiniz:",
+      "item1": "Hakkınızda tuttuğumuz verilere erişim (hiç veri tutmuyoruz)",
+      "item2": "Verilerinizin silinmesini talep etme (sadece tarayıcınızdaki çerezler)",
+      "item3": "İşlemeye itiraz etme (çerezleri reddedebilirsiniz)",
+      "item4": "Veri taşınabilirliği (veri saklamadığımız için geçerli değil)"
+    },
+    "changes": {
+      "title": "Politika Değişiklikleri",
+      "content": "Bu gizlilik politikasını zaman zaman güncelleyebiliriz. Herhangi bir değişiklik durumunda, yeni politikayı bu sayfada güncellenmiş 'Son Güncelleme' tarihi ile yayınlayarak sizi bilgilendireceğiz."
+    },
+    "contact": {
+      "title": "İletişim",
+      "content": "Bu Gizlilik Politikası hakkında herhangi bir sorunuz varsa, lütfen bizimle iletişime geçin: ugurcanguden@gmail.com"
+    }
   }
 }
 

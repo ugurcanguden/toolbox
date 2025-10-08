@@ -5,4 +5,17 @@ export { Slider } from './slider';
 export { Checkbox } from './checkbox';
 export { Label } from './label';
 export { Input } from './input';
+export { Badge, badgeVariants } from './badge';
+export { 
+  Dialog, 
+  DialogPortal, 
+  DialogOverlay, 
+  DialogClose, 
+  DialogTrigger, 
+  DialogContent, 
+  DialogHeader, 
+  DialogFooter, 
+  DialogTitle, 
+  DialogDescription 
+} from './dialog';
 
