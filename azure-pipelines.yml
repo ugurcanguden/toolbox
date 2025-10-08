@@ -7,7 +7,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  APP_NAME: ui-$(ENVIRONMENT)  # Docker imajınızın adı
+  APP_NAME: toolbox-$(ENVIRONMENT)  # Docker imajınızın adı
   DOCKERFILE_PATH: './Dockerfile'  # Dockerfile Next.js için konumu
   NEXT_APP_PATH: '.'  # Next.js uygulama yolu (root)
  
