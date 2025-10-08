@@ -34,7 +34,7 @@ steps:
   - script: |
       cd $(NEXT_APP_PATH)
       echo "📦 Installing dependencies..."
-      npm ci --legacy-peer-deps
+      npm ci
       
       echo "🏗️  Building Next.js application..."
       npm run build

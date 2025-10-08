@@ -27,13 +27,11 @@ dist
 
 # Debug
 *.tsbuildinfo
+next-env.d.ts
 
 # Local env files
 .env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env*.local
 
 # Editor
 .vscode
@@ -53,6 +51,10 @@ CONTRIBUTING.md
 ROADMAP.md
 GETTING_STARTED.md
 PROJECT_SUMMARY.md
+DEPLOYMENT.md
+DOCKER_QUICK_START.md
+AZURE_PIPELINE_SETUP.md
+NGINX_CONFIG.md
 .cursorrules
 .cursor
 
@@ -61,3 +63,5 @@ PROJECT_SUMMARY.md
 .gitlab-ci.yml
 Dockerfile
 docker-compose*.yml
+docker-build.sh
+azure-pipelines.yml
