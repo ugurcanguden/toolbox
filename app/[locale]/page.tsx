@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 import { useParams } from 'next/navigation';
 import { Search, Star, Clock, X } from 'lucide-react';
-import { ToolCard } from '@/components';
+import { ToolCard, AdBanner } from '@/components';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useFavorites } from '@/hooks';
@@ -316,6 +316,12 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Ad - Top Banner (after hero) */}
+      <AdBanner 
+        dataAdSlot="1234567890"
+        className="max-w-7xl mx-auto mb-12"
+      />
+
       {/* Search & Filter Section */}
       <div className="mb-12 space-y-6">
         {/* Search Bar */}
@@ -361,6 +367,13 @@ export default function HomePage() {
           </p>
         </div>
       </div>
+
+      {/* Ad - After Search/Filter */}
+      <AdBanner 
+        dataAdSlot="0987654321"
+        dataAdFormat="horizontal"
+        className="max-w-7xl mx-auto mb-12"
+      />
 
       {/* Favorites Section */}
       {favoriteTools.length > 0 && searchQuery === "" && selectedCategory === "all" && (
@@ -441,6 +454,12 @@ export default function HomePage() {
           </div>
         )}
       </div>
+
+      {/* Ad - Bottom Banner */}
+      <AdBanner 
+        dataAdSlot="5555555555"
+        className="max-w-7xl mx-auto mb-12"
+      />
     </div>
   );
 }
