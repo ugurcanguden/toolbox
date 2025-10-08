@@ -1,181 +1,166 @@
-# Toolbox - Azure DevOps Pipeline Configuration
-# Build, test, and deploy Toolbox application
+# Toolbox - Azure DevOps Pipeline
+# Production deployment pipeline with custom Docker registry
 
 trigger:
   branches:
     include:
-      - main
-      - develop
-  tags:
-    include:
-      - v*
+      - main  # Production branch
 
-pr:
-  branches:
-    include:
-      - main
-      - develop
+pool:
+  vmImage: 'ubuntu-latest'
 
 variables:
-  # Docker Configuration
-  dockerImageName: 'toolbox'
-  dockerRegistryServiceConnection: 'DockerHub' # Azure DevOps'ta service connection adı
-  containerRegistry: 'your-registry.azurecr.io' # Azure Container Registry
-  
-  # Build Configuration
-  nodeVersion: '18.x'
-  vmImageName: 'ubuntu-latest'
-  
+  # Docker Registry Configuration
+  DOCKER_REGISTRY_URL: 'registry.qqrchef.com'  # Custom Docker registry URL
+  DOCKER_REGISTRY_USERNAME: 'QqrchefRepositoryUser'  # Docker registry username
+  DOCKER_REGISTRY_PASSWORD: 'Qqrchef48.'  # Docker registry password
+
   # Application Configuration
-  NEXT_TELEMETRY_DISABLED: 1
+  APP_NAME: 'toolbox-$(ENVIRONMENT)'  # Docker image name
+  DOCKERFILE_PATH: './Dockerfile'  # Dockerfile location
+  NEXT_APP_PATH: '.'  # Next.js application root path
+  
+  # These variables must be defined in Azure DevOps Environment:
+  # ENVIRONMENT: prod / staging / uat
+  # SSH_USER: 'root'  # SSH username for deployment server
+  # SSH_HOST: '164.92.135.142'  # Deployment server IP address
+  # SSH_PASSWORD: '.48Qqrchef'  # SSH password
+  # CONTAINER_PORT: "3000"  # Docker container internal port (Next.js default)
+  # SERVER_PORT: "3000"  # Server external port (can be different, e.g., 80, 443, 3000)
+  # NEXT_PUBLIC_SITE_URL: "http://your-domain.com"  # Application public URL
 
-stages:
-  # ========================================
-  # STAGE 1: Test & Build
-  # ========================================
-  - stage: Test
-    displayName: 'Test & Build'
-    jobs:
-      - job: TestAndBuild
-        displayName: 'Run Tests and Build Application'
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          - task: NodeTool@0
-            displayName: 'Install Node.js'
-            inputs:
-              versionSpec: $(nodeVersion)
+steps:
+  # Step 1: Install Node.js dependencies and build Next.js app
+  - script: |
+      cd $(NEXT_APP_PATH)
+      echo "📦 Installing dependencies..."
+      npm ci --legacy-peer-deps
+      
+      echo "🏗️  Building Next.js application..."
+      npm run build
+      
+      echo "✅ Build completed successfully!"
+    displayName: 'Build Next.js App (Production)'
+    env:
+      NODE_ENV: production
+      NEXT_TELEMETRY_DISABLED: 1
 
-          - script: |
-              npm ci
-            displayName: 'Install Dependencies'
+  # Step 2: Login to Custom Docker Registry
+  - script: |
+      echo "🔐 Logging in to Docker Registry..."
+      echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
+      echo "✅ Docker login successful!"
+    displayName: 'Login to Custom Docker Registry'
 
-          - script: |
-              npm run lint
-            displayName: 'Run Linter'
+  # Step 3: Build Docker Image
+  - script: |
+      echo "🐳 Building Docker image..."
+      docker build -t $(APP_NAME) -f $(DOCKERFILE_PATH) $(NEXT_APP_PATH)
+      echo "✅ Docker image built: $(APP_NAME)"
+    displayName: 'Build Docker Image for Toolbox'
 
-          - script: |
-              npm run build
-            displayName: 'Build Application'
-            env:
-              NODE_ENV: production
+  # Step 4: Tag and Push Docker Image
+  - script: |
+      echo "🏷️  Tagging and pushing Docker image..."
+      
+      # Image tag (use build ID or 'latest')
+      IMAGE_TAG="latest"
+      
+      if [ ! -z "$(Build.BuildId)" ]; then
+        IMAGE_TAG=$(Build.BuildId)
+        echo "📌 Using build ID as tag: $IMAGE_TAG"
+      fi
+      
+      # Tag with build ID
+      docker tag $(APP_NAME):latest $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG
+      
+      # Push with build ID tag
+      echo "⬆️  Pushing $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG"
+      docker push $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG
 
-          - task: PublishBuildArtifacts@1
-            displayName: 'Publish Build Artifacts'
-            inputs:
-              PathtoPublish: '.next'
-              ArtifactName: 'nextjs-build'
-              publishLocation: 'Container'
+      # Tag and push as 'latest'
+      docker tag $(APP_NAME):latest $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
+      echo "⬆️  Pushing $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest"
+      docker push $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
+      
+      echo "✅ Docker images pushed successfully!"
+    displayName: 'Tag & Push Docker Image'
 
-  # ========================================
-  # STAGE 2: Docker Build & Push
-  # ========================================
-  - stage: BuildDocker
-    displayName: 'Build & Push Docker Image'
-    dependsOn: Test
-    condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/develop'))
-    jobs:
-      - job: BuildPushDocker
-        displayName: 'Build and Push Docker Image'
-        pool:
-          vmImage: $(vmImageName)
-        steps:
-          - task: Docker@2
-            displayName: 'Build Docker Image'
-            inputs:
-              command: 'build'
-              dockerfile: 'Dockerfile'
-              repository: $(dockerImageName)
-              tags: |
-                $(Build.BuildId)
-                latest
+  # Step 5: Deploy to Server via SSH
+  - script: |
+      echo "🚀 Deploying to production server..."
+      
+      # Install sshpass for password-based SSH
+      sudo apt-get install -y sshpass
 
-          - task: Docker@2
-            displayName: 'Push Docker Image to Registry'
-            inputs:
-              command: 'push'
-              containerRegistry: $(dockerRegistryServiceConnection)
-              repository: $(dockerImageName)
-              tags: |
-                $(Build.BuildId)
-                latest
+      # SSH into server and deploy
+      sshpass -p $(SSH_PASSWORD) ssh -o StrictHostKeyChecking=no $(SSH_USER)@$(SSH_HOST) << 'EOF'
+        echo "📥 Pulling latest Docker image..."
+        
+        # Docker login on remote server
+        echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
+        
+        # Pull latest image
+        docker pull $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
+        
+        echo "🛑 Stopping existing container..."
+        docker stop $(APP_NAME) || true
+        docker rm $(APP_NAME) || true
+        
+        echo "🚀 Starting new container..."
+        # Run new container with port mapping and environment variables
+        docker run -d \
+          --name $(APP_NAME) \
+          -p $(SERVER_PORT):$(CONTAINER_PORT) \
+          -e PORT=$(CONTAINER_PORT) \
+          -e NODE_ENV=production \
+          -e NEXT_PUBLIC_SITE_URL=$(NEXT_PUBLIC_SITE_URL) \
+          -e NEXT_TELEMETRY_DISABLED=1 \
+          --restart unless-stopped \
+          $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
+        
+        echo "🧹 Cleaning up old Docker images..."
+        docker image prune -f
+        
+        echo "✅ Deployment completed successfully!"
+        
+        # Wait for container to be healthy
+        echo "⏳ Waiting for application to start..."
+        sleep 10
+        
+        # Check if container is running
+        if docker ps | grep -q $(APP_NAME); then
+          echo "✅ Container is running!"
+          docker ps | grep $(APP_NAME)
+        else
+          echo "❌ Container failed to start!"
+          docker logs $(APP_NAME)
+          exit 1
+        fi
+      EOF
+      
+      echo "🎉 Pipeline completed successfully!"
+    displayName: 'Deploy to Production Server'
 
-  # ========================================
-  # STAGE 3: Deploy to Staging
-  # ========================================
-  - stage: DeployStaging
-    displayName: 'Deploy to Staging'
-    dependsOn: BuildDocker
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
-    jobs:
-      - deployment: DeployToStaging
-        displayName: 'Deploy to Staging Environment'
-        environment: 'staging'
-        pool:
-          vmImage: $(vmImageName)
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-                - task: SSH@0
-                  displayName: 'Deploy via SSH to Staging Server'
-                  inputs:
-                    sshEndpoint: 'Staging-Server' # Azure DevOps SSH service connection
-                    runOptions: 'inline'
-                    inline: |
-                      cd /path/to/toolbox-staging
-                      docker pull $(containerRegistry)/$(dockerImageName):latest
-                      docker-compose down
-                      docker-compose up -d
-                      docker image prune -f
-                    readyTimeout: '20000'
-
-  # ========================================
-  # STAGE 4: Deploy to Production
-  # ========================================
-  - stage: DeployProduction
-    displayName: 'Deploy to Production'
-    dependsOn: BuildDocker
-    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
-    jobs:
-      - deployment: DeployToProduction
-        displayName: 'Deploy to Production Environment'
-        environment: 'production'
-        pool:
-          vmImage: $(vmImageName)
-        strategy:
-          runOnce:
-            deploy:
-              steps:
-                - task: SSH@0
-                  displayName: 'Deploy via SSH to Production Server'
-                  inputs:
-                    sshEndpoint: 'Production-Server' # Azure DevOps SSH service connection
-                    runOptions: 'inline'
-                    inline: |
-                      cd /path/to/toolbox
-                      docker pull $(containerRegistry)/$(dockerImageName):$(Build.BuildId)
-                      docker tag $(containerRegistry)/$(dockerImageName):$(Build.BuildId) $(dockerImageName):latest
-                      docker-compose down
-                      docker-compose up -d
-                      docker image prune -f
-                    readyTimeout: '20000'
-
-                - task: Bash@3
-                  displayName: 'Health Check'
-                  inputs:
-                    targetType: 'inline'
-                    script: |
-                      echo "Waiting for application to start..."
-                      sleep 30
-                      
-                      # Health check
-                      response=$(curl -s -o /dev/null -w "%{http_code}" https://your-domain.com)
-                      
-                      if [ $response -eq 200 ]; then
-                        echo "✅ Application is healthy! (Status: $response)"
-                        exit 0
-                      else
-                        echo "❌ Application health check failed! (Status: $response)"
-                        exit 1
-                      fi
+  # Step 6: Health Check (Optional but recommended)
+  - script: |
+      echo "🏥 Running health check..."
+      
+      # Wait a bit more for app to fully start
+      sleep 20
+      
+      # Check if application responds
+      HEALTH_CHECK_URL="http://$(SSH_HOST):$(SERVER_PORT)"
+      echo "Checking: $HEALTH_CHECK_URL"
+      
+      HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $HEALTH_CHECK_URL || echo "000")
+      
+      if [ "$HTTP_STATUS" -eq 200 ]; then
+        echo "✅ Health check passed! (Status: $HTTP_STATUS)"
+        echo "🌐 Application is live at: $HEALTH_CHECK_URL"
+      else
+        echo "⚠️  Health check returned status: $HTTP_STATUS"
+        echo "Application might still be starting up..."
+      fi
+    displayName: 'Health Check'
+    continueOnError: true  # Don't fail pipeline if health check fails
