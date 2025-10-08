@@ -6,6 +6,7 @@ Bu dosya, Toolbox uygulamasını Docker ile deploy etmek için gerekli tüm bilg
 
 - Docker 20.10+
 - Docker Compose 2.0+ (opsiyonel)
+- Node.js 18+ (local development için)
 - 2GB+ RAM
 - 1GB+ Disk alanı
 

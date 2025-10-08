@@ -1,166 +1,91 @@
-# Toolbox - Azure DevOps Pipeline
-# Production deployment pipeline with custom Docker registry
-
 trigger:
   branches:
     include:
-      - main  # Production branch
+      - prod-master  # Hangi branch'te tetikleneceğini belirtin
 
 pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  # Docker Registry Configuration
-  DOCKER_REGISTRY_URL: 'registry.qqrchef.com'  # Custom Docker registry URL
-  DOCKER_REGISTRY_USERNAME: 'QqrchefRepositoryUser'  # Docker registry username
-  DOCKER_REGISTRY_PASSWORD: 'Qqrchef48.'  # Docker registry password
+ 
+  APP_NAME: ui-$(ENVIRONMENT)  # Docker imajınızın adı
+  DOCKERFILE_PATH: './Dockerfile'  # Dockerfile Next.js için konumu
+  NEXT_APP_PATH: '.'  # Next.js uygulama yolu (root)
+ 
+  #environment ' a tanımlanmalıdır...
+  # ENVIRONMENT : prod - uat
+  # DOCKER_REGISTRY_URL: 'registry.qqrchef.com'  # Linux sunucunuzdaki Docker registry'nin IP adresi
+  # DOCKER_REGISTRY_USERNAME: 'QqrchefRepositoryUser'  # Docker registry kullanıcı adınız
+  # DOCKER_REGISTRY_PASSWORD: 'Qqrchef48.'  # Docker registry şifreniz
+  # SSH_USER: 'root'    # Azure VM SSH kullanıcı adı
+  # SSH_HOST: '164.92.135.142'       # Azure VM IP adresi
+  # SSH_PASSWORD: '.48Qqrchef'   # Azure VM SSH şifreniz 
+  # CONTAINER_PORT : "3002"  # Docker container'ınızın çalıştığı port
+  # SERVER_PORT : "3002"     # Sunucunuzda yönlendirme yapılan  port
 
-  # Application Configuration
-  APP_NAME: 'toolbox-$(ENVIRONMENT)'  # Docker image name
-  DOCKERFILE_PATH: './Dockerfile'  # Dockerfile location
-  NEXT_APP_PATH: '.'  # Next.js application root path
-  
-  # These variables must be defined in Azure DevOps Environment:
-  # ENVIRONMENT: prod / staging / uat
-  # SSH_USER: 'root'  # SSH username for deployment server
-  # SSH_HOST: '164.92.135.142'  # Deployment server IP address
-  # SSH_PASSWORD: '.48Qqrchef'  # SSH password
-  # CONTAINER_PORT: "3000"  # Docker container internal port (Next.js default)
-  # SERVER_PORT: "80"  # Server external port (80 for HTTP, 443 for HTTPS)
-  # NEXT_PUBLIC_SITE_URL: "https://toolbox.curioboxapp.info"  # Application public URL
 
 steps:
-  # Step 1: Install Node.js dependencies and build Next.js app
+ 
+
+  # Next.js uygulamasını build etmek (Production)
+  
   - script: |
       cd $(NEXT_APP_PATH)
-      echo "📦 Installing dependencies..."
-      npm ci
-      
-      echo "🏗️  Building Next.js application..."
+      npm install --legacy-peer-deps
       npm run build
-      
-      echo "✅ Build completed successfully!"
-    displayName: 'Build Next.js App (Production)'
-    env:
-      NODE_ENV: production
-      NEXT_TELEMETRY_DISABLED: 1
+    displayName: 'Build Next.js App'
 
-  # Step 2: Login to Custom Docker Registry
+  # Docker Login with Custom Registry
   - script: |
-      echo "🔐 Logging in to Docker Registry..."
       echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
-      echo "✅ Docker login successful!"
     displayName: 'Login to Custom Docker Registry'
 
-  # Step 3: Build Docker Image
+  # Docker imajını oluşturma
   - script: |
-      echo "🐳 Building Docker image..."
       docker build -t $(APP_NAME) -f $(DOCKERFILE_PATH) $(NEXT_APP_PATH)
-      echo "✅ Docker image built: $(APP_NAME)"
-    displayName: 'Build Docker Image for Toolbox'
+    displayName: 'Build Docker Image for Next.js App'
 
-  # Step 4: Tag and Push Docker Image
+  # Docker Image Etiketleme ve Push Etme
   - script: |
-      echo "🏷️  Tagging and pushing Docker image..."
-      
-      # Image tag (use build ID or 'latest')
+      # Etiketleme işlemi
       IMAGE_TAG="latest"
       
+      # Eğer belirli bir versiyon (örn: Git commit hash) veya ENVIRONMENT bilgisiyle etiketleme yapmak isterseniz:
       if [ ! -z "$(Build.BuildId)" ]; then
         IMAGE_TAG=$(Build.BuildId)
-        echo "📌 Using build ID as tag: $IMAGE_TAG"
       fi
       
-      # Tag with build ID
+      # Etiketle
       docker tag $(APP_NAME):latest $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG
       
-      # Push with build ID tag
-      echo "⬆️  Pushing $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG"
+      # Docker imajını kendi registry'nize push etme
       docker push $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG
 
-      # Tag and push as 'latest'
+      # En son push edilen tag'ı latest olarak push et
       docker tag $(APP_NAME):latest $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-      echo "⬆️  Pushing $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest"
       docker push $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-      
-      echo "✅ Docker images pushed successfully!"
-    displayName: 'Tag & Push Docker Image'
-
-  # Step 5: Deploy to Server via SSH
+    displayName: 'Push Docker Image To Custom Docker Registry'
+      # SSH ile Azure VM'ye bağlanma ve docker komutlarını çalıştırma (Şifreyle)
   - script: |
-      echo "🚀 Deploying to production server..."
+      echo "Running SSH commands on the VM to update Docker image and specify ports"
       
-      # Install sshpass for password-based SSH
+      # SSH bağlantısını kurarken sshpass'ı yükleyin
       sudo apt-get install -y sshpass
 
-      # SSH into server and deploy
+      # SSH ile bağlantı ve Docker komutlarını çalıştırma
       sshpass -p $(SSH_PASSWORD) ssh -o StrictHostKeyChecking=no $(SSH_USER)@$(SSH_HOST) << 'EOF'
-        echo "📥 Pulling latest Docker image..."
+        echo 'Pulling latest image and restarting container...'
         
-        # Docker login on remote server
+        # Docker login işlemi (kimlik doğrulama)
         echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
         
-        # Pull latest image
+        # Docker imajını çekme
         docker pull $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
         
-        echo "🛑 Stopping existing container..."
+        # Mevcut container'ı durdurma ve silme
         docker stop $(APP_NAME) || true
         docker rm $(APP_NAME) || true
         
-        echo "🚀 Starting new container..."
-        # Run new container with port mapping and environment variables
-        docker run -d \
-          --name $(APP_NAME) \
-          -p $(SERVER_PORT):$(CONTAINER_PORT) \
-          -e PORT=$(CONTAINER_PORT) \
-          -e NODE_ENV=production \
-          -e NEXT_PUBLIC_SITE_URL=$(NEXT_PUBLIC_SITE_URL) \
-          -e NEXT_TELEMETRY_DISABLED=1 \
-          --restart unless-stopped \
-          $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-        
-        echo "🧹 Cleaning up old Docker images..."
-        docker image prune -f
-        
-        echo "✅ Deployment completed successfully!"
-        
-        # Wait for container to be healthy
-        echo "⏳ Waiting for application to start..."
-        sleep 10
-        
-        # Check if container is running
-        if docker ps | grep -q $(APP_NAME); then
-          echo "✅ Container is running!"
-          docker ps | grep $(APP_NAME)
-        else
-          echo "❌ Container failed to start!"
-          docker logs $(APP_NAME)
-          exit 1
-        fi
+        # Yeni imajı çalıştırma ve portları bağlama
+        docker run -e PORT=$(CONTAINER_PORT) -d -p $(SERVER_PORT):$(CONTAINER_PORT) --name $(APP_NAME) $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
       EOF
-      
-      echo "🎉 Pipeline completed successfully!"
-    displayName: 'Deploy to Production Server'
-
-  # Step 6: Health Check (Optional but recommended)
-  - script: |
-      echo "🏥 Running health check..."
-      
-      # Wait a bit more for app to fully start
-      sleep 20
-      
-      # Check if application responds (use domain or IP)
-      HEALTH_CHECK_URL="$(NEXT_PUBLIC_SITE_URL)"
-      echo "Checking: $HEALTH_CHECK_URL"
-      
-      HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" $HEALTH_CHECK_URL || echo "000")
-      
-      if [ "$HTTP_STATUS" -eq 200 ]; then
-        echo "✅ Health check passed! (Status: $HTTP_STATUS)"
-        echo "🌐 Application is live at: $HEALTH_CHECK_URL"
-      else
-        echo "⚠️  Health check returned status: $HTTP_STATUS"
-        echo "Application might still be starting up..."
-      fi
-    displayName: 'Health Check'
-    continueOnError: true  # Don't fail pipeline if health check fails

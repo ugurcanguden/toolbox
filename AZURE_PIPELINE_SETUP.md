@@ -5,6 +5,7 @@ Bu rehber, Toolbox uygulamasını Azure DevOps ile otomatik deploy etmek için g
 ## 📋 Ön Gereksinimler
 
 - Azure DevOps hesabı ve projesi
+- Node.js 18+ (veya 22+ önerilen)
 - Docker Registry erişimi (`registry.qqrchef.com`)
 - Deployment server'a SSH erişimi
 - Azure DevOps Agent (self-hosted veya Microsoft-hosted)

@@ -64,7 +64,7 @@ A modern, multilingual collection of 30+ useful tools for everyone, built with N
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js 22+ (or 18+)
 - npm or yarn
 
 ### Installation

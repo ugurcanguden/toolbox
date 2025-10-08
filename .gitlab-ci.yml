@@ -8,7 +8,7 @@ stages:
 variables:
   DOCKER_IMAGE_NAME: toolbox
   DOCKER_IMAGE_TAG: $CI_COMMIT_SHORT_SHA
-  NODE_VERSION: "18"
+  NODE_VERSION: "22"
 
 # Cache for faster builds
 cache:
@@ -20,7 +20,7 @@ cache:
 # Test Stage
 test:
   stage: test
-  image: node:18-alpine
+  image: node:22-alpine
   before_script:
     - npm ci
   script:
