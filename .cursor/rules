@@ -1,0 +1,390 @@
+# Toolbox - Cursor AI Rules v2.1.0
+
+## 🎯 Proje: Next.js Toolbox
+**Durum:** 30 TOOLS + FAVORITES + ANIMATIONS! 🌍👑✨  
+**Versiyon:** 2.1.0 - PRODUCTION READY + PWA 🚀  
+**Son Güncelleme:** 8 Ekim 2025  
+**30 Tools | Favorites | Recent | Animations | Search & Filter | #1 Toolbox!**
+
+---
+
+## 🛠 Teknoloji Stack
+
+**Core:**
+- Next.js 14+ (App Router)
+- TypeScript 5.5+ (Strict Mode)
+- Tailwind CSS 3.4+
+- shadcn/ui + Radix UI
+
+**Features:**
+- next-intl (5 dil: EN, DE, TR, FR, PT)
+- next-themes (light/dark/system)
+- Web Crypto API + qrcode
+
+---
+
+## 📁 Klasör Yapısı
+
+```
+app/[locale]/          # Dil-bazlı routing
+  ├── layout.tsx       # Ana layout
+  ├── page.tsx         # Ana sayfa
+  └── tools/           # Tool sayfaları (8 tool)
+components/
+  ├── ui/              # shadcn/ui (button, card, etc.)
+  ├── layout/          # Layout (header, footer, theme)
+  └── tools/           # Tool components
+i18n/locales/         # 5 translation dosyası
+lib/                  # Utils (crypto, color, tools-data)
+hooks/                # Custom hooks
+types/                # TypeScript types
+```
+
+---
+
+## 🎨 Naming Conventions
+
+| Tip | Convention | Örnek |
+|-----|-----------|-------|
+| Components | PascalCase | `ToolCard.tsx` |
+| Files | kebab-case | `use-theme.ts` |
+| Folders | kebab-case | `json-formatter/` |
+| Variables | camelCase | `handleClick` |
+| Constants | UPPER_SNAKE_CASE | `SAMPLE_JSON` |
+| Types | PascalCase | `Tool`, `RGB` |
+
+---
+
+## 📝 TypeScript Kuralları
+
+### Path Aliases
+```typescript
+@/* → ./*
+@/components/* → ./components/*
+@/lib/* → ./lib/*
+
+// Kullanım
+import { Button } from '@/components';
+import { cn } from '@/lib/utils';
+```
+
+### Type Safety
+```typescript
+// ✅ DOĞRU
+interface Props {
+  title: string;
+  onSubmit: (value: string) => void;
+}
+
+// ❌ YANLIŞ
+interface Props {
+  title: any;
+  onSubmit: Function;
+}
+```
+
+---
+
+## 🌍 Internationalization (i18n)
+
+### KRİTİK KURAL: NO HARD-CODED STRINGS!
+
+```typescript
+// ✅ DOĞRU
+const t = useTranslations('tools.toolName');
+const tc = useTranslations('common');
+
+<h1>{t('title')}</h1>
+<Button>{tc('loadSample')}</Button>
+
+// ❌ YANLIŞ
+<h1>Tool Title</h1>
+<Button>Load Sample</Button>
+```
+
+### Translation Pattern
+```typescript
+// Tool-specific
+const t = useTranslations('tools.toolName');
+
+// Common (shared across tools)
+const tc = useTranslations('common');
+```
+
+### 5 Dil Desteği
+Her yeni string için:
+1. `i18n/locales/en.json` (base)
+2. `i18n/locales/de.json`
+3. `i18n/locales/tr.json`
+4. `i18n/locales/fr.json`
+5. `i18n/locales/pt.json`
+
+---
+
+## 🚨 Common Mistakes & Fixes
+
+### 1. useCopyToClipboard Hook
+```typescript
+// ❌ YANLIŞ - Returns object, not array!
+const [, copy] = useCopyToClipboard();
+
+// ✅ DOĞRU
+const { copy } = useCopyToClipboard();
+const { copied, copy } = useCopyToClipboard();
+```
+
+### 2. Slider onValueChange Type
+```typescript
+// ❌ YANLIŞ - Implicit any
+onValueChange={([value]) => setValue(value)}
+
+// ✅ DOĞRU - Explicit type
+onValueChange={([value]: number[]) => setValue(value)}
+```
+
+### 3. Hard-coded Strings
+```typescript
+// ❌ YANLIŞ
+<Button>Click Here</Button>
+<h1>Tool Title</h1>
+
+// ✅ DOĞRU
+<Button>{t('clickHere')}</Button>
+<h1>{t('title')}</h1>
+```
+
+### 4. Missing Radix UI Packages
+```bash
+# Checkbox kullanıyorsan:
+npm install @radix-ui/react-checkbox
+
+# Slider kullanıyorsan:
+npm install @radix-ui/react-slider
+
+# Label kullanıyorsan:
+npm install @radix-ui/react-label
+```
+
+---
+
+## 🎨 Styling Guidelines
+
+### Tailwind First
+```typescript
+// ✅ Tailwind utilities
+<div className="flex items-center gap-4 p-4 bg-muted rounded-lg">
+
+// ❌ Inline styles
+<div style={{ display: 'flex', padding: '16px' }}>
+```
+
+### Dark Mode
+```typescript
+<div className="bg-white dark:bg-gray-900">
+<span className="text-gray-900 dark:text-gray-100">
+```
+
+### Responsive
+```typescript
+// Mobile-first
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+```
+
+---
+
+## 🚀 Yeni Tool Ekleme (Quick Guide)
+
+### 1. Klasör Oluştur
+```bash
+mkdir -p app/[locale]/tools/tool-name
+```
+
+### 2. Page Template
+```typescript
+'use client';
+
+import * as React from 'react';
+import { useTranslations } from 'next-intl';
+import { Button, Card, CardHeader, CardTitle, CardContent } from '@/components';
+
+export default function ToolNamePage() {
+  const t = useTranslations('tools.toolName');
+  const tc = useTranslations('common');
+  
+  return (
+    <div className="container mx-auto px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
+        <p className="text-muted-foreground">{t('description')}</p>
+      </div>
+      
+      <Card>
+        <CardHeader>
+          <CardTitle>{t('input')}</CardTitle>
+        </CardHeader>
+        <CardContent>
+          {/* Tool logic */}
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+```
+
+### 3. Translation (5 dil!)
+```json
+// i18n/locales/en.json
+{
+  "tools": {
+    "toolName": {
+      "title": "Tool Title",
+      "description": "Description",
+      "input": "Input",
+      "output": "Output"
+    }
+  }
+}
+```
+
+### 4. Ana Sayfaya Ekle
+```typescript
+// app/[locale]/page.tsx
+{
+  id: 'tool-name',
+  title: t('tools.toolName.title'),
+  description: t('tools.toolName.description'),
+  category: 'generators', // encoders, formatters, converters, text, utilities
+  icon: 'IconName', // lucide-react
+  href: `/${params.locale}/tools/tool-name`,
+}
+```
+
+### 5. Test
+```bash
+npm run type-check  # 0 errors
+npm run lint        # 0 warnings
+# Test 5 dilde + dark mode
+```
+
+---
+
+## 📦 Tüm Tools (10/10) - PHASE 2 COMPLETE! 🎉
+
+1. ✅ JSON Formatter - Tree view, search, collapse
+2. ✅ XML Formatter - Tree view, attributes, inline text
+3. ✅ Base64 Encoder/Decoder - File support, auto-detect
+4. ✅ URL Encoder/Decoder - Query parser, component/full
+5. ✅ UUID Generator - Validation, bulk, version detection
+6. ✅ Hash Generator - HMAC, comparison, 4 algorithms
+7. ✅ Password Generator - Strength meter, passphrase
+8. ✅ QR Code Generator - PNG/SVG, customizable
+9. ✅ Color Converter - 5 formats, 40-color palette
+10. ✅ Regex Tester - Real-time, capture groups, replace ⭐ YENİ
+
+**Phase 2: 100% TAMAMLANDI!** 🚀
+
+---
+
+## 🎯 Pattern Library
+
+### Copy to Clipboard
+```typescript
+import { useCopyToClipboard } from '@/hooks';
+
+const { copied, copy } = useCopyToClipboard();
+
+<Button onClick={() => copy(text)}>
+  {copied ? <Check /> : <Copy />}
+</Button>
+```
+
+### File Upload
+```typescript
+const ref = useRef<HTMLInputElement>(null);
+
+const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (!file) return;
+  // Process file
+};
+
+<input ref={ref} type="file" onChange={handleUpload} className="hidden" />
+<Button onClick={() => ref.current?.click()}>Upload</Button>
+```
+
+### Download File
+```typescript
+const download = (content: string, filename: string, type: string) => {
+  const blob = new Blob([content], { type });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+};
+```
+
+---
+
+## 📊 Kod Kalitesi
+
+### Pre-commit Check
+- [ ] TypeScript: `npm run type-check` ✅
+- [ ] Linter: `npm run lint` ✅
+- [ ] 5 dil translation ✅
+- [ ] Dark mode test ✅
+- [ ] Mobile responsive ✅
+- [ ] No hard-coded strings ✅
+
+### Git Commit Format
+```
+feat(tools): add regex tester
+fix(theme): dark mode flash
+docs(readme): update guide
+```
+
+---
+
+## 🔄 Development Workflow
+
+```bash
+# Start dev server
+npm run dev
+
+# Type check
+npm run type-check
+
+# Lint
+npm run lint
+npm run lint:fix  # Auto-fix
+
+# Format
+npm run format
+
+# Build
+npm run build
+npm start
+```
+
+---
+
+## 🎨 Tool Categories
+
+| Category | Icon | Examples |
+|----------|------|----------|
+| encoders | Lock | Base64, URL |
+| formatters | Code2 | JSON |
+| generators | Zap | UUID, Hash, Password |
+| converters | RefreshCw | Color |
+| text | FileText | Diff, Regex |
+| utilities | Wrench | QR Code |
+
+---
+
+**Last Updated:** 2025-10-07  
+**Status:** Production Ready  
+**Next:** 2 tools to complete Phase 2
+

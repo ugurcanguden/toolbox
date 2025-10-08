@@ -1,0 +1,181 @@
+# Toolbox - Azure DevOps Pipeline Configuration
+# Build, test, and deploy Toolbox application
+
+trigger:
+  branches:
+    include:
+      - main
+      - develop
+  tags:
+    include:
+      - v*
+
+pr:
+  branches:
+    include:
+      - main
+      - develop
+
+variables:
+  # Docker Configuration
+  dockerImageName: 'toolbox'
+  dockerRegistryServiceConnection: 'DockerHub' # Azure DevOps'ta service connection adı
+  containerRegistry: 'your-registry.azurecr.io' # Azure Container Registry
+  
+  # Build Configuration
+  nodeVersion: '18.x'
+  vmImageName: 'ubuntu-latest'
+  
+  # Application Configuration
+  NEXT_TELEMETRY_DISABLED: 1
+
+stages:
+  # ========================================
+  # STAGE 1: Test & Build
+  # ========================================
+  - stage: Test
+    displayName: 'Test & Build'
+    jobs:
+      - job: TestAndBuild
+        displayName: 'Run Tests and Build Application'
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: NodeTool@0
+            displayName: 'Install Node.js'
+            inputs:
+              versionSpec: $(nodeVersion)
+
+          - script: |
+              npm ci
+            displayName: 'Install Dependencies'
+
+          - script: |
+              npm run lint
+            displayName: 'Run Linter'
+
+          - script: |
+              npm run build
+            displayName: 'Build Application'
+            env:
+              NODE_ENV: production
+
+          - task: PublishBuildArtifacts@1
+            displayName: 'Publish Build Artifacts'
+            inputs:
+              PathtoPublish: '.next'
+              ArtifactName: 'nextjs-build'
+              publishLocation: 'Container'
+
+  # ========================================
+  # STAGE 2: Docker Build & Push
+  # ========================================
+  - stage: BuildDocker
+    displayName: 'Build & Push Docker Image'
+    dependsOn: Test
+    condition: and(succeeded(), in(variables['Build.SourceBranch'], 'refs/heads/main', 'refs/heads/develop'))
+    jobs:
+      - job: BuildPushDocker
+        displayName: 'Build and Push Docker Image'
+        pool:
+          vmImage: $(vmImageName)
+        steps:
+          - task: Docker@2
+            displayName: 'Build Docker Image'
+            inputs:
+              command: 'build'
+              dockerfile: 'Dockerfile'
+              repository: $(dockerImageName)
+              tags: |
+                $(Build.BuildId)
+                latest
+
+          - task: Docker@2
+            displayName: 'Push Docker Image to Registry'
+            inputs:
+              command: 'push'
+              containerRegistry: $(dockerRegistryServiceConnection)
+              repository: $(dockerImageName)
+              tags: |
+                $(Build.BuildId)
+                latest
+
+  # ========================================
+  # STAGE 3: Deploy to Staging
+  # ========================================
+  - stage: DeployStaging
+    displayName: 'Deploy to Staging'
+    dependsOn: BuildDocker
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/develop'))
+    jobs:
+      - deployment: DeployToStaging
+        displayName: 'Deploy to Staging Environment'
+        environment: 'staging'
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: SSH@0
+                  displayName: 'Deploy via SSH to Staging Server'
+                  inputs:
+                    sshEndpoint: 'Staging-Server' # Azure DevOps SSH service connection
+                    runOptions: 'inline'
+                    inline: |
+                      cd /path/to/toolbox-staging
+                      docker pull $(containerRegistry)/$(dockerImageName):latest
+                      docker-compose down
+                      docker-compose up -d
+                      docker image prune -f
+                    readyTimeout: '20000'
+
+  # ========================================
+  # STAGE 4: Deploy to Production
+  # ========================================
+  - stage: DeployProduction
+    displayName: 'Deploy to Production'
+    dependsOn: BuildDocker
+    condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+    jobs:
+      - deployment: DeployToProduction
+        displayName: 'Deploy to Production Environment'
+        environment: 'production'
+        pool:
+          vmImage: $(vmImageName)
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - task: SSH@0
+                  displayName: 'Deploy via SSH to Production Server'
+                  inputs:
+                    sshEndpoint: 'Production-Server' # Azure DevOps SSH service connection
+                    runOptions: 'inline'
+                    inline: |
+                      cd /path/to/toolbox
+                      docker pull $(containerRegistry)/$(dockerImageName):$(Build.BuildId)
+                      docker tag $(containerRegistry)/$(dockerImageName):$(Build.BuildId) $(dockerImageName):latest
+                      docker-compose down
+                      docker-compose up -d
+                      docker image prune -f
+                    readyTimeout: '20000'
+
+                - task: Bash@3
+                  displayName: 'Health Check'
+                  inputs:
+                    targetType: 'inline'
+                    script: |
+                      echo "Waiting for application to start..."
+                      sleep 30
+                      
+                      # Health check
+                      response=$(curl -s -o /dev/null -w "%{http_code}" https://your-domain.com)
+                      
+                      if [ $response -eq 200 ]; then
+                        echo "✅ Application is healthy! (Status: $response)"
+                        exit 0
+                      else
+                        echo "❌ Application health check failed! (Status: $response)"
+                        exit 1
+                      fi

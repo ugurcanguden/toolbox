@@ -1,0 +1,104 @@
+# Toolbox - GitLab CI/CD Pipeline Configuration
+
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  DOCKER_IMAGE_NAME: toolbox
+  DOCKER_IMAGE_TAG: $CI_COMMIT_SHORT_SHA
+  NODE_VERSION: "18"
+
+# Cache for faster builds
+cache:
+  key: ${CI_COMMIT_REF_SLUG}
+  paths:
+    - node_modules/
+    - .next/cache/
+
+# Test Stage
+test:
+  stage: test
+  image: node:18-alpine
+  before_script:
+    - npm ci
+  script:
+    - npm run lint
+    - npm run build
+  only:
+    - merge_requests
+    - main
+    - develop
+
+# Build Docker Image
+build:
+  stage: build
+  image: docker:24
+  services:
+    - docker:24-dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:$DOCKER_IMAGE_TAG .
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:$DOCKER_IMAGE_TAG
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main
+    - tags
+
+# Deploy to Production
+deploy:production:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $PRODUCTION_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - |
+      ssh $PRODUCTION_USER@$PRODUCTION_SERVER << 'EOF'
+        cd /path/to/toolbox
+        docker pull $CI_REGISTRY_IMAGE:latest
+        docker-compose down
+        docker-compose up -d
+        docker image prune -f
+      EOF
+  only:
+    - main
+  when: manual
+  environment:
+    name: production
+    url: https://your-domain.com
+
+# Deploy to Staging
+deploy:staging:
+  stage: deploy
+  image: alpine:latest
+  before_script:
+    - apk add --no-cache openssh-client
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - ssh-keyscan $STAGING_SERVER >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - |
+      ssh $STAGING_USER@$STAGING_SERVER << 'EOF'
+        cd /path/to/toolbox-staging
+        docker pull $CI_REGISTRY_IMAGE:$DOCKER_IMAGE_TAG
+        docker-compose down
+        docker-compose up -d
+        docker image prune -f
+      EOF
+  only:
+    - develop
+  environment:
+    name: staging
+    url: https://staging.your-domain.com

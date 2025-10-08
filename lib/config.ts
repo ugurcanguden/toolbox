@@ -1,0 +1,13 @@
+/**
+ * Site configuration
+ * Update SITE_URL with your server domain after deployment
+ */
+
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
+
+export const SITE_CONFIG = {
+  name: 'Toolbox - 30+ Developer Tools',
+  shortName: 'Toolbox',
+  description: 'Free online toolbox with 30+ developer tools: JSON Formatter, Base64, UUID, Hash, Password, QR Code, Regex, String Tools and more!',
+  url: SITE_URL,
+} as const;

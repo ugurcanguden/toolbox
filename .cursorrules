@@ -1,0 +1,218 @@
+# Toolbox - Cursor Rules
+
+> **⚠️ DEPRECATED:** Bu dosya legacy support için korunmaktadır.
+> **✅ YENİ:** Lütfen `.cursor/rules` dosyasını kullanın (güncel ve optimize edilmiş)
+
+## Proje Özeti
+Next.js tabanlı, herkes için faydalı araçları toplayan çok dilli bir web uygulaması. Hiçbir kişisel veri toplanmaz.
+
+**Versiyon:** 2.0.0 (30 Tools - WORLD'S BEST TOOLBOX!) 🌍🎉
+
+## Teknoloji Stack
+- **Framework:** Next.js 14+ (App Router)
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS
+- **UI Components:** shadcn/ui
+- **Internationalization:** next-intl
+- **Theme:** next-themes
+- **State Management:** React Context / Zustand (gerekirse)
+- **Icons:** lucide-react
+
+## Dil Desteği
+Uygulama şu dilleri desteklemelidir:
+- İngilizce (en)
+- Almanca (de)
+- Türkçe (tr)
+- Fransızca (fr)
+- Portekizce (pt)
+
+## Tema Sistemi
+- Açık tema (light)
+- Koyu tema (dark)
+- Sistem tercihine göre otomatik seçim
+- Tema tercihi localStorage'da saklanmalı
+
+## Kod Standartları
+
+### TypeScript
+- Strict mode aktif olmalı
+- Type safety öncelikli
+- `any` kullanımından kaçınılmalı
+- Interfaces ve types açıkça tanımlanmalı
+- Prop types her component için tanımlanmalı
+
+### Path Aliases
+```typescript
+// tsconfig.json'da tanımlanacak alias'lar:
+@/* -> ./
+@/components/* -> ./components/*
+@/lib/* -> ./lib/*
+@/utils/* -> ./utils/*
+@/types/* -> ./types/*
+@/hooks/* -> ./hooks/*
+@/i18n/* -> ./i18n/*
+@/styles/* -> ./styles/*
+```
+
+### Component Yapısı
+- Her klasörde `index.tsx` ile export yapılmalı
+- Functional components kullanılmalı
+- React Server Components (RSC) default olmalı
+- Client components sadece gerektiğinde kullanılmalı (`'use client'`)
+
+### Dosya Organizasyonu
+```
+/app                    # Next.js App Router
+  /[locale]            # Locale-based routing
+    /layout.tsx        # Root layout with providers
+    /page.tsx          # Home page
+/components            # Reusable components
+  /ui                  # shadcn/ui components
+  /layout              # Layout components
+  /tools               # Tool-specific components
+  index.tsx            # Export barrel
+/lib                   # Utilities and helpers
+/hooks                 # Custom React hooks
+/types                 # TypeScript type definitions
+/i18n                  # Internationalization
+  /locales             # Translation files
+    /en.json
+    /de.json
+    /tr.json
+    /fr.json
+    /pt.json
+/public                # Static assets
+  /icons
+  /images
+```
+
+### Naming Conventions
+- **Components:** PascalCase (örn: `ToolCard.tsx`)
+- **Files:** kebab-case (örn: `use-theme.ts`)
+- **Folders:** kebab-case
+- **Variables/Functions:** camelCase
+- **Constants:** UPPER_SNAKE_CASE
+- **Types/Interfaces:** PascalCase
+
+### Component Standartları
+```typescript
+// Component template
+import { FC } from 'react'
+
+interface ComponentNameProps {
+  // Props here
+}
+
+export const ComponentName: FC<ComponentNameProps> = ({ ...props }) => {
+  return (
+    // JSX here
+  )
+}
+```
+
+### Internationalization
+- Tüm metinler translation dosyalarından gelmelidir
+- Hard-coded string kullanılmamalı
+- Translation keys açıklayıcı olmalı (örn: `tools.jsonFormatter.title`)
+- Namespace'ler kullanılmalı
+
+### Styling
+- Tailwind CSS utility-first yaklaşımı
+- Custom CSS minimumda tutulmalı
+- Responsive design (mobile-first)
+- Dark mode için `dark:` prefix kullanılmalı
+- shadcn/ui component'leri tema ile uyumlu olmalı
+
+### Performance
+- Server Components öncelikli kullanılmalı
+- Dynamic imports gerektiğinde kullanılmalı
+- Images için Next.js Image component kullanılmalı
+- Lazy loading uygulanmalı
+
+### Accessibility
+- Semantic HTML kullanılmalı
+- ARIA labels uygun şekilde eklenmeli
+- Keyboard navigation desteklenmeli
+- Color contrast ratios WCAG standartlarına uymalı
+
+### Data Privacy
+- Hiçbir form kişisel veri toplamamalı
+- Tüm işlemler client-side yapılmalı
+- Analytics kullanılacaksa anonim olmalı
+- Cookie kullanımı minimize edilmeli
+
+### Git Commit Messages
+- Conventional Commits formatı kullanılmalı
+- Format: `type(scope): description`
+- Types: feat, fix, docs, style, refactor, test, chore
+- Örnek: `feat(tools): add JSON formatter tool`
+
+### Testing (İleride)
+- Unit tests: Jest + React Testing Library
+- E2E tests: Playwright
+- Test coverage minimum %80 hedeflenmeli
+
+## Best Practices
+1. Component'ler küçük ve tekrar kullanılabilir olmalı
+2. Single Responsibility Principle uygulanmalı
+3. Props drilling yerine Context kullanılmalı
+4. Custom hooks mantıksal işlemleri ayırmak için kullanılmalı
+5. Error boundaries eklenmeli
+6. Loading states uygun şekilde handle edilmeli
+7. SEO için metadata tanımlanmalı
+8. Performans optimizasyonları yapılmalı
+
+## Tool Kategorileri
+Araçlar kategorilere ayrılmalı:
+- Encoders/Decoders (Base64, URL, etc.)
+- Formatters (JSON, XML, SQL, etc.)
+- Generators (UUID, Hash, Password, etc.)
+- Converters (Units, Colors, Date, etc.)
+- Text Tools (Diff, Regex, Counter, etc.)
+- Utilities (QR Code, Minifiers, etc.)
+
+## Security
+- XSS önlemleri alınmalı
+- Input sanitization yapılmalı
+- CSP headers tanımlanmalı
+- Dependencies düzenli güncellenmelidir
+
+## Development Workflow
+1. **Local Development**: \`npm run dev\` ile development server başlatılır
+2. **Build**: \`npm run build\` ile production build alınır
+3. **Start**: \`npm start\` ile production server çalıştırılır
+4. **Lint**: \`npm run lint\` ile kod kalitesi kontrol edilir
+
+## Component Development Guidelines
+1. Yeni tool eklerken:
+   - \`app/[locale]/tools/[tool-name]/page.tsx\` oluştur
+   - Tüm translation dosyalarını güncelle (en, de, tr, fr, pt)
+   - Ana sayfadaki tools array'ine ekle
+   - Tool'a uygun lucide-react icon seç
+
+2. Yeni component eklerken:
+   - TypeScript strict mode'a uygun olmalı
+   - Props interface tanımla
+   - Client component gerekiyorsa \`'use client'\` ekle
+   - Export'u index.tsx'e ekle
+
+3. Styling:
+   - Tailwind utility classes kullan
+   - Dark mode için \`dark:\` prefix ekle
+   - Responsive design için breakpoint'ler: sm, md, lg, xl, 2xl
+   - shadcn/ui component'lerini tercih et
+
+## Environment Variables
+Projede environment variable kullanılacaksa:
+- \`.env.local\` dosyası oluştur
+- \`.env.example\` ile örnek göster
+- Hassas bilgileri asla commit etme
+- Next.js için \`NEXT_PUBLIC_\` prefix kullan (client-side için)
+
+## Performance Optimization
+- Images: Next.js Image component kullan
+- Fonts: next/font ile optimize et
+- Code splitting: Dynamic imports ile gerektiğinde yükle
+- Memoization: React.memo, useMemo, useCallback kullan
+- Server Components: Default olarak kullan, client components minimize et
+

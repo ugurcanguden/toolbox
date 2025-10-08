@@ -1,0 +1,10 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or API routes if any
+# Disallow: /api/
+
+# Sitemap
+# Update with your domain after deployment
+Sitemap: http://localhost:3000/sitemap.xml
