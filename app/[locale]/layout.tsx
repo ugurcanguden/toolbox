@@ -34,6 +34,14 @@ export async function generateMetadata({
       type: 'website',
       locale: locale,
     },
+    // Google Site Verification
+    verification: {
+      google: 'bIxfo-zqtnjZmEcwbIgclHMqLIo8C6RdmYeeiLEIZJ4',
+    },
+    // Google AdSense Account
+    other: {
+      'google-adsense-account': 'ca-pub-9339461513261360',
+    },
   };
 }
 
