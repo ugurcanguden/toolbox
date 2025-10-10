@@ -1,5 +1,7 @@
 # 💰 Google AdSense Setup Guide - Toolbox
 
+> ✨ **Using:** `next-google-adsense` library for clean integration
+
 ## 📋 İçindekiler
 1. [AdSense Hesap Onayı](#1-adsense-hesap-onayı)
 2. [Ads.txt Doğrulama](#2-adstxt-doğrulama)
@@ -21,9 +23,13 @@
 5. **Submit your application**
 
 ### B) Site Doğrulama
-✅ **Zaten tamamlandı!** `app/layout.tsx` dosyasında meta tag mevcut:
-```html
+✅ **Zaten tamamlandı!** `app/layout.tsx` dosyasında entegrasyon yapıldı:
+```tsx
+// Meta tag (head'de)
 <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
+
+// Script (body'de - via next-google-adsense)
+<GoogleAdSense publisherId="ca-pub-9339461513261360" />
 ```
 
 ### C) Onay Süreci

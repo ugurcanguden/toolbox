@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { SITE_CONFIG } from "@/lib/config";
+import { GoogleAdSense } from "next-google-adsense";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -123,13 +124,8 @@ export default function RootLayout({
       {/* Google Site Verification */}
       <meta name="google-site-verification" content="bIxfo-zqtnjZmEcwbIgclHMqLIo8C6RdmYeeiLEIZJ4" />
       
-      {/* Google AdSense - Deferred for better performance */}
+      {/* Google AdSense Account Meta */}
       <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
-      <script
-        async={true}
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9339461513261360"
-        crossOrigin="anonymous"
-      />
         
         {/* Structured Data */}
         <script
@@ -138,7 +134,11 @@ export default function RootLayout({
           suppressHydrationWarning
         />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {/* Google AdSense Script (via next-google-adsense) */}
+        <GoogleAdSense publisherId="ca-pub-9339461513261360" />
+        {children}
+      </body>
     </html>
   );
 }
