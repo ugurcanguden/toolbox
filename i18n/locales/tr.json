@@ -464,6 +464,9 @@
       "convert": "JSON'a Dönüştür",
       "downloadJson": "JSON İndir",
       "delimiter": "Ayırıcı",
+      "comma": "Virgül (,)",
+      "semicolon": "Noktalı Virgül (;)",
+      "tab": "Tab",
       "firstRowHeaders": "İlk Satır Başlık",
       "info": {
         "title": "CSV → JSON Hakkında",

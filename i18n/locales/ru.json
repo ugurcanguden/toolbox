@@ -570,8 +570,8 @@
     "colorConverter": {
       "title": "Конвертер цветов",
       "description": "Convert colors between HEX, RGB, HSL and other formats",
-      "pickColor": "Pick Color",
-      "formats": "Color Formats",
+      "pickColor": "Выбрать Цвет",
+      "formats": "Форматы Цветов",
       "hex": "HEX",
       "rgb": "RGB",
       "hsl": "HSL",
@@ -580,7 +580,7 @@
       "copy": "Copy",
       "copied": "Copied!",
       "preview": "Preview",
-      "colorPicker": "Color Picker",
+      "colorPicker": "Выбор Цвета",
       "enterColor": "Enter Color",
       "hexPlaceholder": "Enter #000000",
       "rgbPlaceholder": "Enter rgb(0, 0, 0)",
@@ -641,7 +641,7 @@
       "useCase3": "WiFi network connection",
       "useCase4": "Payment information",
       "useCase5": "Event tickets",
-      "useCase6": "Product information and tracking",
+      "useCase6": "Product information and tπracking",
       "errorCorrectionInfo": "Error Correction:",
       "errorCorrectionDescription": "Higher error correction level allows the QR code to be readable even when damaged or partially covered, but creates a more complex code."
     },
