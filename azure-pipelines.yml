@@ -8,7 +8,7 @@ pool:
 
 variables:
   APP_NAME: toolbox-$(ENVIRONMENT)  # Docker imajınızın adı
-  DOCKERFILE_PATH: './Dockerfile'  # Dockerfile Next.js için konumu
+  DOCKERFILE_PATH: './Dockerfile.simple'  # Simple Dockerfile for working deployment
   NEXT_APP_PATH: '.'  # Next.js uygulama yolu (root)
  
   #environment ' a tanımlanmalıdır...
@@ -19,8 +19,8 @@ variables:
   # SSH_USER: 'root'    # Azure VM SSH kullanıcı adı
   # SSH_HOST: '164.92.135.142'       # Azure VM IP adresi
   # SSH_PASSWORD: '.48Qqrchef'   # Azure VM SSH şifreniz 
-  # CONTAINER_PORT : "4003"  # Docker container'ınızın çalıştığı port
-  # SERVER_PORT : "4003"     # Sunucunuzda yönlendirme yapılan  port
+  # CONTAINER_PORT : "3000"  # Docker container'ınızın çalıştığı port (updated)
+  # SERVER_PORT : "3000"     # Sunucunuzda yönlendirme yapılan port (updated)
 
 steps:
   # Skip Next.js build - Dockerfile uses dev mode due to next-intl compatibility
@@ -79,6 +79,6 @@ steps:
         docker rm $(APP_NAME) || true
         
         # Yeni imajı çalıştırma ve portları bağlama
-        docker run -e PORT=$(CONTAINER_PORT) -d -p $(SERVER_PORT):$(CONTAINER_PORT) --restart unless-stopped --name $(APP_NAME) $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
+        docker run -e NODE_ENV=development -e PORT=$(CONTAINER_PORT) -d -p $(SERVER_PORT):$(CONTAINER_PORT) --restart unless-stopped --name $(APP_NAME) $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
       EOF
     displayName: 'Deploy to Server via SSH'
