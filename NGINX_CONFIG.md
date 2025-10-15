@@ -1,11 +1,11 @@
-# 🌐 Nginx Configuration for toolbox.curioboxapp.info
+# 🌐 Nginx Configuration for free-dev-tools.net.tr
 
 Bu dosya, Nginx reverse proxy yapılandırması için gerekli ayarları içerir.
 
 ## 📋 Gereksinimler
 
 - Nginx yüklü olmalı
-- Domain DNS ayarları yapılmış olmalı (`toolbox.curioboxapp.info` → `164.92.135.142`)
+- Domain DNS ayarları yapılmış olmalı (`free-dev-tools.net.tr` → `164.92.135.142`)
 - SSL sertifikası (Let's Encrypt ile ücretsiz)
 
 ---
@@ -38,13 +38,13 @@ Value: 164.92.135.142
 TTL: 3600 (veya default)
 ```
 
-**Sonuç:** `toolbox.curioboxapp.info` → `164.92.135.142`
+**Sonuç:** `free-dev-tools.net.tr` → `164.92.135.142`
 
 DNS propagation kontrolü:
 ```bash
-nslookup toolbox.curioboxapp.info
+nslookup free-dev-tools.net.tr
 # veya
-dig toolbox.curioboxapp.info
+dig free-dev-tools.net.tr
 ```
 
 ---
@@ -65,7 +65,7 @@ server {
     listen 80;
     listen [::]:80;
     
-    server_name toolbox.curioboxapp.info www.toolbox.curioboxapp.info;
+    server_name free-dev-tools.net.tr www.free-dev-tools.net.tr;
     
     # Logs
     access_log /var/log/nginx/toolbox-access.log;
@@ -138,7 +138,7 @@ sudo apt install certbot python3-certbot-nginx -y
 
 ```bash
 # Otomatik Nginx yapılandırması ile
-sudo certbot --nginx -d toolbox.curioboxapp.info -d www.toolbox.curioboxapp.info
+sudo certbot --nginx -d free-dev-tools.net.tr -d www.free-dev-tools.net.tr
 
 # Email adresini gir
 # Terms'i kabul et (Y)
@@ -160,7 +160,7 @@ Certbot, config'inizi şu şekilde güncelleyecek:
 server {
     listen 80;
     listen [::]:80;
-    server_name toolbox.curioboxapp.info www.toolbox.curioboxapp.info;
+    server_name free-dev-tools.net.tr www.free-dev-tools.net.tr;
     
     # Redirect to HTTPS
     return 301 https://$server_name$request_uri;
@@ -170,11 +170,11 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
     
-    server_name toolbox.curioboxapp.info www.toolbox.curioboxapp.info;
+    server_name free-dev-tools.net.tr www.free-dev-tools.net.tr;
     
     # SSL Certificate (managed by Certbot)
-    ssl_certificate /etc/letsencrypt/live/toolbox.curioboxapp.info/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/toolbox.curioboxapp.info/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/free-dev-tools.net.tr/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/free-dev-tools.net.tr/privkey.pem;
     include /etc/letsencrypt/options-ssl-nginx.conf;
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
     
@@ -230,27 +230,27 @@ sudo systemctl status certbot.timer
 ### A. HTTP → HTTPS Redirect Test
 
 ```bash
-curl -I http://toolbox.curioboxapp.info
+curl -I http://free-dev-tools.net.tr
 # Beklenen: 301 Redirect to HTTPS
 ```
 
 ### B. HTTPS Test
 
 ```bash
-curl -I https://toolbox.curioboxapp.info
+curl -I https://free-dev-tools.net.tr
 # Beklenen: 200 OK
 ```
 
 ### C. SSL Grade Check
 
 Online araçlar:
-- https://www.ssllabs.com/ssltest/analyze.html?d=toolbox.curioboxapp.info
+- https://www.ssllabs.com/ssltest/analyze.html?d=free-dev-tools.net.tr
 - Beklenen grade: A veya A+
 
 ### D. Browser Test
 
 ```
-https://toolbox.curioboxapp.info
+https://free-dev-tools.net.tr
 ```
 
 Tarayıcıda yeşil kilit simgesi görünmeli ✅
@@ -345,11 +345,11 @@ sudo nginx -t
 
 ```bash
 # DNS kontrol
-nslookup toolbox.curioboxapp.info
-dig toolbox.curioboxapp.info
+nslookup free-dev-tools.net.tr
+dig free-dev-tools.net.tr
 
 # Farklı DNS server ile test
-nslookup toolbox.curioboxapp.info 8.8.8.8
+nslookup free-dev-tools.net.tr 8.8.8.8
 ```
 
 ---
@@ -402,7 +402,7 @@ docker restart toolbox-prod      # Restart container
 
 ---
 
-**Domain:** `toolbox.curioboxapp.info`  
+**Domain:** `free-dev-tools.net.tr`  
 **Server IP:** `164.92.135.142`  
 **Container Port:** `3000`  
 **Public Ports:** `80` (HTTP), `443` (HTTPS)

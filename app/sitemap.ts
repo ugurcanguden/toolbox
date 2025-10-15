@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { locales } from '@/i18n/request';
 
-const baseUrl = 'https://toolbox.curioboxapp.info';
+const baseUrl = 'https://free-dev-tools.net.tr';
 
 const tools = [
   'json-formatter',

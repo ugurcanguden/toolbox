@@ -197,7 +197,7 @@ import { InArticleAd } from '@/components';
 
 ### **1. Google AdSense Console'da:**
 
-1. Site ekle: `toolbox.curioboxapp.info`
+1. Site ekle: `free-dev-tools.net.tr`
 2. Site doğrulaması yap (meta tag zaten eklendi ✅)
 3. Reklam ünitesi oluştur:
    - **Display Ads** → Responsive

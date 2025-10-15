@@ -176,7 +176,7 @@ export default function PrivacyPolicyPage() {
             <p>{t('contact.content')}</p>
             <div className="mt-4 p-4 bg-muted rounded-md">
               <p className="text-sm">
-                <strong>Domain:</strong> toolbox.curioboxapp.info<br />
+                <strong>Domain:</strong> free-dev-tools.net.tr<br />
                 <strong>Last Updated:</strong> October 8, 2025
               </p>
             </div>

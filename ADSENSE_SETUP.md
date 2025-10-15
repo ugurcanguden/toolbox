@@ -18,7 +18,7 @@
 ### A) Başvuru
 1. **Google AdSense'e git:** https://www.google.com/adsense
 2. **Sign up** veya **Get started** butonuna tıkla
-3. **Website URL:** `https://toolbox.curioboxapp.info`
+3. **Website URL:** `https://free-dev-tools.net.tr`
 4. **Email:** `ugurcanguden@gmail.com`
 5. **Submit your application**
 
@@ -49,14 +49,14 @@
 ✅ **Zaten oluşturuldu!** `public/ads.txt` dosyası mevcut.
 
 **Doğrulama:**
-1. Site yayına aldıktan sonra: `https://toolbox.curioboxapp.info/ads.txt`
+1. Site yayına aldıktan sonra: `https://free-dev-tools.net.tr/ads.txt`
 2. Şu içeriği görmeli:
    ```
    google.com, pub-9339461513261360, DIRECT, f08c47fec0942fa0
    ```
 
 **AdSense Dashboard'da Kontrol:**
-- AdSense → Account → Sites → toolbox.curioboxapp.info
+- AdSense → Account → Sites → free-dev-tools.net.tr
 - "Ads.txt file" durumu: ✅ Authorized
 
 ---
@@ -153,10 +153,10 @@ git push origin main
 ### C) Doğrula:
 ```bash
 # 1. Site açılıyor mu?
-curl https://toolbox.curioboxapp.info
+curl https://free-dev-tools.net.tr
 
 # 2. ads.txt görünüyor mu?
-curl https://toolbox.curioboxapp.info/ads.txt
+curl https://free-dev-tools.net.tr/ads.txt
 
 # 3. AdSense script yükleniyor mu?
 # Tarayıcıda F12 → Network → adsbygoogle.js
@@ -226,7 +226,7 @@ Daha çok trafik = Daha çok kazanç!
 **Yapılacaklar:**
 1. **Google Search Console'a ekle**
    - https://search.google.com/search-console
-   - Sitemap ekle: `https://toolbox.curioboxapp.info/sitemap.xml`
+   - Sitemap ekle: `https://free-dev-tools.net.tr/sitemap.xml`
 
 2. **Sosyal Medya:**
    - Reddit: r/webdev, r/programming
@@ -265,7 +265,7 @@ Daha çok trafik = Daha çok kazanç!
 ### "Ads.txt file not found" hatası?
 1. `public/ads.txt` dosyası var mı?
 2. Production'a deploy edildi mi?
-3. `https://toolbox.curioboxapp.info/ads.txt` açılıyor mu?
+3. `https://free-dev-tools.net.tr/ads.txt` açılıyor mu?
 4. 24 saat bekle (cache temizlensin)
 
 ### Kazanç çok düşük?

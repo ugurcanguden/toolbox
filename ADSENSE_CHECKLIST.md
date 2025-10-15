@@ -10,12 +10,12 @@ git commit -m "feat: add ads.txt and AdSense setup guide"
 git push origin main
 ```
 - ⏳ Azure Pipeline'ı bekle
-- ✅ Site açılıyor mu test et: https://toolbox.curioboxapp.info
-- ✅ ads.txt kontrol et: https://toolbox.curioboxapp.info/ads.txt
+- ✅ Site açılıyor mu test et: https://free-dev-tools.net.tr
+- ✅ ads.txt kontrol et: https://free-dev-tools.net.tr/ads.txt
 
 ### 2. Google AdSense'e Başvur
 - 🌐 **Git:** https://www.google.com/adsense
-- 📝 **Site URL:** `https://toolbox.curioboxapp.info`
+- 📝 **Site URL:** `https://free-dev-tools.net.tr`
 - 📧 **Email:** `ugurcanguden@gmail.com`
 - ✅ **Submit application**
 
@@ -26,9 +26,9 @@ git push origin main
 ### 3. Google Search Console Ekle
 ```
 1. Git: https://search.google.com/search-console
-2. Add property: https://toolbox.curioboxapp.info
+2. Add property: https://free-dev-tools.net.tr
 3. Verify ownership (DNS veya HTML file)
-4. Submit sitemap: https://toolbox.curioboxapp.info/sitemap.xml
+4. Submit sitemap: https://free-dev-tools.net.tr/sitemap.xml
 ```
 
 ### 4. Trafik Artırma
@@ -94,7 +94,7 @@ git push origin main
 ```
 
 ### 9. Test Et
-- [ ] Tarayıcıda aç: https://toolbox.curioboxapp.info
+- [ ] Tarayıcıda aç: https://free-dev-tools.net.tr
 - [ ] Cookie banner'dan "Kabul Et"
 - [ ] Reklamlar görünüyor mu? (AdBlock kapalı)
 - [ ] Console'da hata var mı? (F12)

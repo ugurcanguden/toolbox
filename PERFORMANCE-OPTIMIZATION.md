@@ -111,7 +111,7 @@ npm run build:prod
 ```bash
 # Test URL'leri
 https://pagespeed.web.dev/
-https://toolbox.curioboxapp.info/
+https://free-dev-tools.net.tr/
 ```
 
 ### **Lighthouse CI**
@@ -166,7 +166,7 @@ import { getCLS, getFID, getFCP, getLCP, getTTFB } from 'web-vitals';
 #### **1. Cache Not Working**
 ```bash
 # NGINX cache kontrol
-curl -I https://toolbox.curioboxapp.info/_next/static/
+curl -I https://free-dev-tools.net.tr/_next/static/
 
 # Cache headers kontrol
 grep -i "cache-control" /var/log/nginx/access.log
@@ -175,16 +175,16 @@ grep -i "cache-control" /var/log/nginx/access.log
 #### **2. Compression Not Working**
 ```bash
 # Gzip test
-curl -H "Accept-Encoding: gzip" -I https://toolbox.curioboxapp.info/
+curl -H "Accept-Encoding: gzip" -I https://free-dev-tools.net.tr/
 
 # Brotli test
-curl -H "Accept-Encoding: br" -I https://toolbox.curioboxapp.info/
+curl -H "Accept-Encoding: br" -I https://free-dev-tools.net.tr/
 ```
 
 #### **3. Images Not Optimizing**
 ```bash
 # Image format test
-curl -H "Accept: image/webp" -I https://toolbox.curioboxapp.info/image.jpg
+curl -H "Accept: image/webp" -I https://free-dev-tools.net.tr/image.jpg
 ```
 
 ## 📈 **CONTINUOUS OPTIMIZATION**

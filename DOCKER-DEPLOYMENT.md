@@ -91,7 +91,7 @@ docker-compose logs -f toolbox
 # Production
 NODE_ENV=production
 NEXT_TELEMETRY_DISABLED=1
-NEXT_PUBLIC_SITE_URL=https://toolbox.curioboxapp.info
+NEXT_PUBLIC_SITE_URL=https://free-dev-tools.net.tr
 
 # Performance
 NODE_OPTIONS=--max-old-space-size=1024 --optimize-for-size
