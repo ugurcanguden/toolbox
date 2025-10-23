@@ -1,0 +1,12 @@
+[
+  {
+    "source": "/old-page",
+    "destination": "/en/tools/new-tool",
+    "permanent": true
+  },
+  {
+    "source": "/legacy",
+    "destination": "/en",
+    "permanent": true
+  }
+]

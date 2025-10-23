@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": "/search*",
+    "reason": "Search results page"
+  },
+  {
+    "pattern": "/filter*",
+    "reason": "Filtered content"
+  },
+  {
+    "pattern": "/*?*",
+    "reason": "Parameterized URLs"
+  },
+  {
+    "pattern": "/admin/*",
+    "reason": "Admin area"
+  },
+  {
+    "pattern": "/preview/*",
+    "reason": "Preview pages"
+  }
+]

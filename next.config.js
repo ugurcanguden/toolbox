@@ -136,13 +136,22 @@ const nextConfig = {
   
   // 🔄 REDIRECTS FOR SEO
   async redirects() {
-    return [
+    const defaultRedirects = [
       {
         source: '/',
         destination: '/en',
         permanent: true,
       },
-    ]
+    ];
+    
+    // Load SEO redirects if they exist
+    try {
+      const seoRedirects = require('./seo-redirects.json');
+      return [...defaultRedirects, ...seoRedirects];
+    } catch (error) {
+      console.warn('SEO redirects not found, using default redirects only');
+      return defaultRedirects;
+    }
   },
   
   // 📄 REWRITES FOR CLEAN URLs
