@@ -7,10 +7,10 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 # Copy package files
-COPY package.json package-lock.json* ./
+COPY package.json yarn.lock ./
 
 # Install dependencies
-RUN npm ci
+RUN yarn install --frozen-lockfile && yarn cache clean
 
 # Copy source code
 COPY . .
@@ -35,4 +35,4 @@ ENV HOSTNAME="0.0.0.0"
 EXPOSE 3000
 
 # Start the application
-CMD ["npm", "run", "dev"]
+CMD ["yarn", "dev"]
