@@ -1,84 +1,21 @@
 trigger:
-  branches:
+  tags:
     include:
-      - main # Hangi branch'te tetikleneceğini belirtin
-
-pool:
-  vmImage: 'ubuntu-latest'
+      - prod-*
 
 variables:
-  APP_NAME: toolbox-$(ENVIRONMENT)  # Docker imajınızın adı
-  DOCKERFILE_PATH: './Dockerfile.simple'  # Simple Dockerfile for working deployment
-  NEXT_APP_PATH: '.'  # Next.js uygulama yolu (root)
- 
-  #environment ' a tanımlanmalıdır...
-  # ENVIRONMENT : prod - uat
-  # DOCKER_REGISTRY_URL: 'registry.qqrchef.com'  # Linux sunucunuzdaki Docker registry'nin IP adresi
-  # DOCKER_REGISTRY_USERNAME: 'QqrchefRepositoryUser'  # Docker registry kullanıcı adınız
-  # DOCKER_REGISTRY_PASSWORD: 'Qqrchef48.'  # Docker registry şifreniz
-  # SSH_USER: 'root'    # Azure VM SSH kullanıcı adı
-  # SSH_HOST: '164.92.135.142'       # Azure VM IP adresi
-  # SSH_PASSWORD: '.48Qqrchef'   # Azure VM SSH şifreniz 
-  # CONTAINER_PORT : "3000"  # Docker container'ınızın çalıştığı port (updated)
-  # SERVER_PORT : "3000"     # Sunucunuzda yönlendirme yapılan port (updated)
+  - group: GlobalConfig
 
-steps:
-  # Skip Next.js build - Dockerfile uses dev mode due to next-intl compatibility
-  # Build happens inside Docker container on first run
-  
-  # Docker Login with Custom Registry
-  - script: |
-      echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
-    displayName: 'Login to Custom Docker Registry'
+resources:
+  repositories:
+    - repository: common
+      name: devops-common
+      type: git
 
-  # Docker imajını oluşturma
-  - script: |
-      docker build -t $(APP_NAME) -f $(DOCKERFILE_PATH) $(NEXT_APP_PATH)
-    displayName: 'Build Docker Image for Next.js App'
-
-  # Docker Image Etiketleme ve Push Etme
-  - script: |
-      # Etiketleme işlemi
-      IMAGE_TAG="latest"
-      
-      # Eğer belirli bir versiyon (örn: Git commit hash) veya ENVIRONMENT bilgisiyle etiketleme yapmak isterseniz:
-      if [ ! -z "$(Build.BuildId)" ]; then
-        IMAGE_TAG=$(Build.BuildId)
-      fi
-      
-      # Etiketle
-      docker tag $(APP_NAME):latest $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG
-      
-      # Docker imajını kendi registry'nize push etme
-      docker push $(DOCKER_REGISTRY_URL)/$(APP_NAME):$IMAGE_TAG
-
-      # En son push edilen tag'ı latest olarak push et
-      docker tag $(APP_NAME):latest $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-      docker push $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-    displayName: 'Push Docker Image To Custom Docker Registry'
-
-  # SSH ile Azure VM'ye bağlanma ve docker komutlarını çalıştırma (Şifreyle)
-  - script: |
-      echo "Running SSH commands on the VM to update Docker image and specify ports"
-      
-      # SSH bağlantısını kurarken sshpass'ı yükleyin
-      sudo apt-get install -y sshpass
-
-      # SSH ile bağlantı ve Docker komutlarını çalıştırma
-      sshpass -p $(SSH_PASSWORD) ssh -o StrictHostKeyChecking=no $(SSH_USER)@$(SSH_HOST) << 'EOF'
-        echo 'Pulling latest image and restarting container...'
-        
-        # Docker login işlemi (kimlik doğrulama)
-        echo $(DOCKER_REGISTRY_PASSWORD) | docker login $(DOCKER_REGISTRY_URL) -u $(DOCKER_REGISTRY_USERNAME) --password-stdin
-        
-        # Docker imajını çekme
-        docker pull $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-        
-        # Mevcut container'ı durdurma ve silme
-        docker stop $(APP_NAME) || true
-        docker rm $(APP_NAME) || true
-        
-        # Yeni imajı çalıştırma ve portları bağlama
-        docker run -e NODE_ENV=development -e PORT=$(CONTAINER_PORT) -d -p $(SERVER_PORT):$(CONTAINER_PORT) --restart unless-stopped --name $(APP_NAME) $(DOCKER_REGISTRY_URL)/$(APP_NAME):latest
-      EOF
-    displayName: 'Deploy to Server via SSH'
+extends:
+  template: pipelines/templates/docker-build-push.yml@common
+  parameters:
+    imageName: free-dev-tools
+    registryPath: 'curio'
+    dockerfilePath: 'Dockerfile.simple'
+    manifestPath: 'manifests/services/free-dev-tools/deployment.yaml'
