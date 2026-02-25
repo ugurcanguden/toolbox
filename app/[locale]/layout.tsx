@@ -114,9 +114,9 @@ export async function generateMetadata({
         'x-default': 'https://free-dev-tools.net.tr/en',
       },
     },
-    // Google Site Verification
+     // Google Site Verification
     verification: {
-      google: 'JTl7ocUCsAiICDbWUYpv8B3wfSKQSdRLdg1tPXDDTac',
+      google: 'bIxfo-zqtnjZmEcwbIgclHMqLIo8C6RdmYeeiLEIZJ4',
     },
     // Google AdSense Account
     other: {
