@@ -16,7 +16,11 @@ const nextConfig = {
   // 🔥 SERVER EXTERNAL PACKAGES
   serverExternalPackages: ['sharp'],
   
-  experimental: {},
+  experimental: {
+    serverActions: {
+      bodySizeLimit: '50mb',
+    },
+  },
   
   // 🌐 FORCE DYNAMIC RENDERING (for next-intl compatibility)
   // This disables static optimization but allows build to complete
