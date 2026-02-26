@@ -64,7 +64,7 @@
         "description": "React, Next.js ve modern JavaScript framework'leri ile dinamik, responsive ve kullanıcı dostu arayüzler geliştiriyorum. Ant Design ve Tailwind CSS ile modern UI/UX çözümleri üretiyorum."
       },
       "backend": {
-        "title": "Backend Geliştirme", 
+        "title": "Backend Geliştirme",
         "description": ".NET Core, mikroservis mimarileri, EF Core, Redis ve PostgreSQL/MSSQL ile güvenli, ölçeklenebilir ve yüksek performanslı backend sistemleri tasarlıyorum. JWT ve role-based auth ile güvenlik öncelikli çözümler geliştiriyorum."
       },
       "devops": {
@@ -148,23 +148,23 @@
       "title": "JSON Biçimlendirici",
       "description": "JSON verilerini hızlıca biçimlendirin, doğrulayın ve güzelleştirin",
       "seo": {
-        "howToUseTitle": "JSON Biçimlendirici Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Ham JSON kodunuzu editöre yapıştırın.",
           "Güzelleştirmek için 'Biçimlendir' veya sıkıştırmak için 'Küçült' butonuna tıklayın.",
           "Sözdizimi hatalarını kontrol etmek için 'Doğrula' özelliğini kullanın.",
           "Karmaşık nesneleri kolayca incelemek için 'Ağaç Görünümü'ne geçiş yapın."
         ],
-        "featuresTitle": "Gelişmiş JSON Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Gerçek zamanlı sözdizimi vurgulama ve hata tespiti.",
           "Tek tıklamayla biçimlendirme ve küçültme.",
           "İç içe geçmiş veriler için katlanabilir ağaç görünümü.",
           "Güvenli ve %100 istemci taraflı doğrulama."
         ],
-        "privacyTitle": "Sadece Yerel İşleme",
-        "privacy": "Tüm JSON biçimlendirme ve doğrulama işlemleri tarayıcınızda gerçekleşir. Verileriniz asla sunucularımıza gönderilmez, böylece hassas API yanıtlarınız ve yapılandırma dosyalarınız gizli kalır.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "JSON nedir?",
@@ -384,23 +384,23 @@
       "title": "Lorem Ipsum Oluşturucu",
       "description": "Tasarımlarınız için yer tutucu metin oluşturun",
       "seo": {
-        "howToUseTitle": "Lorem Ipsum Oluşturucu Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Tasarımınız için ihtiyacınız olan paragraf sayısını girin.",
           "Klasik 'Lorem ipsum' ifadesiyle başlayıp başlamayacağınızı seçin.",
           "Yer tutucu metni oluşturmak için 'Oluştur'a tıklayın.",
           "Sonucu panonuza kopyalayın veya .txt dosyası olarak indirin."
         ],
-        "featuresTitle": "Lorem Oluşturucu Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Özel paragraf sayısı desteği.",
           "Geleneksel Latince tabanlı kelime hazinesi.",
           "Tasarım araçlarına kolay entegrasyon için dışa aktarma işlevi.",
           "Anında tek tıkla oluşturma."
         ],
-        "privacyTitle": "Gizli Taslaklar",
-        "privacy": "Oluşturucu ayarlarınız ve çıktılarınız tarayıcı oturumunuzda gizli kalır. Hiçbir veri saklanmaz.",
-        "faqTitle": "Lorem ipsum SSS",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Lorem Ipsum Nedir?",
@@ -430,22 +430,22 @@
       "title": "Harf Dönüştürücü",
       "description": "Metni farklı harf stilleri arasında dönüştürün",
       "seo": {
-        "howToUseTitle": "Büyük-Küçük Harf Dönüştürücü Nasıl Kullanılır",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Metninizi giriş alanına yazın veya yapıştırın.",
           "Dönüştürme butonlarına tıklayın veya gerçek zamanlı güncellemeleri izleyin.",
           "Belirli dönüştürülmüş metni kopyalayın veya tüm formatları indirin."
         ],
-        "featuresTitle": "Büyük-Küçük Harf Dönüştürücü Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Tümce kullanımı, küçük harf, BÜYÜK HARF dönüşümleri.",
           "Başlık Harfi ve Her Sözcük Büyük Harf desteği.",
           "Benzersiz stil için aLtErNaTiF hArF ve tErS hArF.",
           "Tek tıkla kopyalama ve TXT dosyası indirme."
         ],
-        "privacyTitle": "%100 Yerel Gizlilik",
-        "privacy": "Metniniz yerel olarak tarayıcınızda işlenir. Sunucularımıza hiçbir veri gönderilmez, içeriğiniz %100 gizli kalır.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Başlık Harfi ile Her Sözcük Büyük Harf arasındaki fark nedir?",
@@ -476,23 +476,23 @@
       "title": "HTML Düzenleyici",
       "description": "HTML kodunu biçimlendirin ve güzelleştirin",
       "seo": {
-        "howToUseTitle": "HTML Biçimlendirici Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Karışık HTML kodunuzu giriş alanına yapıştırın.",
           "Kodunuzu uygun girintilerle güzelleştirmek için 'Biçimlendir'e tıklayın.",
           "Üretim kullanımı için HTML'yi sıkıştırmak üzere 'Küçült'ü kullanın.",
           "Sonucu panonuza kopyalayın veya indirin."
         ],
-        "featuresTitle": "HTML Biçimlendirici Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Daha iyi okunabilirlik için otomatik girintileme.",
           "Bayt tasarrufu için anında küçültme.",
           "İç içe geçmiş etiketleri ve nitelikleri doğru şekilde işler.",
           "Hızlı işlem için tamamen tarayıcınızda çalışır."
         ],
-        "privacyTitle": "İstemci Taraflı İşleme",
-        "privacy": "HTML kodunuz tamamen makinenizde işlenir. Kodunuzu asla depolamıyoruz veya herhangi bir sunucuya iletmiyoruz.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Bozuk HTML etiketlerini düzeltebilir mi?",
@@ -518,22 +518,22 @@
       "title": "CSS Küçültücü",
       "description": "CSS kodunu küçültün ve optimize edin",
       "seo": {
-        "howToUseTitle": "CSS Küçültücü Nasıl Kullanılır",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "CSS kodunuzu giriş alanına yapıştırın.",
           "Sıkıştırmak için 'Küçült' veya biçimlendirmek için 'Güzelleştir' butonuna tıklayın.",
           "Sonucu kopyalayın veya boyut tasarrufu istatistiklerini kontrol edin."
         ],
-        "featuresTitle": "CSS Küçültücü Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Yorumları ve gereksiz boşlukları kaldırır.",
           "Seçicileri ve özellikleri tek satırda birleştirir.",
           "Okunabilir kod biçimlendirmesi için Güzelleştir modu.",
           "Gerçek zamanlı dosya boyutu tasarrufu hesaplama."
         ],
-        "privacyTitle": "Güvenli CSS Sıkıştırma",
-        "privacy": "CSS kodunuz tarayıcınızda kalır. Platformumuzda işlediğiniz hiçbir kodu takip etmiyoruz veya saklamıyoruz.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "CSS'imi küçültmek siteyi bozar mı?",
@@ -560,23 +560,23 @@
       "title": "SQL Düzenleyici",
       "description": "SQL sorgularını biçimlendirin ve güzelleştirin",
       "seo": {
-        "howToUseTitle": "SQL Biçimlendirici Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "SQL sorgunuzu editöre girin.",
           "Standart girintileme ve büyük harf anahtar kelimeleri uygulamak için 'Biçimlendir'e tıklayın.",
           "Gereksiz boşlukları kaldırmak için 'Sıkıştır'ı kullanın.",
           "Vurgulanan sözdizimini inceleyin ve biçimlendirilmiş sorgunuzu kopyalayın."
         ],
-        "featuresTitle": "SQL Biçimlendirici Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Standart SQL anahtar kelimelerini ve işlevlerini destekler.",
           "Daha iyi sorgu analizi için yerleşik sözdizimi vurgulaması.",
           "Büyük/küçük harf normalleştirmesi (anahtar kelimeleri otomatik büyük harf yapar).",
           "Sorgu ayak izini azaltmak için sıkıştırma modu."
         ],
-        "privacyTitle": "Güvenli Sorgu Biçimlendirme",
-        "privacy": "Tüm SQL biçimlendirmesi yerel olarak yapılır. Veritabanı yapınız ve sorgu mantığınız asla bir sunucuya gönderilmez.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Hangi SQL lehçeleri destekleniyor?",
@@ -625,22 +625,22 @@
       "title": "Sayı Tabanı Çevirici",
       "description": "Binary, octal, decimal ve hexadecimal arasında sayı dönüşümü",
       "seo": {
-        "howToUseTitle": "Sayı Tabanları Nasıl Dönüştürülür?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Herhangi bir taban alanına (Ondalık, İkili, vb.) bir değer girin.",
           "Araç bu değeri anında diğer tüm tabanlara dönüştürecektir.",
           "Sonucu almak için herhangi bir alanın yanındaki kopyala simgesine tıklayın.",
           "Yeni bir hesaplama başlatmak için temizle düğmesini kullanın."
         ],
-        "featuresTitle": "Taban Çevirici Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "4 ana taban arasında gerçek zamanlı çift yönlü dönüşüm.",
           "Ondalık (Taban 10), İkili (Taban 2), Sekizli (Taban 8) ve Onaltılık (Taban 16) desteği.",
           "Hızlı veri girişi için temiz ve duyarlı arayüz.",
           "Karmaşık hesaplamalar için büyük sayı desteği."
         ],
-        "privacyTitle": "Güvenli Hesaplamalar",
-        "privacy": "Tüm dönüşümler yerel olarak gerçekleşir. Sayısal verileriniz asla harici bir API'ye iletilmez."
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez."
       },
       "decimal": "Ondalık (Taban 10)",
       "binary": "İkili (Taban 2)",
@@ -659,22 +659,22 @@
       "title": "Kelime & Karakter Sayacı",
       "description": "Kelime, karakter, cümle ve paragraf sayısını hesaplayın",
       "seo": {
-        "howToUseTitle": "Kelime Sayacı Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Metninizi giriş alanına yapıştırın veya doğrudan yazın.",
           "Kelime, karakter ve satır sayılarını anlık olarak takip edin.",
           "Yeni bir metin için 'Temizle' butonuna tıklayarak baştan başlayın."
         ],
-        "featuresTitle": "Kelime Sayacı Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Gerçek zamanlı kelime ve karakter sayımı.",
           "Satır ve paragraf sayısı tespiti.",
           "Tahmini okuma ve konuşma süresi hesaplama.",
           "Gizlilik için %100 tarayıcı tabanlı (client-side) işlem."
         ],
-        "privacyTitle": "Verileriniz Güvende",
-        "privacy": "Kelime Sayacı aracımız tüm işlemleri yerel olarak tarayıcınızda gerçekleştirir. İçeriğiniz asla bir sunucuya yüklenmez, böylece hassas dökümanlarınız tamamen gizli kalır.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Kelime sayacı ne kadar hassastir?",
@@ -717,22 +717,22 @@
       "title": "Satır Sıralayıcı",
       "description": "Satırları alfabetik veya sayısal olarak sıralayın",
       "seo": {
-        "howToUseTitle": "Satır Sıralayıcı Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Listenizi (her satıra bir öğe) giriş alanına girin.",
           "Bir sıralama yöntemi seçin: A-Z, Z-A, Sayısal veya Rastgele.",
           "Mevcut sırayı tersine çevirmek için 'Ters Çevir'i kullanın.",
           "Listenizi anında temizlemek için 'Yinelenenleri Kaldır'a tıklayın."
         ],
-        "featuresTitle": "Satır Sıralayıcı Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Çoklu sıralama algoritmaları (Sözlükbilimsel, Sayısal).",
           "Benzersiz diziler oluşturmak için rastgele karıştırma.",
           "Entegre yinelenen kaldırma mantığı.",
           "Uzun listeler için ultra hızlı işleme."
         ],
-        "privacyTitle": "Yerel Liste Yönetimi",
-        "privacy": "Listeleriniz tarayıcınızda kalır. Sıraladığınız verileri takip etmiyoruz, saklamıyoruz veya görmüyoruz."
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez."
       },
       "inputPlaceholder": "Sıralanacak satırları girin...",
       "sortAZ": "A-Z Sırala",
@@ -750,23 +750,23 @@
       "title": "Tekrar Eden Satır Kaldırıcı",
       "description": "Metinden tekrar eden satırları kaldırın",
       "seo": {
-        "howToUseTitle": "Yinelenen Kaldırıcı Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Ham verilerinizi giriş kutusuna yapıştırın.",
           "'Apple' ve 'apple'ın farklı muamele görmesini istiyorsanız 'Büyük/Küçük Harf Duyarlı' seçeneğini açın.",
           "'İlk Görülen' mi yoksa 'Son Görülen' satırı mı tutacağınızı seçin.",
           "Kaldırılan satırların özetini görün ve benzersiz sonucu kopyalayın."
         ],
-        "featuresTitle": "Yinelenen Kaldırıcı Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Akıllı büyük/küçük harf duyarlılığı geçişi.",
           "Görünüm yönetimi (İlkine Karşı Sonuncuyu Koru).",
           "Gerçek zamanlı istatistikler (Orijinal, Benzersiz, Kaldırılan).",
           "Tek tıkla sonuç kopyalama."
         ],
-        "privacyTitle": "Özel Veri Temizleme",
-        "privacy": "Tüm yinelenen tespiti tarayıcınızda yerel olarak gerçekleşir. Hassas listeleriniz asla karşıya yüklenmez.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "İlkini Koru ve Sonuncuyu Koru arasındaki fark nedir?",
@@ -795,23 +795,23 @@
       "title": "HTML Entity Kodlayıcı",
       "description": "HTML entity'lerini kodlayın ve çözün",
       "seo": {
-        "howToUseTitle": "HTML Varlık Kodlayıcı Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Özel karakterleri HTML için kodlamak (Encode) üzere metni yapıştırın.",
           "Kodlanmış varlıkları (&amp;lt; gibi) tekrar karakterlere dönüştürmek (Decode) için yapıştırın.",
           "Yaygın kodları hızlıca bulmak için Varlık Referans tablosunu kullanın.",
           "Web projelerinizde kullanmak üzere sonuç metnini kopyalayın."
         ],
-        "featuresTitle": "Varlık Kodlayıcı Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Çift yönlü işleme (Kodla ve Çöz).",
           "Yaygın varlıklar için kapsamlı referans tablosu.",
           "Özel karakterleri, sembolleri ve para birimi işaretlerini destekler.",
           "Sunucu bağlantısı olmadan anında işleme."
         ],
-        "privacyTitle": "Güvenli Kodlama",
-        "privacy": "Kodlama ve kod çözme tamamen yerel tarayıcı ortamınızda gerçekleşir. Sunucularımıza hiçbir metin gönderilmez.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Neden HTML varlıklarını kodlamam gerekiyor?",
@@ -856,23 +856,23 @@
       "title": "CSV → JSON Çevirici",
       "description": "CSV verisini JSON formatına dönüştürün",
       "seo": {
-        "howToUseTitle": "CSV'den JSON'a Nasıl Dönüştürülür?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "CSV verilerinizi giriş metin alanına yapıştırın.",
           "Doğru ayracı seçin (virgül, noktalı virgül veya sekme).",
           "İlk satırın başlık içerip içermediğini onaylayın.",
           "Dönüştür'e tıklayın ve oluşan JSON'u kopyalayın."
         ],
-        "featuresTitle": "CSV → JSON Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Esnek ayraç desteği.",
           "Otomatik başlık algılama.",
           "Tırnak içine alınmış dizeleri ve özel karakterleri işler.",
           "Sonuçları .json dosyası olarak indirin."
         ],
-        "privacyTitle": "Yerel CSV İşleme",
-        "privacy": "Tüm CSV verileri yerel olarak ayrıştırılır. Verileriniz asla karşıya yüklenmez, gizli tablolarınızın özel kalması sağlanır.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Büyük CSV dosyalarını işleyebilir mi?",
@@ -917,22 +917,22 @@
       "title": "Kredi Kartı Doğrulayıcı",
       "description": "Luhn algoritması ile kredi kartı numaralarını doğrulayın",
       "seo": {
-        "howToUseTitle": "Kredi Kartı Doğrulayıcı Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Doğrulamak istediğiniz kredi kartı numarasını girin.",
           "Luhn algoritması kontrolünü gerçekleştirmek için 'Doğrula'ya tıklayın.",
           "Geçerlilik durumunu ve algılanan kart türünü inceleyin."
         ],
-        "featuresTitle": "Kredi Kartı Doğrulayıcı Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Endüstri standardı Luhn algoritmasını kullanır.",
           "Başlıca kart markalarını tanımlar (Visa, Mastercard, Amex, Discover).",
           "Test için örnek kart numaraları dahildir.",
           "%100 yerel, tarayıcı tabanlı doğrulama."
         ],
-        "privacyTitle": "Güvenli Doğrulama",
-        "privacy": "Kredi kartı numaraları yalnızca bilgisayarınızda işlenir. Kart bilgilerini saklamıyoruz, kaydetmiyoruz veya iletmiyoruz.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Bu doğrulayıcı banka bakiyesini kontrol eder mi?",
@@ -965,22 +965,22 @@
       "title": "PDF → Word",
       "description": "PDF dosyalarını düzenlenebilir Word belgelerine dönüştürün",
       "seo": {
-        "howToUseTitle": "PDF'den Word'e Nasıl Dönüştürülür?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "PDF dosyanızı sürükle-bırak veya dosya seçici ile yükleyin.",
           "Dönüştürme işlemini başlatmak için 'Dönüştür' butonuna basın.",
           "İşlem tamamlandığında düzenlenebilir .docx dosyanızı indirin."
         ],
-        "featuresTitle": "Neden Bizim PDF - Word Dönüştürücümüz?",
+        "featuresTitle": "Özellikler",
         "features": [
           "Orijinal düzeni koruyan yüksek kaliteli dönüştürme.",
           "Gelişmiş OCR teknolojisi ile hızlı işlem.",
           "Güvenli işleme ile büyük PDF dosyası desteği.",
           "Ücretsiz kullanım için kayıt veya e-posta zorunluluğu yok."
         ],
-        "privacyTitle": "Güvenli PDF Dönüştürme",
-        "privacy": "Güvenliğinize önem veriyoruz. Dosyalarınız güvenli sunucularımızda işlenir ve işlem tamamlandıktan sonra otomatik olarak silinir. Belgelerinizi sakalamıyor veya paylaşmıyoruz.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Dönüştürebileceğim maksimum PDF dosya boyutu nedir?",
@@ -1121,23 +1121,23 @@
       "title": "Base64 Kodlayıcı/Çözücü",
       "description": "Base64 metinlerini ve dosyalarını kolayca kodlayın ve çözün",
       "seo": {
-        "howToUseTitle": "Base64 Aracı Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Kodlamak için düz metninizi veya çözmek için Base64 dizini girin.",
           "Veya bir dosyayı Base64 dizinine dönüştürmek için yükleyin.",
           "Metinden binary'ye kodlamak için 'Kodla' veya tersi için 'Çöz' butonunu kullanın.",
           "Sonucu anında kopyalayın veya indirin."
         ],
-        "featuresTitle": "Güvenilir Base64 İşleme",
+        "featuresTitle": "Özellikler",
         "features": [
           "Çift yönlü kodlama ve kod çözme.",
           "Dosyadan Base64'e ve Base64'ten dosyaya destek.",
           "Giriş formatını otomatik algılama.",
           "Tarayıcıda %100 güvenli ve gizli çalışma."
         ],
-        "privacyTitle": "Metniniz Gizli Kalır",
-        "privacy": "Base64 aracımız tamamen tarayıcınızın yerel ortamında çalışır. İnternet üzerinden hiçbir veri iletilmez, bu da hassas yapılandırma değerlerini kodlamak veya yerel dosyaları işlemek için güvenli kılar.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Base64 kodlaması ne için kullanılır?",
@@ -1162,22 +1162,22 @@
       "title": "UUID Oluşturucu",
       "description": "Benzersiz tanımlayıcılar oluşturun (UUID v4)",
       "seo": {
-        "howToUseTitle": "UUID Nasıl Oluşturulur?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Kaydırıcıyı kullanarak oluşturmak istediğiniz UUID sayısını seçin.",
           "Büyük harf ve kısa çizgi gibi biçimlendirme seçeneklerinizi belirleyin.",
           "Yeni kimlikler oluşturmak için 'Oluştur'a tıklayın ve bunları panonuza kopyalayın."
         ],
-        "featuresTitle": "Hızlı UUID Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "RFC 4122 uyumlu v4 tanımlayıcılar.",
           "Aynı anda 1000 kimliğe kadar toplu oluşturma.",
           "Mevcut UUID'lerin tek tıklamayla doğrulanması.",
           "Geliştirici iş akışları için anında kopyalama."
         ],
-        "privacyTitle": "Güvenli Rastgelelik",
-        "privacy": "Tüm UUID'ler tarayıcınızdaki kriptografik olarak güvenli rastgele sayı üreteci kullanılarak oluşturulur. Oluşturma işlemi sırasında hiçbir veri sunucuya gönderilmez.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "UUID v4 nedir?",
@@ -1219,23 +1219,23 @@
       "title": "Renk Dönüştürücü",
       "description": "Renkleri HEX, RGB, HSL ve diğer formatlar arasında dönüştürün",
       "seo": {
-        "howToUseTitle": "Renk Dönüştürücü Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Seçiciyi kullanarak bir renk seçin veya HEX, RGB veya HSL formatında bir değer girin.",
           "Çeşitli formatlardaki dönüştürülmüş değerleri anında görün.",
           "Tonları, tamamlayıcı renkleri ve uyumları keşfedin.",
           "Herhangi bir renk değerini tek tıkla kopyalayın."
         ],
-        "featuresTitle": "Renk Dönüştürücü Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "HEX, RGB, HSL, HSV ve CMYK desteği.",
           "Görsel renk seçici ve hızlı palet.",
           "Otomatik olarak %10 ile %90 arası tonlar oluşturur.",
           "Benzer, üçlü ve tamamlayıcı uyum önerileri."
         ],
-        "privacyTitle": "Tarayıcı Tabanlı Dönüşüm",
-        "privacy": "Renk seçimleri yerel olarak işlenir. Sunucularımızda hiçbir kişisel veri veya tercih takip edilmez.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "CMYK ne için kullanılır?",
@@ -1292,22 +1292,22 @@
       "title": "QR Kod Oluşturucu",
       "description": "Metin ve URL'ler için QR kodları oluşturun",
       "seo": {
-        "howToUseTitle": "QR Kod Nasıl Oluşturulur?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Kodlamak istediğiniz metni veya URL'yi giriş kutusuna girin.",
           "Boyutu, renkleri ve hata düzeltme seviyesini ayarlardan özelleştirin.",
           "Biten QR kodunuzu yüksek kaliteli PNG veya SVG dosyası olarak indirin."
         ],
-        "featuresTitle": "Özelleştirilebilir QR Kodları",
+        "featuresTitle": "Özellikler",
         "features": [
           "Ayarlanabilir boyut ve kenar boşluğu ayarları.",
           "Özel ön plan ve arka plan renkleri.",
           "Çoklu hata düzeltme seviyeleri (L, M, Q, H).",
           "Vektörel SVG veya piksel tabanlı PNG olarak dışa aktarma."
         ],
-        "privacyTitle": "Gizli QR Oluşturma",
-        "privacy": "QR oluşturucumuz yerel olarak tarayıcınızda çalışır. Kodladığınız veriler asla sunucularımıza iletilmez, bu da onu kişisel bilgiler için güvenli kılar.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "QR kodu hangi içerik türlerini saklayabilir?",
@@ -1362,23 +1362,23 @@
       "title": "Şifre Oluşturucu",
       "description": "Güvenli ve rastgele şifreler oluşturun",
       "seo": {
-        "howToUseTitle": "Güvenli Şifreler Nasıl Oluşturulur?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           " 'Şifre' (rastgele karakterler) veya 'Parola' (rastgele kelimeler) arasından seçim yapın.",
           "Uzunluk kaydırıcısını ayarlayın ve karakter setlerini (Sayılar, Semboller, vb.) açıp kapatın.",
           "Parolalar için kelime sayısını ve bir ayırıcı seçin.",
           "Güçlü yeni şifrenizi anında kopyalayın veya aynı anda birden fazla oluşturun."
         ],
-        "featuresTitle": "Güvenli Oluşturucu Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Web Crypto API kullanarak kriptografik olarak güvenli rastgelelik.",
           "Zengin özelleştirme: Benzer (i, l, 1) veya belirsiz karakterleri hariç tutun.",
           "Entropi bitleri ve kırılma süresi tahminleri ile detaylı güç analizi.",
           "Akılda kalıcı ancak son derece güvenli anahtarlar için parola modu."
         ],
-        "privacyTitle": "Yalnızca Yerel Şifreleme",
-        "privacy": "Şifreler bilgisayarınızın entropisi kullanılarak oluşturulur. Asla iletilmez, kaydedilmez veya ekibimiz tarafından görülmez.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Hangisi daha iyi: Şifre mi yoksa Parola mı?",
@@ -1444,23 +1444,23 @@
       "title": "Hash Oluşturucu",
       "description": "Kriptografik hash'ler oluşturun (MD5, SHA-1, SHA-256, SHA-512)",
       "seo": {
-        "howToUseTitle": "Hash Oluşturucu Nasıl Kullanılır?",
+        "howToUseTitle": "Nasıl kullanılır",
         "howToUse": [
           "Metninizi giriş alanına yapıştırın veya bir dosya yükleyin.",
           "MD5, SHA-1, SHA-256 ve SHA-512 için gerçek zamanlı hash sonuçlarını kontrol edin.",
           "İki hash'in eşleşip eşleşmediğini doğrulamak için karşılaştırma aracını kullanın.",
           "Anahtarlı hash mesaj doğrulama kodları oluşturmak için HMAC'i etkinleştirin."
         ],
-        "featuresTitle": "Hash Oluşturucu Özellikleri",
+        "featuresTitle": "Özellikler",
         "features": [
           "Birden fazla algoritmayı destekler: MD5, SHA-1, SHA-256, SHA-512.",
           "Bütünlük doğrulaması için dosya hash'leme yeteneği.",
           "Güvenli kimlik doğrulama için yerleşik HMAC desteği.",
           "Anında hash karşılaştırması ve durum göstergeleri."
         ],
-        "privacyTitle": "Sıfır Yükleme Güvenliği",
-        "privacy": "Tüm hash hesaplamaları yerel olarak tarayıcınızda gerçekleştirilir. Hassas metinleriniz ve dosyalarınız asla bilgisayarınızdan çıkmaz.",
-        "faqTitle": "Sıkça Sorulan Sorular",
+        "privacyTitle": "Gizlilik",
+        "privacy": "Bu araç tüm verileri tarayıcınızda yerel olarak işler. Hiçbir veri herhangi bir sunucuya gönderilmez.",
+        "faqTitle": "Sıkça sorulan sorular",
         "faqs": [
           {
             "question": "Hassas şifreleri burada hash'lemek güvenli mi?",
@@ -1625,7 +1625,7 @@
     "shareArticle": "Makaleyi Paylaş",
     "categories": {
       "encoders": "Kodlayıcılar",
-      "formatters": "Formatlayıcılar", 
+      "formatters": "Formatlayıcılar",
       "generators": "Üreteçler",
       "converters": "Dönüştürücüler",
       "utilities": "Yardımcılar"
@@ -1684,4 +1684,3 @@
     }
   }
 }
-

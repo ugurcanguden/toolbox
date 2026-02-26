@@ -158,38 +158,38 @@
       "invalidJson": "JSON Non Valido",
       "validJson": "JSON Valido",
       "seo": {
-        "howToUseTitle": "How to Use JSON Formatter",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste your raw JSON code into the editor.",
-          "Click 'Format' to beautify or 'Minify' to compress.",
-          "The 'Tree' view allows you to explore complex objects easily."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Advanced JSON Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Syntax highlighting and error detection.",
-          "Collapsible tree view for nested data.",
-          "One-click 'Escape' for stringified JSON.",
-          "Secure client-side validation."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Local Processing Only",
-        "privacy": "All JSON formatting and validation happens in your browser. Your data is never sent to our servers, ensuring your sensitive API responses and configuration files stay private.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "How do I format JSON in one click?",
-            "answer": "Simply paste your JSON code into the editor and click the 'Format' button. The tool will instantly beautify your JSON with proper indentation."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Can I validate JSON syntax errors?",
-            "answer": "Yes! The formatter automatically highlights syntax errors as you type, showing you exactly which line contains the invalid JSON."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           },
           {
-            "question": "What is the difference between Format and Minify?",
-            "answer": "Format (or Beautify) adds indentation and line breaks to make JSON readable. Minify removes all whitespace to create the smallest possible JSON string, ideal for production APIs."
+            "question": "Funziona su dispositivi mobili?",
+            "answer": "Sì, funziona su desktop e mobile."
           },
           {
-            "question": "Can I handle very large JSON files?",
-            "answer": "Yes, the editor supports large JSON files efficiently. For files larger than a few MB, we recommend using the tree view to navigate the structure without needing to scroll through raw text."
+            "question": "Devo creare un account?",
+            "answer": "No, puoi usarlo senza creare un account."
           }
         ]
       }
@@ -401,31 +401,31 @@
         "description": "Lorem Ipsum è un testo segnaposto utilizzato nell'industria della stampa e della composizione tipografica dal 1500."
       },
       "seo": {
-        "howToUseTitle": "How to Use Lorem Ipsum Generator?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter the number of paragraphs you need for your design.",
-          "Choose whether to start with the classic 'Lorem ipsum' phrase.",
-          "Click 'Generate' to create the placeholder text.",
-          "Copy the result to your clipboard or download it as a .txt file."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Lorem Generator Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Custom paragraph count support.",
-          "Traditional Latin-based vocabulary.",
-          "Export functionality for easy integration into design tools.",
-          "Instant one-click generation."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Private Mockups",
-        "privacy": "Your generator settings and output remain private in your browser session. No data is stored.",
-        "faqTitle": "Lorem ipsum FAQs",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is Lorem Ipsum?",
-            "answer": "Lorem Ipsum is a placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Does this generator support different languages?",
-            "answer": "While it generates traditional Latin-based text, the interface is available in multiple languages."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -448,30 +448,30 @@
         "description": "Converti testo tra diversi stili di maiuscole istantaneamente."
       },
       "seo": {
-        "howToUseTitle": "How to Use Case Converter",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Type or paste your text into the input area.",
-          "Click on the conversion buttons or watch real-time updates.",
-          "Copy specific converted text or download all formats."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Case Converter Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Sentence case, lower case, UPPER CASE transformations.",
-          "Capitalized Case and Title Case support.",
-          "Alternating cAsE and iNVERSE cASE for unique styling.",
-          "One-click copying and TXT file download."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "100% Client-Side Privacy",
-        "privacy": "Your text is processed locally in your browser. No data is sent to our servers, keeping your content 100% private.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is the difference between Title Case and Capitalized Case?",
-            "answer": "Title Case typically follows specific capitalization rules for titles (like 'The Catcher in the Rye'), while Capitalized Case usually capitalizes every single word regardless of its function."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Does it support non-English characters?",
-            "answer": "Yes, our Case Converter works with most UTF-8 characters, including accented letters and various alphabets."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -489,31 +489,31 @@
         "description": "Formatta, abbellisci e minimizza il codice HTML con la corretta indentazione."
       },
       "seo": {
-        "howToUseTitle": "How to Use HTML Formatter?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste your messy HTML code into the input field.",
-          "Click 'Format' to beautify your code with proper indentation.",
-          "Use 'Minify' to compress HTML for production use.",
-          "Copy the result to your clipboard or download it."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "HTML Formatter Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Auto-indentation for better readability.",
-          "Instant minification to save bytes.",
-          "Handles nested tags and attributes correctly.",
-          "Works entirely in your browser for fast processing."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Client-Side Processing",
-        "privacy": "Your HTML code is processed entirely on your machine. We never store or transmit your code to any server.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Can it fix broken HTML tags?",
-            "answer": "The formatter tries its best to structure the code, but it doesn't automatically fix missing closing tags or syntax errors. It focuses on pretty-printing valid HTML."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Is there a limit to the size of HTML I can format?",
-            "answer": "Since it runs in your browser, it can handle very large files (up to several MBs), depending on your computer's memory."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -532,30 +532,30 @@
         "description": "Minimizza CSS per ridurre le dimensioni del file e migliorare la velocità di caricamento."
       },
       "seo": {
-        "howToUseTitle": "How to Use CSS Minifier",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste your CSS code into the input field.",
-          "Click 'Minify' to compress or 'Beautify' to format.",
-          "Copy the result or check the size savings statistics."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "CSS Minifier Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Removes comments and unnecessary whitespace.",
-          "Compresses selectors and properties into a single line.",
-          "Beautify mode for readable code formatting.",
-          "Real-time file size savings calculation."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Safe CSS Compression",
-        "privacy": "Your CSS code remains in your browser. We don't track or store any code you process on our platform.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Will minifying my CSS break the site?",
-            "answer": "Minification only removes unnecessary characters like spaces and comments. It does not change the logic of your CSS, so it should not break your site."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "What is the best way to use minified CSS?",
-            "answer": "Use minified CSS for your production website to reduce page load times and improve performance."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -575,31 +575,31 @@
         "description": "Formatta query SQL con corretta indentazione ed evidenziazione delle parole chiave."
       },
       "seo": {
-        "howToUseTitle": "How to Use SQL Formatter?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter your SQL query in the editor.",
-          "Click 'Format' to apply standard indentation and uppercase keywords.",
-          "Use 'Compact' to remove unnecessary whitespace.",
-          "Review the highlighted syntax and copy your formatted query."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "SQL Formatter Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Supports standard SQL keywords and functions.",
-          "Built-in syntax highlighting for better query analysis.",
-          "Case normalization (auto-uppercase keywords).",
-          "Compact mode for reducing query footprint."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Secure Query Formatting",
-        "privacy": "All SQL formatting is done locally. Your database structure and query logic are never sent to a server.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Which SQL dialects are supported?",
-            "answer": "It supports standard ANSI SQL, which covers the majority of keywords used in MySQL, PostgreSQL, and SQL Server."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Does it format complex nested queries?",
-            "answer": "Yes, the formatter handles subqueries and complex joins by applying consistent indentation levels."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -641,22 +641,22 @@
         "description": "Converti numeri tra diverse basi: binario (0-1), ottale (0-7), decimale (0-9) ed esadecimale (0-9, A-F)."
       },
       "seo": {
-        "howToUseTitle": "How to Convert Number Bases?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter a value into any of the base fields (Decimal, Binary, etc.).",
-          "The tool will instantly convert that value into all other bases.",
-          "Click the copy icon next to any field to grab the result.",
-          "Use the clear button to start a new calculation."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Base Converter Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Real-time bidirectional conversion between 4 major bases.",
-          "Support for Decimal (Base 10), Binary (Base 2), Octal (Base 8), and Hexadecimal (Base 16).",
-          "Clean, responsive interface for fast data entry.",
-          "Large number support for complex calculations."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Secure Calculations",
-        "privacy": "All conversions happen locally. Your numeric data is never transmitted to any external API."
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server."
       }
     },
     "wordCounter": {
@@ -678,38 +678,38 @@
         "description": "Conta parole, caratteri, frasi e paragrafi. Stima anche il tempo di lettura."
       },
       "seo": {
-        "howToUseTitle": "How to Use Word Counter",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste or type your text into the input area.",
-          "Check the statistics box for real-time updates on word, character, and line counts.",
-          "Use the 'Clear' button to start over with new text."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Key Features of Word Counter",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Real-time word and character counting.",
-          "Line and paragraph count detection.",
-          "Reading time and speaking time estimation.",
-          "100% Client-side processing for ultimate privacy."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Your Data is Safe",
-        "privacy": "Our Word Counter tool processes all text locally within your browser. We never upload your content to any server, ensuring your sensitive documents stay private and secure.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "How accurate is the word counter?",
-            "answer": "Our word counter splits text by whitespace and punctuation to give an accurate count. It handles multiple spaces, newlines, and hyphenated words correctly."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Does the word counter work offline?",
-            "answer": "Yes! All processing happens entirely in your browser. Once the page loads, you can use the word counter without an internet connection."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           },
           {
-            "question": "Can I count characters without spaces?",
-            "answer": "Absolutely. The tool displays both total characters (including spaces) and characters excluding spaces in the statistics panel."
+            "question": "Funziona su dispositivi mobili?",
+            "answer": "Sì, funziona su desktop e mobile."
           },
           {
-            "question": "Is my text saved anywhere?",
-            "answer": "No. Your text is never sent to any server. Everything is processed client-side, so your content remains completely private."
+            "question": "Devo creare un account?",
+            "answer": "No, puoi usarlo senza creare un account."
           }
         ]
       },
@@ -732,31 +732,31 @@
         "description": "Ordina righe di testo alfabeticamente, numericamente o casualmente. Supporta anche l'inversione e la rimozione dei duplicati."
       },
       "seo": {
-        "howToUseTitle": "How to Use Line Sorter?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter your list (one item per line) into the input area.",
-          "Select a sorting method: A-Z, Z-A, Numeric, or Random.",
-          "Use 'Reverse' to flip the current order.",
-          "Click 'Remove Duplicates' to clean up your list instantly."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Line Sorter Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Multiple sorting algorithms (Lexicographic, Numeric).",
-          "Random shuffle for generating unique sequences.",
-          "Integrated duplicate removal logic.",
-          "Ultra-fast processing for long lists."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Local List Management",
-        "privacy": "Your lists stay in your browser. We don't track, store, or see the data you sort.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Can I sort numbers correctly?",
-            "answer": "Yes, use the 'Numeric' sort button to ensure numbers like 10 appear after 2, instead of alphabetically."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "How do I reverse a sorted list?",
-            "answer": "Simply click the 'Reverse' button after sorting to invert the order of all lines."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -777,31 +777,31 @@
         "description": "Rimuovi righe duplicate dal testo preservando l'ordine. Scegli di mantenere la prima o l'ultima occorrenza."
       },
       "seo": {
-        "howToUseTitle": "How to Use Duplicate Remover?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste your raw data into the input box.",
-          "Toggle 'Case Sensitive' if you want 'Apple' and 'apple' treated as different.",
-          "Choose whether to keep the 'First Occurred' or 'Last Occurred' line.",
-          "View the summary of lines removed and copy the unique result."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Duplicate Remover Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Smart case sensitivity toggle.",
-          "Occurrence management (Keep First vs Last).",
-          "Real-time statistics (Original vs Unique vs Removed).",
-          "One-click result copying."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Private Data Cleaning",
-        "privacy": "All duplicate detection happens locally in your browser. Your sensitive lists are never uploaded.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is the difference between Keep First and Keep Last?",
-            "answer": "'Keep First' retains the first time a duplicate appears and deletes subsequent ones. 'Keep Last' does the opposite, keeping the newest entry."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Can this handle white spaces?",
-            "answer": "The tool treats exact matches of lines. If lines have different leading or trailing spaces, they will be considered unique unless you trim them first."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -820,31 +820,31 @@
         "description": "Converti caratteri speciali in entità HTML e viceversa. Utile per visualizzare caratteri speciali in HTML."
       },
       "seo": {
-        "howToUseTitle": "How to Use HTML Entity Encoder?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste text with special characters to 'Encode' them for HTML.",
-          "Paste encoded entities (like &amp;lt;) to 'Decode' them back to characters.",
-          "Use the Entity Reference table for quickly finding common codes.",
-          "Copy the resulting text for use in your web projects."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Entity Encoder Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Bidirectional processing (Encode & Decode).",
-          "Comprehensive reference table for common entities.",
-          "Supports special characters, symbols, and currency signs.",
-          "Instant processing without server roundtrips."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Secure Encoding",
-        "privacy": "Encoding and decoding happen entirely within your local browser environment. No text is sent to our servers.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Why do I need to encode HTML entities?",
-            "answer": "Special characters like < or > have meaning in HTML. Encoding them ensures they are displayed as text rather than being interpreted as tags."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Does it support all characters?",
-            "answer": "It supports standard HTML named entities and can decode any valid HTML entity back to its original character."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -882,31 +882,31 @@
         "description": "Converti dati CSV in formato JSON. Rileva automaticamente intestazioni e delimitatori."
       },
       "seo": {
-        "howToUseTitle": "How to Use CSV to JSON Converter",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste your CSV data into the input textarea.",
-          "Select the correct delimiter (comma, semicolon, or tab).",
-          "Confirm if the first row contains headers.",
-          "Click 'Convert' and copy the resulting JSON."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "CSV to JSON Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Flexible delimiter support.",
-          "Automatic header detection.",
-          "Handles quoted strings and special characters.",
-          "Download results as a .json file."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Local CSV Processing",
-        "privacy": "All CSV data is parsed locally. Your data is never uploaded, ensuring confidential spreadsheets remain private.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Can it handle large CSV files?",
-            "answer": "The tool works entirely in your browser. For very large files (e.g., hundreds of megabytes), performance may vary based on your system memory."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Does it support different delimiters?",
-            "answer": "Yes, you can choose between Comma, Semicolon, and Tab as delimiters for your CSV data."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       },
@@ -948,30 +948,30 @@
         "description": "Valida numeri di carta di credito usando l'algoritmo Luhn. Nessun dato viene memorizzato o trasmesso."
       },
       "seo": {
-        "howToUseTitle": "How to Use Credit Card Validator",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter the credit card number you wish to verify.",
-          "Click 'Validate' to perform the Luhn algorithm check.",
-          "Review the validity status and detected card type."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Credit Card Validator Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Uses the industry-standard Luhn algorithm.",
-          "Identifies major card brands (Visa, Mastercard, Amex, Discover).",
-          "Sample card numbers included for testing.",
-          "Completely private client-side validation."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Secure Validation",
-        "privacy": "Credit card numbers are processed only on your computer. We do not store, log, or transmit any card information.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Does this validator check the bank balance?",
-            "answer": "No. This tool only checks the mathematical validity of the card number using the Luhn algorithm. It does not contact any financial institution or check balances."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Is it safe to enter my card number here?",
-            "answer": "Yes, because the validation happens entirely in your browser using JavaScript. Your card number is never sent to our servers."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -1014,38 +1014,38 @@
       "title": "Base64 Encoder/Decoder",
       "description": "Encode and decode Base64 strings and files",
       "seo": {
-        "howToUseTitle": "How to Use Base64 Tool",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter your plain text to encode or Base64 string to decode.",
-          "Use the 'Encode' button for text-to-binary or 'Decode' for binary-to-text.",
-          "Copy the result instantly using the copy button."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Reliable Base64 Processing",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Bidirectional encoding and decoding.",
-          "Support for special characters and emojis.",
-          "Real-time processing with instant results.",
-          "Secure and private browser-based execution."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Your Text Remains Private",
-        "privacy": "Our Base64 tool operates entirely within your browser's local environment. No data is transmitted over the internet, making it safe for encoding sensitive configuration values.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is Base64 encoding used for?",
-            "answer": "Base64 is widely used to encode binary data for safe transmission in text-based systems, such as embedding images in HTML/CSS, encoding file attachments in emails, and passing data in URL query parameters."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Can I decode any Base64 string?",
-            "answer": "Yes. Paste any valid Base64-encoded string into the input field and switch to 'Decode' mode to reveal the original content. The tool supports standard and URL-safe Base64 variants."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           },
           {
-            "question": "Can I encode files to Base64?",
-            "answer": "Yes! You can upload a file using the file picker and the tool will encode it to Base64, which you can then copy and embed directly in your code."
+            "question": "Funziona su dispositivi mobili?",
+            "answer": "Sì, funziona su desktop e mobile."
           },
           {
-            "question": "Is Base64 the same as encryption?",
-            "answer": "No. Base64 is an encoding scheme, not encryption. It does not protect your data — anyone who has the Base64 string can easily decode it. For security, use proper encryption methods."
+            "question": "Devo creare un account?",
+            "answer": "No, puoi usarlo senza creare un account."
           }
         ]
       }
@@ -1075,38 +1075,38 @@
       "invalidUuid": "Formato UUID non valido",
       "version": "Versione",
       "seo": {
-        "howToUseTitle": "How to Generate UUIDs",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Select the number of UUIDs you want to generate using the slider.",
-          "Choose your formatting options like uppercase and hyphens.",
-          "Click 'Generate' to create new IDs and copy them to your clipboard."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Quick UUID Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "RFC 4122 compliant v4 identifiers.",
-          "Bulk generation up to 1000 IDs at once.",
-          "One-click validation of existing UUIDs.",
-          "Instant copying for developer workflows."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Secure Randomness",
-        "privacy": "All UUIDs are generated using the cryptographically secure random number generator in your browser. No data is sent to any server during the generation process.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is a UUID v4?",
-            "answer": "UUID v4 (Universally Unique Identifier version 4) is a 128-bit identifier generated using random numbers. It follows the format xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx and is guaranteed to be practically unique."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "How many UUIDs can I generate at once?",
-            "answer": "You can generate up to 1000 UUIDs in a single batch using the slider or number input in the generator settings."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           },
           {
-            "question": "Are the generated UUIDs truly unique?",
-            "answer": "UUID v4 uses cryptographically secure random numbers, making the probability of a collision astronomically low — statistically, you would need to generate quintillions of UUIDs before encountering a duplicate."
+            "question": "Funziona su dispositivi mobili?",
+            "answer": "Sì, funziona su desktop e mobile."
           },
           {
-            "question": "Can I copy all UUIDs at once?",
-            "answer": "Yes! After generating multiple UUIDs, click the 'Copy All' button to copy all of them to your clipboard as a newline-separated list."
+            "question": "Devo creare un account?",
+            "answer": "No, puoi usarlo senza creare un account."
           }
         ]
       }
@@ -1155,31 +1155,31 @@
       "hsvDescription": "Usato negli strumenti di selezione colore",
       "cmykDescription": "Per stampa professionale",
       "seo": {
-        "howToUseTitle": "How to Use Color Converter",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Select a color using the picker or enter a value in HEX, RGB, or HSL.",
-          "Instantly see the converted values in various formats.",
-          "Explore shades, complementary colors, and harmonies.",
-          "Copy any color value with a single click."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Color Converter Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Support for HEX, RGB, HSL, HSV, and CMYK.",
-          "Visual color picker and quick palette.",
-          "Generates 10% to 90% shades automatically.",
-          "Analogous, triadic, and complementary harmony suggestions."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Browser-Based Conversion",
-        "privacy": "Color selections are processed locally. No personal data or preferences are tracked on our servers.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is CMYK used for?",
-            "answer": "CMYK is primarily used for color printing. Unlike digital screens (RGB), printers use Cyan, Magenta, Yellow, and Black inks to create colors."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "How do I choose a harmonious color scheme?",
-            "answer": "Use our harmony suggestions! Complementary colors create high contrast, while analogous colors provide a more harmonious and soothing look."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -1218,38 +1218,38 @@
       "errorCorrectionInfo": "Error Correction:",
       "errorCorrectionDescription": "Higher error correction level allows the QR code to be readable even when damaged or partially covered, but creates a more complex code.",
       "seo": {
-        "howToUseTitle": "How to Create a QR Code",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Enter the text or URL you want to encode into the input box.",
-          "Customize the size, colors, and error correction level in settings.",
-          "Download your finished QR code as a high-quality PNG or SVG file."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Customizable QR Codes",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Adjustable size and margin settings.",
-          "Custom foreground and background colors.",
-          "Multiple error correction levels (L, M, Q, H).",
-          "Export as vector SVG or pixel PNG."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Private QR Creation",
-        "privacy": "Our QR generator works locally in your browser. The data you encode is never transmitted to our servers, making it safe for private information.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What types of content can a QR code store?",
-            "answer": "QR codes can store URLs, plain text, email addresses, SMS messages, Wi-Fi credentials, vCard contact information, and more. Our generator accepts any text or URL."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Can I customize the colors of my QR code?",
-            "answer": "Yes! You can choose custom foreground and background colors for your QR code using the color pickers in the settings panel. Ensure sufficient contrast for reliable scanning."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           },
           {
-            "question": "What error correction level should I choose?",
-            "answer": "For most uses, 'Medium' (15%) is a good balance. Use 'High' (30%) if your QR code will be printed on surfaces that may get dirty or damaged, as it allows more of the code to be obscured while still being scannable."
+            "question": "Funziona su dispositivi mobili?",
+            "answer": "Sì, funziona su desktop e mobile."
           },
           {
-            "question": "Can I download the QR code as a vector file?",
-            "answer": "Yes, you can download your QR code as an SVG (vector) file for lossless scaling at any size, in addition to PNG for raster graphics."
+            "question": "Devo creare un account?",
+            "answer": "No, puoi usarlo senza creare un account."
           }
         ]
       }
@@ -1307,31 +1307,31 @@
       "tip6": "Enable two-factor authentication",
       "selectAtLeastOne": "You must select at least one character type",
       "seo": {
-        "howToUseTitle": "How to Generate Secure Passwords?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Choose between 'Password' (random characters) or 'Passphrase' (random words).",
-          "Adjust the length slider and toggle character sets (Numbers, Symbols, etc.).",
-          "For passphrases, select the number of words and a separator.",
-          "Instantly copy your strong new password or generate multiple at once."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Secure Generator Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Cryptographically secure randomness using Web Crypto API.",
-          "Rich customization: Exclude similar (i, l, 1) or ambiguous characters.",
-          "Detailed strength analysis with entropy bits and time-to-crack estimates.",
-          "Passphrase mode for memorable yet highly secure keys."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Local Encryption Only",
-        "privacy": "Passwords are generated using your computer's entropy. They are never transmitted, logged, or visible to our team.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Which is better: Password or Passphrase?",
-            "answer": "Passwords are better for machines and password managers. Passphrases are easier for humans to remember while maintaining extreme security through length."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "What is entropy?",
-            "answer": "Entropy is a measure of randomness. The higher the entropy (in bits), the more difficult it is for a hacker to guess your password using brute force."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -1380,31 +1380,31 @@
       "strengthStrong": "Recommended for most use cases",
       "strengthVeryStrong": "Maximum security",
       "seo": {
-        "howToUseTitle": "How to Use Hash Generator?",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Paste your text into the input field or upload a file.",
-          "Check the real-time hash results for MD5, SHA-1, SHA-256, and SHA-512.",
-          "Use the comparison tool to verify if two hashes match.",
-          "Enable HMAC to generate keyed-hash message authentication codes."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato.",
+          "Copia, scarica o condividi il risultato se necessario."
         ],
-        "featuresTitle": "Hash Generator Features",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "Supports multiple algorithms: MD5, SHA-1, SHA-256, SHA-512.",
-          "File hashing capability for integrity verification.",
-          "Built-in HMAC support for secure authentication.",
-          "Instant hash comparison and status indicators."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Zero-Upload Security",
-        "privacy": "All hashing calculations are performed locally in your browser. Your sensitive text and files never leave your computer.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "Is it safe to hash sensitive passwords here?",
-            "answer": "Yes, our tool runs 100% on the client side. We don't have a backend to receive your data, ensuring your secrets remain private."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Which algorithm is the most secure?",
-            "answer": "SHA-256 and SHA-512 are currently considered industry standard for security. MD5 and SHA-1 should only be used for non-security related integrity checks."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           }
         ]
       }
@@ -1427,38 +1427,38 @@
       "feature3": "OCR support for scanned documents",
       "feature4": "Secure server-side processing",
       "seo": {
-        "howToUseTitle": "How to Convert PDF to Word",
+        "howToUseTitle": "Come usare",
         "howToUse": [
-          "Upload your PDF file using the drag-and-drop area or file selector.",
-          "Click the 'Convert' button to start the transformation process.",
-          "Download your editable .docx file once the conversion is complete."
+          "Inserisci il testo o carica un file.",
+          "Regola le opzioni in base alle tue esigenze.",
+          "Controlla subito il risultato."
         ],
-        "featuresTitle": "Why Use Our PDF to Word Converter?",
+        "featuresTitle": "Funzionalità",
         "features": [
-          "High-quality conversion preserving the original layout.",
-          "Fast processing using advanced OCR technology.",
-          "Support for large PDF files with secure handling.",
-          "No registration or email required for free use."
+          "Elaborazione rapida direttamente nel browser.",
+          "Nessun invio dei contenuti a server esterni.",
+          "Interfaccia semplice e ottimizzata per mobile.",
+          "Gratuito e utilizzabile senza registrazione."
         ],
-        "privacyTitle": "Secure PDF Conversion",
-        "privacy": "We prioritize your security. Your files are processed on our secure servers and are automatically deleted after the conversion is complete. We do not store or share your documents.",
-        "faqTitle": "Frequently Asked Questions",
+        "privacyTitle": "Privacy",
+        "privacy": "Questo strumento elabora tutti i dati localmente nel tuo browser. Nessun dato viene inviato a un server.",
+        "faqTitle": "FAQ",
         "faqs": [
           {
-            "question": "What is the maximum PDF file size I can convert?",
-            "answer": "You can upload PDF files up to 50MB. For larger files, we recommend splitting the PDF before converting."
+            "question": "Questo strumento è gratuito?",
+            "answer": "Sì, questo strumento è gratuito."
           },
           {
-            "question": "Will the formatting be preserved after conversion?",
-            "answer": "Our converter uses advanced technology to preserve text layout, fonts, and tables as accurately as possible. Complex graphics may have slight variations."
+            "question": "I miei dati vengono inviati a un server?",
+            "answer": "No, l'elaborazione avviene localmente nel browser."
           },
           {
-            "question": "How long does it take to convert a PDF?",
-            "answer": "Most conversions complete within a few seconds to a minute, depending on the file size and complexity."
+            "question": "Funziona su dispositivi mobili?",
+            "answer": "Sì, funziona su desktop e mobile."
           },
           {
-            "question": "Are my files stored on the server?",
-            "answer": "No. Your uploaded files are automatically and permanently deleted from our servers immediately after processing is complete."
+            "question": "Devo creare un account?",
+            "answer": "No, puoi usarlo senza creare un account."
           }
         ]
       }
