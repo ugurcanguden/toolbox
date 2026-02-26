@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
   Card,
@@ -11,11 +11,17 @@ import {
   Input,
   Label
 } from '@/components/ui';
-import { Copy, Check, Palette, Info } from 'lucide-react';
+import { Copy, Check, Palette } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 import {
   hexToRgb,
-  rgbToHex,
   rgbToHsl,
   rgbToHsv,
   rgbToCmyk,
@@ -57,7 +63,8 @@ const COLOR_PALETTE = [
 
 export default function ColorConverterPage() {
   const t = useTranslations('tools.colorConverter');
-  const tc = useTranslations('common');
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
   const { copy } = useCopyToClipboard();
   
   const [currentColor, setCurrentColor] = useState('#3B82F6');
@@ -108,9 +115,12 @@ export default function ColorConverterPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
-        <p className="text-muted-foreground">{t('description')}</p>
+      <div className="flex items-start justify-between mb-8">
+        <div>
+          <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
+          <p className="text-muted-foreground">{t('description')}</p>
+        </div>
+        <PrivacyBadge />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -302,7 +312,7 @@ export default function ColorConverterPage() {
                     {copiedFormat === 'hex' ? (
                       <Check className="w-4 h-4 text-green-500" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Check className="w-4 h-4 opacity-0" />
                     )}
                   </Button>
                 </div>
@@ -328,7 +338,7 @@ export default function ColorConverterPage() {
                     {copiedFormat === 'rgb' ? (
                       <Check className="w-4 h-4 text-green-500" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Check className="w-4 h-4 opacity-0" />
                     )}
                   </Button>
                 </div>
@@ -368,7 +378,7 @@ export default function ColorConverterPage() {
                     {copiedFormat === 'hsl' ? (
                       <Check className="w-4 h-4 text-green-500" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Check className="w-4 h-4 opacity-0" />
                     )}
                   </Button>
                 </div>
@@ -408,7 +418,7 @@ export default function ColorConverterPage() {
                     {copiedFormat === 'hsv' ? (
                       <Check className="w-4 h-4 text-green-500" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Check className="w-4 h-4 opacity-0" />
                     )}
                   </Button>
                 </div>
@@ -434,7 +444,7 @@ export default function ColorConverterPage() {
                     {copiedFormat === 'cmyk' ? (
                       <Check className="w-4 h-4 text-green-500" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Check className="w-4 h-4 opacity-0" />
                     )}
                   </Button>
                 </div>
@@ -459,23 +469,23 @@ export default function ColorConverterPage() {
               </div>
             </CardContent>
           </Card>
-
-          {/* Info Card */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Info className="w-5 h-5" />
-                {t('aboutTitle')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm text-muted-foreground">
-                {t('aboutDescription')}
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </div>
+
+      <div className="mt-8 space-y-8">
+        <ToolSeoContent toolId="colorConverter" />
+        <ToolFaqSection toolId="colorConverter" />
+      </div>
+
+      <JsonLdTool
+        locale={locale}
+        tool={{
+          id: "color-converter",
+          title: t('title'),
+          description: t('description'),
+          category: "converters"
+        }}
+      />
     </div>
   );
 }

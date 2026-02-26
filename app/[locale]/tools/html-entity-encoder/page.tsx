@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import { Code, Copy } from "lucide-react";
+import { Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useCopyToClipboard } from "@/hooks";
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 
 const HTML_ENTITIES: Record<string, string> = {
   "&lt;": "<",
@@ -26,6 +33,8 @@ const HTML_ENTITIES: Record<string, string> = {
 export default function HtmlEntityEncoderPage() {
   const t = useTranslations("tools.htmlEntityEncoder");
   const tCommon = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
   const { copy } = useCopyToClipboard();
 
   const [input, setInput] = useState("");
@@ -50,9 +59,13 @@ export default function HtmlEntityEncoderPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
+        {/* Header */}
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
+            <p className="text-muted-foreground">{t("description")}</p>
+          </div>
+          <PrivacyBadge />
         </div>
 
         <Card>
@@ -115,12 +128,18 @@ export default function HtmlEntityEncoderPage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("info.title")}</CardTitle>
-            <CardDescription>{t("info.description")}</CardDescription>
-          </CardHeader>
-        </Card>
+        <ToolSeoContent toolId="htmlEntityEncoder" />
+        <ToolFaqSection toolId="htmlEntityEncoder" />
+
+        <JsonLdTool
+          locale={locale}
+          tool={{
+            id: "html-entity-encoder",
+            title: t("title"),
+            description: t("description"),
+            category: "utilities"
+          }}
+        />
       </div>
     </div>
   );

@@ -385,39 +385,7 @@ export default function Base64Page() {
           </CardContent>
         </Card>
       </div>
-
       {/* Info Section */}
-      <div className="mt-8 p-4 bg-muted/30 rounded-lg">
-        <h3 className="font-semibold mb-2">💡 About Base64</h3>
-        <p className="text-sm text-muted-foreground mb-2">
-          Base64 is a binary-to-text encoding scheme that represents binary data in ASCII string format. 
-          It&apos;s commonly used to encode binary data for transmission over text-based protocols.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-muted-foreground">
-          <div>
-            <strong>Use Cases:</strong>
-            <ul className="list-disc list-inside mt-1 space-y-1">
-              <li>Email attachments (MIME)</li>
-              <li>Data URLs in HTML/CSS</li>
-              <li>JWT tokens</li>
-              <li>API authentication</li>
-            </ul>
-          </div>
-          <div>
-            <strong>Features:</strong>
-            <ul className="list-disc list-inside mt-1 space-y-1">
-              <li>UTF-8 support (emojis ✅)</li>
-              <li>File encoding/decoding</li>
-              <li>Auto-detection</li>
-              <li>Copy & download</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Ad - After Info */}
-      {/* <InArticleAd dataAdSlot="3333333333" /> */}
-
       <ToolSeoContent toolId="base64" />
       <ToolFaqSection toolId="base64" />
 
@@ -429,12 +397,6 @@ export default function Base64Page() {
           description: t('description'),
           category: 'encoders'
         }}
-        faqs={[
-          {
-            question: locale === 'tr' ? "Base64 güvenli mi?" : "Is Base64 secure?",
-            answer: locale === 'tr' ? "Base64 bir şifreleme değil, kodlama yöntemidir. Veriler kolayca geri çözülebilir." : "Base64 is an encoding method, not encryption. Data can be easily decoded back."
-          }
-        ]}
       />
     </div>
   );

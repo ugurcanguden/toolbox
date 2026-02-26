@@ -16,9 +16,10 @@ import {
   Input,
   JsonLdTool,
   ToolSeoContent,
-  ToolFaqSection
+  ToolFaqSection,
+  PrivacyBadge
 } from '@/components';
-import { Download, Trash2, QrCode, Info } from 'lucide-react';
+import { Download, Trash2, QrCode } from 'lucide-react';
 import { useParams } from 'next/navigation';
 
 interface QROptions {
@@ -47,7 +48,6 @@ export default function QRGeneratorPage() {
     includeMargin: true,
   });
 
-  // Simple QR Code generation using Canvas (basic implementation)
   const generateQRCode = async () => {
     if (!text.trim()) {
       setQrCodeGenerated(false);
@@ -62,7 +62,6 @@ export default function QRGeneratorPage() {
 
     try {
       setError('');
-      // Dynamically import QRCode library
       const QRCode = (await import('qrcode')).default;
       
       const canvas = canvasRef.current;
@@ -85,7 +84,7 @@ export default function QRGeneratorPage() {
   };
 
   const loadSample = () => {
-    setText('https://github.com/your-username/developertools - Check out this amazing developer tools collection! 🚀');
+    setText('https://github.com/your-username/developertools');
   };
 
   const handleDownloadPNG = () => {
@@ -138,7 +137,6 @@ export default function QRGeneratorPage() {
     }
   };
 
-  // Auto-generate when text changes (with debounce)
   useEffect(() => {
     if (text.trim()) {
       const timer = setTimeout(() => {
@@ -151,24 +149,24 @@ export default function QRGeneratorPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
-      {/* Header */}
       <div className="mb-8">
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
             <p className="text-muted-foreground">{t('description')}</p>
           </div>
-          <Button onClick={loadSample} variant="outline" size="sm" className="gap-2">
-            <QrCode className="h-4 w-4" />
-            {tc('sample')}
-          </Button>
+          <div className="flex flex-col items-end gap-2">
+            <PrivacyBadge />
+            <Button onClick={loadSample} variant="outline" size="sm" className="gap-2">
+              <QrCode className="h-4 w-4" />
+              {tc('sample')}
+            </Button>
+          </div>
         </div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Input & Settings Panel */}
         <div className="lg:col-span-1 space-y-6">
-          {/* Input */}
           <Card>
             <CardHeader>
               <CardTitle>{t('input')}</CardTitle>
@@ -208,13 +206,11 @@ export default function QRGeneratorPage() {
             </CardContent>
           </Card>
 
-          {/* Settings */}
           <Card>
             <CardHeader>
               <CardTitle className="text-lg">{t('settings')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* Size */}
               <div className="space-y-2">
                 <div className="flex justify-between items-center">
                   <Label>{t('size')}</Label>
@@ -232,7 +228,6 @@ export default function QRGeneratorPage() {
                 />
               </div>
 
-              {/* Error Correction Level */}
               <div className="space-y-2">
                 <Label>{t('errorCorrection')}</Label>
                 <div className="grid grid-cols-2 gap-2">
@@ -250,7 +245,6 @@ export default function QRGeneratorPage() {
                 </div>
               </div>
 
-              {/* Colors */}
               <div className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="foreground">{t('foregroundColor')}</Label>
@@ -291,7 +285,6 @@ export default function QRGeneratorPage() {
                 </div>
               </div>
 
-              {/* Include Margin */}
               <div className="flex items-center space-x-2">
                 <Checkbox
                   id="includeMargin"
@@ -308,9 +301,7 @@ export default function QRGeneratorPage() {
           </Card>
         </div>
 
-        {/* Preview & Info Panel */}
         <div className="lg:col-span-2 space-y-6">
-          {/* Preview */}
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
@@ -356,65 +347,11 @@ export default function QRGeneratorPage() {
               </div>
             </CardContent>
           </Card>
-
-          {/* Info Card */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Info className="w-5 h-5" />
-                {t('aboutTitle')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                {t('aboutDescription')}
-              </p>
-              
-              <div>
-                <h3 className="font-semibold mb-2 text-sm">{t('useCases')}</h3>
-                <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('useCase1')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('useCase2')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('useCase3')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('useCase4')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('useCase5')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('useCase6')}</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="bg-blue-50 dark:bg-blue-950/20 p-4 rounded-lg">
-                <h4 className="font-semibold text-sm mb-2 text-blue-900 dark:text-blue-100">
-                  {t('errorCorrectionInfo')}
-                </h4>
-                <p className="text-xs text-blue-800 dark:text-blue-200">
-                  {t('errorCorrectionDescription')}
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          
+          <ToolSeoContent toolId="qrGenerator" />
+          <ToolFaqSection toolId="qrGenerator" />
         </div>
       </div>
-      
-      <ToolSeoContent toolId="qrGenerator" />
-      <ToolFaqSection toolId="qrGenerator" />
 
       <JsonLdTool 
         locale={locale}
@@ -424,12 +361,6 @@ export default function QRGeneratorPage() {
           description: t('description'),
           category: 'utilities'
         }}
-        faqs={[
-          {
-            question: locale === 'tr' ? "QR kodları güvenli mi?" : "Are QR codes safe?",
-            answer: locale === 'tr' ? "QR kodun kendisi güvenlidir, ancak yönlendirdiği URL veya içerik her zaman kontrol edilmelidir." : "The QR code itself is safe, but the URL or content it directs to should always be checked."
-          }
-        ]}
       />
     </div>
   );

@@ -264,34 +264,6 @@ export default function PdfToWordPage() {
         </div>
       )}
 
-      {/* Info Section */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">{t("aboutTitle")}</CardTitle>
-          <CardDescription>{t("aboutDescription")}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              {t("feature1")}
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              {t("feature2")}
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              {t("feature3")}
-            </li>
-            <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-              {t("feature4")}
-            </li>
-          </ul>
-        </CardContent>
-      </Card>
-      
       <ToolSeoContent toolId="pdfToWord" />
       <ToolFaqSection toolId="pdfToWord" />
 
@@ -304,12 +276,6 @@ export default function PdfToWordPage() {
           description: t("description"),
           category: "pdf"
         }}
-        faqs={[
-          {
-            question: locale === 'tr' ? "PDF'i Word'e dönüştürmek ücretsiz mi?" : "Is it free to convert PDF to Word?",
-            answer: locale === 'tr' ? "Evet, tamamen ücretsizdir ve kayıt olmanıza gerek yoktur." : "Yes, it is completely free and no registration is required."
-          }
-        ]}
       />
     </div>
   );

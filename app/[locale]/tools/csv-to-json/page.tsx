@@ -4,17 +4,26 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { FileSpreadsheet, FileJson, Copy, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { useCopyToClipboard } from "@/hooks";
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 
 type Delimiter = "," | ";" | "\t";
 
 export default function CsvToJsonPage() {
   const t = useTranslations("tools.csvToJson");
   const tCommon = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
   const { copy } = useCopyToClipboard();
 
   const [csvInput, setCsvInput] = useState("");
@@ -96,9 +105,12 @@ export default function CsvToJsonPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
+            <p className="text-muted-foreground">{t("description")}</p>
+          </div>
+          <PrivacyBadge />
         </div>
 
         <Card>
@@ -190,12 +202,18 @@ export default function CsvToJsonPage() {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("info.title")}</CardTitle>
-            <CardDescription>{t("info.description")}</CardDescription>
-          </CardHeader>
-        </Card>
+        <ToolSeoContent toolId="csvToJson" />
+        <ToolFaqSection toolId="csvToJson" />
+
+        <JsonLdTool
+          locale={locale}
+          tool={{
+            id: "csv-to-json",
+            title: t("title"),
+            description: t("description"),
+            category: "utilities"
+          }}
+        />
       </div>
     </div>
   );

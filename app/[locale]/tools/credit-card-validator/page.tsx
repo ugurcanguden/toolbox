@@ -4,9 +4,16 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { CreditCard, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 
 const TEST_CARDS = {
   visa: "4532015112830366",
@@ -18,6 +25,8 @@ const TEST_CARDS = {
 export default function CreditCardValidatorPage() {
   const t = useTranslations("tools.creditCardValidator");
   const tCommon = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
 
   const [cardNumber, setCardNumber] = useState("");
   const [isValid, setIsValid] = useState<boolean | null>(null);
@@ -79,9 +88,12 @@ export default function CreditCardValidatorPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-4xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
+            <p className="text-muted-foreground">{t("description")}</p>
+          </div>
+          <PrivacyBadge />
         </div>
 
         <Card>
@@ -152,12 +164,18 @@ export default function CreditCardValidatorPage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("info.title")}</CardTitle>
-            <CardDescription>{t("info.description")}</CardDescription>
-          </CardHeader>
-        </Card>
+        <ToolSeoContent toolId="creditCardValidator" />
+        <ToolFaqSection toolId="creditCardValidator" />
+
+        <JsonLdTool
+          locale={locale}
+          tool={{
+            id: "credit-card-validator",
+            title: t("title"),
+            description: t("description"),
+            category: "utilities"
+          }}
+        />
       </div>
     </div>
   );

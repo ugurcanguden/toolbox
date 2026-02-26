@@ -35,7 +35,8 @@
     "loadingTool": "Loading Tool",
     "pleaseWait": "Please wait a moment...",
     "searchTools": "Search tools",
-    "privacyClientSideOnly": "100% Client-Side Only (No Server Tracking)"
+    "privacyClientSideOnly": "100% Client-Side Only (No Server Tracking)",
+    "home": "Home"
   },
   "cookieConsent": {
     "title": "🍪 We Use Cookies",
@@ -385,6 +386,35 @@
     "loremGenerator": {
       "title": "Lorem Ipsum Generator",
       "description": "Generate placeholder text for your designs",
+      "seo": {
+        "howToUseTitle": "How to Use Lorem Ipsum Generator?",
+        "howToUse": [
+          "Enter the number of paragraphs you need for your design.",
+          "Choose whether to start with the classic 'Lorem ipsum' phrase.",
+          "Click 'Generate' to create the placeholder text.",
+          "Copy the result to your clipboard or download it as a .txt file."
+        ],
+        "featuresTitle": "Lorem Generator Features",
+        "features": [
+          "Custom paragraph count support.",
+          "Traditional Latin-based vocabulary.",
+          "Export functionality for easy integration into design tools.",
+          "Instant one-click generation."
+        ],
+        "privacyTitle": "Private Mockups",
+        "privacy": "Your generator settings and output remain private in your browser session. No data is stored.",
+        "faqTitle": "Lorem ipsum FAQs",
+        "faqs": [
+          {
+            "question": "What is Lorem Ipsum?",
+            "answer": "Lorem Ipsum is a placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+          },
+          {
+            "question": "Does this generator support different languages?",
+            "answer": "While it generates traditional Latin-based text, the interface is available in multiple languages."
+          }
+        ]
+      },
       "paragraphs": "Paragraphs",
       "words": "Words",
       "sentences": "Sentences",
@@ -402,6 +432,34 @@
     "caseConverter": {
       "title": "Case Converter",
       "description": "Convert text between different case styles",
+      "seo": {
+        "howToUseTitle": "How to Use Case Converter",
+        "howToUse": [
+          "Type or paste your text into the input area.",
+          "Click on the conversion buttons or watch real-time updates.",
+          "Copy specific converted text or download all formats."
+        ],
+        "featuresTitle": "Case Converter Features",
+        "features": [
+          "Sentence case, lower case, UPPER CASE transformations.",
+          "Capitalized Case and Title Case support.",
+          "Alternating cAsE and iNVERSE cASE for unique styling.",
+          "One-click copying and TXT file download."
+        ],
+        "privacyTitle": "100% Client-Side Privacy",
+        "privacy": "Your text is processed locally in your browser. No data is sent to our servers, keeping your content 100% private.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is the difference between Title Case and Capitalized Case?",
+            "answer": "Title Case typically follows specific capitalization rules for titles (like 'The Catcher in the Rye'), while Capitalized Case usually capitalizes every single word regardless of its function."
+          },
+          {
+            "question": "Does it support non-English characters?",
+            "answer": "Yes, our Case Converter works with most UTF-8 characters, including accented letters and various alphabets."
+          }
+        ]
+      },
       "inputText": "Input Text",
       "inputPlaceholder": "Enter text to convert...",
       "sentenceCase": "Sentence case",
@@ -420,6 +478,35 @@
     "htmlFormatter": {
       "title": "HTML Formatter",
       "description": "Format and beautify HTML code",
+      "seo": {
+        "howToUseTitle": "How to Use HTML Formatter?",
+        "howToUse": [
+          "Paste your messy HTML code into the input field.",
+          "Click 'Format' to beautify your code with proper indentation.",
+          "Use 'Minify' to compress HTML for production use.",
+          "Copy the result to your clipboard or download it."
+        ],
+        "featuresTitle": "HTML Formatter Features",
+        "features": [
+          "Auto-indentation for better readability.",
+          "Instant minification to save bytes.",
+          "Handles nested tags and attributes correctly.",
+          "Works entirely in your browser for fast processing."
+        ],
+        "privacyTitle": "Client-Side Processing",
+        "privacy": "Your HTML code is processed entirely on your machine. We never store or transmit your code to any server.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Can it fix broken HTML tags?",
+            "answer": "The formatter tries its best to structure the code, but it doesn't automatically fix missing closing tags or syntax errors. It focuses on pretty-printing valid HTML."
+          },
+          {
+            "question": "Is there a limit to the size of HTML I can format?",
+            "answer": "Since it runs in your browser, it can handle very large files (up to several MBs), depending on your computer's memory."
+          }
+        ]
+      },
       "format": "Format",
       "minify": "Minify",
       "inputPlaceholder": "Paste your HTML here...",
@@ -433,6 +520,34 @@
     "cssMinifier": {
       "title": "CSS Minifier",
       "description": "Minify and optimize CSS code",
+      "seo": {
+        "howToUseTitle": "How to Use CSS Minifier",
+        "howToUse": [
+          "Paste your CSS code into the input field.",
+          "Click 'Minify' to compress or 'Beautify' to format.",
+          "Copy the result or check the size savings statistics."
+        ],
+        "featuresTitle": "CSS Minifier Features",
+        "features": [
+          "Removes comments and unnecessary whitespace.",
+          "Compresses selectors and properties into a single line.",
+          "Beautify mode for readable code formatting.",
+          "Real-time file size savings calculation."
+        ],
+        "privacyTitle": "Safe CSS Compression",
+        "privacy": "Your CSS code remains in your browser. We don't track or store any code you process on our platform.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Will minifying my CSS break the site?",
+            "answer": "Minification only removes unnecessary characters like spaces and comments. It does not change the logic of your CSS, so it should not break your site."
+          },
+          {
+            "question": "What is the best way to use minified CSS?",
+            "answer": "Use minified CSS for your production website to reduce page load times and improve performance."
+          }
+        ]
+      },
       "minify": "Minify",
       "beautify": "Beautify",
       "inputPlaceholder": "Paste your CSS here...",
@@ -447,6 +562,35 @@
     "sqlFormatter": {
       "title": "SQL Formatter",
       "description": "Format and beautify SQL queries",
+      "seo": {
+        "howToUseTitle": "How to Use SQL Formatter?",
+        "howToUse": [
+          "Enter your SQL query in the editor.",
+          "Click 'Format' to apply standard indentation and uppercase keywords.",
+          "Use 'Compact' to remove unnecessary whitespace.",
+          "Review the highlighted syntax and copy your formatted query."
+        ],
+        "featuresTitle": "SQL Formatter Features",
+        "features": [
+          "Supports standard SQL keywords and functions.",
+          "Built-in syntax highlighting for better query analysis.",
+          "Case normalization (auto-uppercase keywords).",
+          "Compact mode for reducing query footprint."
+        ],
+        "privacyTitle": "Secure Query Formatting",
+        "privacy": "All SQL formatting is done locally. Your database structure and query logic are never sent to a server.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Which SQL dialects are supported?",
+            "answer": "It supports standard ANSI SQL, which covers the majority of keywords used in MySQL, PostgreSQL, and SQL Server."
+          },
+          {
+            "question": "Does it format complex nested queries?",
+            "answer": "Yes, the formatter handles subqueries and complex joins by applying consistent indentation levels."
+          }
+        ]
+      },
       "format": "Format",
       "compact": "Compact",
       "inputPlaceholder": "Paste your SQL query here...",
@@ -483,6 +627,24 @@
     "numberBaseConverter": {
       "title": "Number Base Converter",
       "description": "Convert numbers between binary, octal, decimal, and hexadecimal",
+      "seo": {
+        "howToUseTitle": "How to Convert Number Bases?",
+        "howToUse": [
+          "Enter a value into any of the base fields (Decimal, Binary, etc.).",
+          "The tool will instantly convert that value into all other bases.",
+          "Click the copy icon next to any field to grab the result.",
+          "Use the clear button to start a new calculation."
+        ],
+        "featuresTitle": "Base Converter Features",
+        "features": [
+          "Real-time bidirectional conversion between 4 major bases.",
+          "Support for Decimal (Base 10), Binary (Base 2), Octal (Base 8), and Hexadecimal (Base 16).",
+          "Clean, responsive interface for fast data entry.",
+          "Large number support for complex calculations."
+        ],
+        "privacyTitle": "Secure Calculations",
+        "privacy": "All conversions happen locally. Your numeric data is never transmitted to any external API."
+      },
       "decimal": "Decimal (Base 10)",
       "binary": "Binary (Base 2)",
       "octal": "Octal (Base 8)",
@@ -538,6 +700,9 @@
       "textInput": "Text Input",
       "inputPlaceholder": "Enter or paste your text here...",
       "statistics": "Statistics",
+      "keywordDensityTitle": "Keyword Density",
+      "keywordDensityDescription": "Top keywords excluding common stop words.",
+      "noKeywords": "Not enough text to analyze.",
       "characters": "Characters",
       "charactersNoSpaces": "Characters (no spaces)",
       "words": "Words",
@@ -554,6 +719,35 @@
     "lineSorter": {
       "title": "Line Sorter",
       "description": "Sort lines alphabetically or numerically",
+      "seo": {
+        "howToUseTitle": "How to Use Line Sorter?",
+        "howToUse": [
+          "Enter your list (one item per line) into the input area.",
+          "Select a sorting method: A-Z, Z-A, Numeric, or Random.",
+          "Use 'Reverse' to flip the current order.",
+          "Click 'Remove Duplicates' to clean up your list instantly."
+        ],
+        "featuresTitle": "Line Sorter Features",
+        "features": [
+          "Multiple sorting algorithms (Lexicographic, Numeric).",
+          "Random shuffle for generating unique sequences.",
+          "Integrated duplicate removal logic.",
+          "Ultra-fast processing for long lists."
+        ],
+        "privacyTitle": "Local List Management",
+        "privacy": "Your lists stay in your browser. We don't track, store, or see the data you sort.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Can I sort numbers correctly?",
+            "answer": "Yes, use the 'Numeric' sort button to ensure numbers like 10 appear after 2, instead of alphabetically."
+          },
+          {
+            "question": "How do I reverse a sorted list?",
+            "answer": "Simply click the 'Reverse' button after sorting to invert the order of all lines."
+          }
+        ]
+      },
       "inputPlaceholder": "Enter lines to sort...",
       "sortAZ": "Sort A-Z",
       "sortZA": "Sort Z-A",
@@ -569,6 +763,35 @@
     "duplicateRemover": {
       "title": "Duplicate Line Remover",
       "description": "Remove duplicate lines from text",
+      "seo": {
+        "howToUseTitle": "How to Use Duplicate Remover?",
+        "howToUse": [
+          "Paste your raw data into the input box.",
+          "Toggle 'Case Sensitive' if you want 'Apple' and 'apple' treated as different.",
+          "Choose whether to keep the 'First Occurred' or 'Last Occurred' line.",
+          "View the summary of lines removed and copy the unique result."
+        ],
+        "featuresTitle": "Duplicate Remover Features",
+        "features": [
+          "Smart case sensitivity toggle.",
+          "Occurrence management (Keep First vs Last).",
+          "Real-time statistics (Original vs Unique vs Removed).",
+          "One-click result copying."
+        ],
+        "privacyTitle": "Private Data Cleaning",
+        "privacy": "All duplicate detection happens locally in your browser. Your sensitive lists are never uploaded.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is the difference between Keep First and Keep Last?",
+            "answer": "'Keep First' retains the first time a duplicate appears and deletes subsequent ones. 'Keep Last' does the opposite, keeping the newest entry."
+          },
+          {
+            "question": "Can this handle white spaces?",
+            "answer": "The tool treats exact matches of lines. If lines have different leading or trailing spaces, they will be considered unique unless you trim them first."
+          }
+        ]
+      },
       "inputPlaceholder": "Enter text with duplicate lines...",
       "removeDuplicates": "Remove Duplicates",
       "caseSensitive": "Case Sensitive",
@@ -585,6 +808,35 @@
     "htmlEntityEncoder": {
       "title": "HTML Entity Encoder",
       "description": "Encode and decode HTML entities",
+      "seo": {
+        "howToUseTitle": "How to Use HTML Entity Encoder?",
+        "howToUse": [
+          "Paste text with special characters to 'Encode' them for HTML.",
+          "Paste encoded entities (like &amp;lt;) to 'Decode' them back to characters.",
+          "Use the Entity Reference table for quickly finding common codes.",
+          "Copy the resulting text for use in your web projects."
+        ],
+        "featuresTitle": "Entity Encoder Features",
+        "features": [
+          "Bidirectional processing (Encode & Decode).",
+          "Comprehensive reference table for common entities.",
+          "Supports special characters, symbols, and currency signs.",
+          "Instant processing without server roundtrips."
+        ],
+        "privacyTitle": "Secure Encoding",
+        "privacy": "Encoding and decoding happen entirely within your local browser environment. No text is sent to our servers.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Why do I need to encode HTML entities?",
+            "answer": "Special characters like < or > have meaning in HTML. Encoding them ensures they are displayed as text rather than being interpreted as tags."
+          },
+          {
+            "question": "Does it support all characters?",
+            "answer": "It supports standard HTML named entities and can decode any valid HTML entity back to its original character."
+          }
+        ]
+      },
       "encode": "Encode",
       "decode": "Decode",
       "inputPlaceholder": "Enter text to encode/decode...",
@@ -617,6 +869,35 @@
     "csvToJson": {
       "title": "CSV to JSON Converter",
       "description": "Convert CSV data to JSON format",
+      "seo": {
+        "howToUseTitle": "How to Use CSV to JSON Converter",
+        "howToUse": [
+          "Paste your CSV data into the input textarea.",
+          "Select the correct delimiter (comma, semicolon, or tab).",
+          "Confirm if the first row contains headers.",
+          "Click 'Convert' and copy the resulting JSON."
+        ],
+        "featuresTitle": "CSV to JSON Features",
+        "features": [
+          "Flexible delimiter support.",
+          "Automatic header detection.",
+          "Handles quoted strings and special characters.",
+          "Download results as a .json file."
+        ],
+        "privacyTitle": "Local CSV Processing",
+        "privacy": "All CSV data is parsed locally. Your data is never uploaded, ensuring confidential spreadsheets remain private.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Can it handle large CSV files?",
+            "answer": "The tool works entirely in your browser. For very large files (e.g., hundreds of megabytes), performance may vary based on your system memory."
+          },
+          {
+            "question": "Does it support different delimiters?",
+            "answer": "Yes, you can choose between Comma, Semicolon, and Tab as delimiters for your CSV data."
+          }
+        ]
+      },
       "csvInput": "CSV Input",
       "jsonOutput": "JSON Output",
       "csvPlaceholder": "Paste CSV data here...",
@@ -646,6 +927,34 @@
     "creditCardValidator": {
       "title": "Credit Card Validator",
       "description": "Validate credit card numbers using Luhn algorithm",
+      "seo": {
+        "howToUseTitle": "How to Use Credit Card Validator",
+        "howToUse": [
+          "Enter the credit card number you wish to verify.",
+          "Click 'Validate' to perform the Luhn algorithm check.",
+          "Review the validity status and detected card type."
+        ],
+        "featuresTitle": "Credit Card Validator Features",
+        "features": [
+          "Uses the industry-standard Luhn algorithm.",
+          "Identifies major card brands (Visa, Mastercard, Amex, Discover).",
+          "Sample card numbers included for testing.",
+          "Completely private client-side validation."
+        ],
+        "privacyTitle": "Secure Validation",
+        "privacy": "Credit card numbers are processed only on your computer. We do not store, log, or transmit any card information.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Does this validator check the bank balance?",
+            "answer": "No. This tool only checks the mathematical validity of the card number using the Luhn algorithm. It does not contact any financial institution or check balances."
+          },
+          {
+            "question": "Is it safe to enter my card number here?",
+            "answer": "Yes, because the validation happens entirely in your browser using JavaScript. Your card number is never sent to our servers."
+          }
+        ]
+      },
       "cardNumber": "Card Number",
       "cardPlaceholder": "Enter card number...",
       "validate": "Validate",
@@ -923,6 +1232,35 @@
     "colorConverter": {
       "title": "Color Converter",
       "description": "Convert colors between HEX, RGB, HSL and other formats",
+      "seo": {
+        "howToUseTitle": "How to Use Color Converter",
+        "howToUse": [
+          "Select a color using the picker or enter a value in HEX, RGB, or HSL.",
+          "Instantly see the converted values in various formats.",
+          "Explore shades, complementary colors, and harmonies.",
+          "Copy any color value with a single click."
+        ],
+        "featuresTitle": "Color Converter Features",
+        "features": [
+          "Support for HEX, RGB, HSL, HSV, and CMYK.",
+          "Visual color picker and quick palette.",
+          "Generates 10% to 90% shades automatically.",
+          "Analogous, triadic, and complementary harmony suggestions."
+        ],
+        "privacyTitle": "Browser-Based Conversion",
+        "privacy": "Color selections are processed locally. No personal data or preferences are tracked on our servers.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is CMYK used for?",
+            "answer": "CMYK is primarily used for color printing. Unlike digital screens (RGB), printers use Cyan, Magenta, Yellow, and Black inks to create colors."
+          },
+          {
+            "question": "How do I choose a harmonious color scheme?",
+            "answer": "Use our harmony suggestions! Complementary colors create high contrast, while analogous colors provide a more harmonious and soothing look."
+          }
+        ]
+      },
       "pickColor": "Pick Color",
       "formats": "Color Formats",
       "hex": "HEX",
@@ -1037,6 +1375,35 @@
     "passwordGenerator": {
       "title": "Password Generator",
       "description": "Generate secure and random passwords",
+      "seo": {
+        "howToUseTitle": "How to Generate Secure Passwords?",
+        "howToUse": [
+          "Choose between 'Password' (random characters) or 'Passphrase' (random words).",
+          "Adjust the length slider and toggle character sets (Numbers, Symbols, etc.).",
+          "For passphrases, select the number of words and a separator.",
+          "Instantly copy your strong new password or generate multiple at once."
+        ],
+        "featuresTitle": "Secure Generator Features",
+        "features": [
+          "Cryptographically secure randomness using Web Crypto API.",
+          "Rich customization: Exclude similar (i, l, 1) or ambiguous characters.",
+          "Detailed strength analysis with entropy bits and time-to-crack estimates.",
+          "Passphrase mode for memorable yet highly secure keys."
+        ],
+        "privacyTitle": "Local Encryption Only",
+        "privacy": "Passwords are generated using your computer's entropy. They are never transmitted, logged, or visible to our team.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Which is better: Password or Passphrase?",
+            "answer": "Passwords are better for machines and password managers. Passphrases are easier for humans to remember while maintaining extreme security through length."
+          },
+          {
+            "question": "What is entropy?",
+            "answer": "Entropy is a measure of randomness. The higher the entropy (in bits), the more difficult it is for a hacker to guess your password using brute force."
+          }
+        ]
+      },
       "settings": "Password Settings",
       "length": "Length",
       "characters": "Characters",
@@ -1090,6 +1457,35 @@
     "hashGenerator": {
       "title": "Hash Generator",
       "description": "Generate cryptographic hashes (MD5, SHA-1, SHA-256, SHA-512)",
+      "seo": {
+        "howToUseTitle": "How to Use Hash Generator?",
+        "howToUse": [
+          "Paste your text into the input field or upload a file.",
+          "Check the real-time hash results for MD5, SHA-1, SHA-256, and SHA-512.",
+          "Use the comparison tool to verify if two hashes match.",
+          "Enable HMAC to generate keyed-hash message authentication codes."
+        ],
+        "featuresTitle": "Hash Generator Features",
+        "features": [
+          "Supports multiple algorithms: MD5, SHA-1, SHA-256, SHA-512.",
+          "File hashing capability for integrity verification.",
+          "Built-in HMAC support for secure authentication.",
+          "Instant hash comparison and status indicators."
+        ],
+        "privacyTitle": "Zero-Upload Security",
+        "privacy": "All hashing calculations are performed locally in your browser. Your sensitive text and files never leave your computer.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Is it safe to hash sensitive passwords here?",
+            "answer": "Yes, our tool runs 100% on the client side. We don't have a backend to receive your data, ensuring your secrets remain private."
+          },
+          {
+            "question": "Which algorithm is the most secure?",
+            "answer": "SHA-256 and SHA-512 are currently considered industry standard for security. MD5 and SHA-1 should only be used for non-security related integrity checks."
+          }
+        ]
+      },
       "input": "Text or File Input",
       "inputPlaceholder": "Enter text to hash...",
       "uploadFile": "Upload File",

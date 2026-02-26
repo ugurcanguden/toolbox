@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
-import { Button, Card, CardHeader, CardTitle, CardContent, JsonLdTool, ToolSeoContent, ToolFaqSection } from '@/components';
+import { Button, Card, CardHeader, CardTitle, CardContent, JsonLdTool, ToolSeoContent, ToolFaqSection, PrivacyBadge } from '@/components';
 import { Copy, Check, RefreshCw, Trash2, Sparkles, AlertCircle } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
 import { useParams } from 'next/navigation';
@@ -142,9 +142,13 @@ export default function UuidGeneratorPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
-        <p className="text-muted-foreground">{t('description')}</p>
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
+          <p className="text-muted-foreground">{t('description')}</p>
+        </div>
+        <PrivacyBadge />
       </div>
 
       {/* Controls Card */}
@@ -339,84 +343,6 @@ export default function UuidGeneratorPage() {
         </CardContent>
       </Card>
 
-      {/* Info Section */}
-      <div className="mt-8 p-4 bg-muted/30 rounded-lg">
-        <h3 className="font-semibold mb-2">💡 About UUIDs</h3>
-        <p className="text-sm text-muted-foreground mb-4">
-          UUID (Universally Unique Identifier) is a 128-bit label used for information in computer systems. 
-          The probability of generating duplicate UUIDs is extremely low.
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-          <div>
-            <strong className="block mb-2">UUID Format (v4):</strong>
-            <div className="space-y-2 text-muted-foreground font-mono text-xs">
-              <div className="bg-background p-2 rounded">
-                xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx
-              </div>
-              <div className="space-y-1 pl-2">
-                <div>• x: any hexadecimal digit</div>
-                <div>• 4: version number (v4)</div>
-                <div>• y: one of 8, 9, A, or B</div>
-                <div>• Total: 36 characters with hyphens</div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <strong className="block mb-2">Common Use Cases:</strong>
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-              <li>Database primary keys</li>
-              <li>Session identifiers</li>
-              <li>File naming</li>
-              <li>API request tracking</li>
-              <li>Distributed systems</li>
-              <li>Transaction IDs</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-4 pt-4 border-t">
-          <strong className="block mb-2">Features:</strong>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <span className="text-green-500">✓</span>
-              <span>RFC 4122 compliant</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-green-500">✓</span>
-              <span>Cryptographically secure</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-green-500">✓</span>
-              <span>No external dependencies</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <span className="text-green-500">✓</span>
-              <span>Bulk generation</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-4 pt-4 border-t">
-          <strong className="block mb-2">Example:</strong>
-          <div className="space-y-2 text-xs">
-            <div>
-              <span className="text-muted-foreground">With hyphens:</span>
-              <code className="ml-2 font-mono">550e8400-e29b-41d4-a716-446655440000</code>
-            </div>
-            <div>
-              <span className="text-muted-foreground">Without hyphens:</span>
-              <code className="ml-2 font-mono">550e8400e29b41d4a716446655440000</code>
-            </div>
-            <div>
-              <span className="text-muted-foreground">Uppercase:</span>
-              <code className="ml-2 font-mono">550E8400-E29B-41D4-A716-446655440000</code>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <ToolSeoContent toolId="uuidGenerator" />
       <ToolFaqSection toolId="uuidGenerator" />
 
@@ -428,12 +354,6 @@ export default function UuidGeneratorPage() {
           description: t('description'),
           category: 'utilities'
         }}
-        faqs={[
-          {
-            question: locale === 'tr' ? "UUID v4 nedir?" : "What is UUID v4?",
-            answer: locale === 'tr' ? "UUID v4, tamamen rastgele sayılardan oluşan bir benzersiz tanımlayıcı versiyonudur." : "UUID v4 is a version of unique identifier consisting of completely random numbers."
-          }
-        ]}
       />
     </div>
   );

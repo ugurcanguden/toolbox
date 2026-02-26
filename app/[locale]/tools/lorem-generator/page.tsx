@@ -4,12 +4,19 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { FileText, Copy, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { useCopyToClipboard } from "@/hooks";
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 
 const LOREM_WORDS = [
   "lorem", "ipsum", "dolor", "sit", "amet", "consectetur", "adipiscing", "elit",
@@ -25,6 +32,8 @@ const LOREM_WORDS = [
 export default function LoremGeneratorPage() {
   const t = useTranslations("tools.loremGenerator");
   const tCommon = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
   const { copy } = useCopyToClipboard();
 
   const [paragraphCount, setParagraphCount] = useState(3);
@@ -85,9 +94,12 @@ export default function LoremGeneratorPage() {
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-5xl mx-auto space-y-6">
         {/* Header */}
-        <div>
-          <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
+            <p className="text-muted-foreground">{t("description")}</p>
+          </div>
+          <PrivacyBadge />
         </div>
 
         {/* Options */}
@@ -151,12 +163,18 @@ export default function LoremGeneratorPage() {
         )}
 
         {/* Info */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("info.title")}</CardTitle>
-            <CardDescription>{t("info.description")}</CardDescription>
-          </CardHeader>
-        </Card>
+        <ToolSeoContent toolId="loremGenerator" />
+        <ToolFaqSection toolId="loremGenerator" />
+
+        <JsonLdTool
+          locale={locale}
+          tool={{
+            id: "lorem-generator",
+            title: t("title"),
+            description: t("description"),
+            category: "utilities"
+          }}
+        />
       </div>
     </div>
   );

@@ -4,9 +4,16 @@ import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { Database, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useCopyToClipboard } from "@/hooks";
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 
 const SQL_KEYWORDS = [
   "SELECT", "FROM", "WHERE", "JOIN", "LEFT", "RIGHT", "INNER", "OUTER",
@@ -26,6 +33,8 @@ const SQL_FUNCTIONS = [
 export default function SqlFormatterPage() {
   const t = useTranslations("tools.sqlFormatter");
   const tCommon = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
   const { copy } = useCopyToClipboard();
 
   const [input, setInput] = useState("");
@@ -178,9 +187,12 @@ export default function SqlFormatterPage() {
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
         {/* Header */}
-        <div>
-          <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
+            <p className="text-muted-foreground">{t("description")}</p>
+          </div>
+          <PrivacyBadge />
         </div>
 
         {/* Input/Output Grid */}
@@ -258,13 +270,18 @@ export default function SqlFormatterPage() {
           </Card>
         </div>
 
-        {/* Info */}
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("info.title")}</CardTitle>
-            <CardDescription>{t("info.description")}</CardDescription>
-          </CardHeader>
-        </Card>
+        <ToolSeoContent toolId="sqlFormatter" />
+        <ToolFaqSection toolId="sqlFormatter" />
+
+        <JsonLdTool
+          locale={locale}
+          tool={{
+            id: "sql-formatter",
+            title: t("title"),
+            description: t("description"),
+            category: "utilities"
+          }}
+        />
       </div>
     </div>
   );

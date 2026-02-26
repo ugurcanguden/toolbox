@@ -5,17 +5,21 @@ import { useTranslations } from 'next-intl';
 import { 
   Card, 
   CardContent, 
-  CardDescription, 
   CardHeader, 
   CardTitle,
   Button,
   Slider,
   Checkbox,
   Label,
-  Input
-} from '@/components/ui';
+  Input,
+  ToolSeoContent,
+  ToolFaqSection,
+  JsonLdTool,
+  PrivacyBadge
+} from '@/components';
 import { Copy, Check, Shield, AlertTriangle, Info, RefreshCw, Trash2 } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
+import { useParams } from 'next/navigation';
 
 interface PasswordOptions {
   length: number;
@@ -57,6 +61,8 @@ const WORDLIST = [
 
 export default function PasswordGeneratorPage() {
   const t = useTranslations('tools.passwordGenerator');
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
   const { copy } = useCopyToClipboard();
   
   const [mode, setMode] = useState<'password' | 'passphrase'>('password');
@@ -260,43 +266,13 @@ export default function PasswordGeneratorPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-6xl">
       {/* Header */}
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
-            <p className="text-muted-foreground">{t('description')}</p>
-          </div>
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 text-sm font-medium">
-            <Shield className="w-4 h-4" />
-            100% Client-Side Only (No Server Tracking)
-          </div>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
+          <p className="text-muted-foreground">{t('description')}</p>
         </div>
+        <PrivacyBadge />
       </div>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Curiobox Secure Password Generator",
-            "applicationCategory": "SecurityApplication",
-            "operatingSystem": "All",
-            "offers": {
-              "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
-            },
-            "description": "Generate robust, uncrackable passwords and passphrases instantly. 100% Secure and strictly client-side.",
-            "aggregateRating": {
-              "@type": "AggregateRating",
-              "ratingValue": "4.9",
-              "ratingCount": "1950"
-            }
-          })
-        }}
-      />
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Settings Panel */}
@@ -660,84 +636,20 @@ export default function PasswordGeneratorPage() {
             </CardContent>
           </Card>
 
-          {/* Info Card */}
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Info className="w-5 h-5" />
-                {t('aboutTitle')}
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                {t('aboutDescription')}
-              </p>
-              
-              <div>
-                <h3 className="font-semibold mb-2 text-sm">{t('tips')}</h3>
-                <ul className="space-y-1 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('tip1')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('tip2')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('tip3')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('tip4')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('tip5')}</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{t('tip6')}</span>
-                  </li>
-                </ul>
-              </div>
-            </CardContent>
-          </Card>
+          <ToolSeoContent toolId="passwordGenerator" />
+          <ToolFaqSection toolId="passwordGenerator" />
         </div>
       </div>
 
-      {/* SEO & Guide Section */}
-      <article className="mt-16 prose prose-slate dark:prose-invert max-w-none">
-        <h2 className="text-2xl font-bold mb-4">How to Create a Strong & Secure Password</h2>
-        <p>
-          In today&apos;s digital landscape, your password is often the only barrier between your personal data and malicious actors. Generating a secure password isn&apos;t just about making it hard to guess—it&apos;s about making it mathematically improbable for computers to crack. Our <strong>Secure Password Generator</strong> helps you achieve exactly that, providing robust strings of characters instantly.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-8 mb-3">Why Use a Password Generator?</h3>
-        <p>
-          Human brains are exceptionally poor at generating true randomness. When asked to create a password, people predictably use names, birthdates, dictionary words, and simple patterns like &quot;QWERTY&quot; or &quot;123456&quot;. A Password Generator eliminates human predictability by using cryptographic algorithms to ensure maximum entropy.
-        </p>
-        <ul className="list-disc pl-6 mb-6">
-          <li><strong>Length Over Complexity:</strong> The single most important factor in password strength is length. A 16-character password with only lowercase letters takes infinitely longer to crack than an 8-character password with symbols.</li>
-          <li><strong>Defeating Dictionary Attacks:</strong> Hackers use automated tools to try millions of common word combinations per second. A randomly generated string completely bypasses this vulnerability.</li>
-          <li><strong>Unique for Every Site:</strong> Reusing passwords means a breach on a minor website compromises your banking and email accounts. A generator makes it easy to have a unique, strong password for every service.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-8 mb-3">Password vs. Passphrase</h3>
-        <p>
-          Our tool offers two distinct modes: passwords and passphrases. 
-        </p>
-        <ul className="list-disc pl-6 mb-6">
-          <li><strong>Passwords</strong> are random strings of abstract characters (e.g., <code>k8#jL$9z!2P</code>). They are highly secure but almost impossible to memorize. They are best used in conjunction with a Password Manager.</li>
-          <li><strong>Passphrases</strong> consist of 3-5 random dictionary words (e.g., <code>correct-horse-battery-staple</code>). Because of their extreme length, they are highly resistant to brute-force attacks, yet they are much easier for humans to remember and type on mobile devices.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-8 mb-3">100% Client-Side Privacy</h3>
-        <p>
-          Security tools require absolute trust. Unlike many online utilities, our Password Generator operates <strong>entirely within your browser</strong>. No data is ever transmitted to a server, no logs are kept, and the passwords disappear the moment you close the tab. What happens on your device stays on your device.
-        </p>
-      </article>
+      <JsonLdTool
+        locale={locale}
+        tool={{
+          id: "password-generator",
+          title: t("title"),
+          description: t("description"),
+          category: "utilities"
+        }}
+      />
     </div>
   );
 }

@@ -3,7 +3,7 @@
     "appName": "Toolbox",
     "appDescription": "Una colección de herramientas útiles para todos",
     "language": "Idioma",
-    "theme": "Tema",
+    "theme": "Theme",
     "light": "Claro",
     "dark": "Oscuro",
     "system": "Sistema",
@@ -35,14 +35,17 @@
     "loadingTool": "Cargando Herramienta",
     "pleaseWait": "Por favor, espere un momento...",
     "searchTools": "Search tools",
-    "privacyClientSideOnly": "100% Client-Side Only (No Server Tracking)"
+    "privacyClientSideOnly": "100% Client-Side Only (No Server Tracking)",
+    "home": "Home"
   },
   "cookieConsent": {
     "title": "🍪 Usamos Cookies",
     "description": "Utilizamos cookies y tecnologías similares para mejorar su experiencia, mostrar anuncios personalizados y analizar el tráfico. Al hacer clic en 'Aceptar', usted acepta el uso de cookies.",
     "accept": "Aceptar Todo",
     "decline": "Rechazar",
-    "learnMore": "Más Información"
+    "learnMore": "Más Información",
+    "privacyPolicy": "Privacy Policy",
+    "close": "Close"
   },
   "navigation": {
     "home": "Inicio",
@@ -153,7 +156,43 @@
       "clear": "Limpiar",
       "copy": "Copiar",
       "invalidJson": "JSON Inválido",
-      "validJson": "JSON Válido"
+      "validJson": "JSON Válido",
+      "seo": {
+        "howToUseTitle": "How to Use JSON Formatter",
+        "howToUse": [
+          "Paste your raw JSON code into the editor.",
+          "Click 'Format' to beautify or 'Minify' to compress.",
+          "The 'Tree' view allows you to explore complex objects easily."
+        ],
+        "featuresTitle": "Advanced JSON Features",
+        "features": [
+          "Syntax highlighting and error detection.",
+          "Collapsible tree view for nested data.",
+          "One-click 'Escape' for stringified JSON.",
+          "Secure client-side validation."
+        ],
+        "privacyTitle": "Local Processing Only",
+        "privacy": "All JSON formatting and validation happens in your browser. Your data is never sent to our servers, ensuring your sensitive API responses and configuration files stay private.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "How do I format JSON in one click?",
+            "answer": "Simply paste your JSON code into the editor and click the 'Format' button. The tool will instantly beautify your JSON with proper indentation."
+          },
+          {
+            "question": "Can I validate JSON syntax errors?",
+            "answer": "Yes! The formatter automatically highlights syntax errors as you type, showing you exactly which line contains the invalid JSON."
+          },
+          {
+            "question": "What is the difference between Format and Minify?",
+            "answer": "Format (or Beautify) adds indentation and line breaks to make JSON readable. Minify removes all whitespace to create the smallest possible JSON string, ideal for production APIs."
+          },
+          {
+            "question": "Can I handle very large JSON files?",
+            "answer": "Yes, the editor supports large JSON files efficiently. For files larger than a few MB, we recommend using the tree view to navigate the structure without needing to scroll through raw text."
+          }
+        ]
+      }
     },
     "xmlFormatter": {
       "title": "Formateador XML",
@@ -360,6 +399,35 @@
       "info": {
         "title": "Acerca de Lorem Ipsum",
         "description": "Lorem Ipsum es un texto de relleno utilizado en la industria de impresión y composición tipográfica desde la década de 1500."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use Lorem Ipsum Generator?",
+        "howToUse": [
+          "Enter the number of paragraphs you need for your design.",
+          "Choose whether to start with the classic 'Lorem ipsum' phrase.",
+          "Click 'Generate' to create the placeholder text.",
+          "Copy the result to your clipboard or download it as a .txt file."
+        ],
+        "featuresTitle": "Lorem Generator Features",
+        "features": [
+          "Custom paragraph count support.",
+          "Traditional Latin-based vocabulary.",
+          "Export functionality for easy integration into design tools.",
+          "Instant one-click generation."
+        ],
+        "privacyTitle": "Private Mockups",
+        "privacy": "Your generator settings and output remain private in your browser session. No data is stored.",
+        "faqTitle": "Lorem ipsum FAQs",
+        "faqs": [
+          {
+            "question": "What is Lorem Ipsum?",
+            "answer": "Lorem Ipsum is a placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups."
+          },
+          {
+            "question": "Does this generator support different languages?",
+            "answer": "While it generates traditional Latin-based text, the interface is available in multiple languages."
+          }
+        ]
       }
     },
     "caseConverter": {
@@ -378,6 +446,34 @@
       "info": {
         "title": "Acerca del Convertidor de Mayúsculas",
         "description": "Convierte texto entre diferentes estilos de mayúsculas instantáneamente."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use Case Converter",
+        "howToUse": [
+          "Type or paste your text into the input area.",
+          "Click on the conversion buttons or watch real-time updates.",
+          "Copy specific converted text or download all formats."
+        ],
+        "featuresTitle": "Case Converter Features",
+        "features": [
+          "Sentence case, lower case, UPPER CASE transformations.",
+          "Capitalized Case and Title Case support.",
+          "Alternating cAsE and iNVERSE cASE for unique styling.",
+          "One-click copying and TXT file download."
+        ],
+        "privacyTitle": "100% Client-Side Privacy",
+        "privacy": "Your text is processed locally in your browser. No data is sent to our servers, keeping your content 100% private.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is the difference between Title Case and Capitalized Case?",
+            "answer": "Title Case typically follows specific capitalization rules for titles (like 'The Catcher in the Rye'), while Capitalized Case usually capitalizes every single word regardless of its function."
+          },
+          {
+            "question": "Does it support non-English characters?",
+            "answer": "Yes, our Case Converter works with most UTF-8 characters, including accented letters and various alphabets."
+          }
+        ]
       }
     },
     "htmlFormatter": {
@@ -391,6 +487,35 @@
       "info": {
         "title": "Acerca del Formateador HTML",
         "description": "Formatear, embellecer y minificar código HTML con sangría adecuada."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use HTML Formatter?",
+        "howToUse": [
+          "Paste your messy HTML code into the input field.",
+          "Click 'Format' to beautify your code with proper indentation.",
+          "Use 'Minify' to compress HTML for production use.",
+          "Copy the result to your clipboard or download it."
+        ],
+        "featuresTitle": "HTML Formatter Features",
+        "features": [
+          "Auto-indentation for better readability.",
+          "Instant minification to save bytes.",
+          "Handles nested tags and attributes correctly.",
+          "Works entirely in your browser for fast processing."
+        ],
+        "privacyTitle": "Client-Side Processing",
+        "privacy": "Your HTML code is processed entirely on your machine. We never store or transmit your code to any server.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Can it fix broken HTML tags?",
+            "answer": "The formatter tries its best to structure the code, but it doesn't automatically fix missing closing tags or syntax errors. It focuses on pretty-printing valid HTML."
+          },
+          {
+            "question": "Is there a limit to the size of HTML I can format?",
+            "answer": "Since it runs in your browser, it can handle very large files (up to several MBs), depending on your computer's memory."
+          }
+        ]
       }
     },
     "cssMinifier": {
@@ -405,6 +530,34 @@
       "info": {
         "title": "Acerca del Minificador CSS",
         "description": "Minifica CSS para reducir el tamaño del archivo y mejorar la velocidad de carga."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use CSS Minifier",
+        "howToUse": [
+          "Paste your CSS code into the input field.",
+          "Click 'Minify' to compress or 'Beautify' to format.",
+          "Copy the result or check the size savings statistics."
+        ],
+        "featuresTitle": "CSS Minifier Features",
+        "features": [
+          "Removes comments and unnecessary whitespace.",
+          "Compresses selectors and properties into a single line.",
+          "Beautify mode for readable code formatting.",
+          "Real-time file size savings calculation."
+        ],
+        "privacyTitle": "Safe CSS Compression",
+        "privacy": "Your CSS code remains in your browser. We don't track or store any code you process on our platform.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Will minifying my CSS break the site?",
+            "answer": "Minification only removes unnecessary characters like spaces and comments. It does not change the logic of your CSS, so it should not break your site."
+          },
+          {
+            "question": "What is the best way to use minified CSS?",
+            "answer": "Use minified CSS for your production website to reduce page load times and improve performance."
+          }
+        ]
       }
     },
     "sqlFormatter": {
@@ -420,6 +573,35 @@
       "info": {
         "title": "Acerca del Formateador SQL",
         "description": "Formatear consultas SQL con sangría adecuada y resaltado de palabras clave."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use SQL Formatter?",
+        "howToUse": [
+          "Enter your SQL query in the editor.",
+          "Click 'Format' to apply standard indentation and uppercase keywords.",
+          "Use 'Compact' to remove unnecessary whitespace.",
+          "Review the highlighted syntax and copy your formatted query."
+        ],
+        "featuresTitle": "SQL Formatter Features",
+        "features": [
+          "Supports standard SQL keywords and functions.",
+          "Built-in syntax highlighting for better query analysis.",
+          "Case normalization (auto-uppercase keywords).",
+          "Compact mode for reducing query footprint."
+        ],
+        "privacyTitle": "Secure Query Formatting",
+        "privacy": "All SQL formatting is done locally. Your database structure and query logic are never sent to a server.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Which SQL dialects are supported?",
+            "answer": "It supports standard ANSI SQL, which covers the majority of keywords used in MySQL, PostgreSQL, and SQL Server."
+          },
+          {
+            "question": "Does it format complex nested queries?",
+            "answer": "Yes, the formatter handles subqueries and complex joins by applying consistent indentation levels."
+          }
+        ]
       }
     },
     "imageToBase64": {
@@ -457,6 +639,24 @@
       "info": {
         "title": "Acerca del Convertidor de Base Numérica",
         "description": "Convierte números entre diferentes bases: binario (0-1), octal (0-7), decimal (0-9) y hexadecimal (0-9, A-F)."
+      },
+      "seo": {
+        "howToUseTitle": "How to Convert Number Bases?",
+        "howToUse": [
+          "Enter a value into any of the base fields (Decimal, Binary, etc.).",
+          "The tool will instantly convert that value into all other bases.",
+          "Click the copy icon next to any field to grab the result.",
+          "Use the clear button to start a new calculation."
+        ],
+        "featuresTitle": "Base Converter Features",
+        "features": [
+          "Real-time bidirectional conversion between 4 major bases.",
+          "Support for Decimal (Base 10), Binary (Base 2), Octal (Base 8), and Hexadecimal (Base 16).",
+          "Clean, responsive interface for fast data entry.",
+          "Large number support for complex calculations."
+        ],
+        "privacyTitle": "Secure Calculations",
+        "privacy": "All conversions happen locally. Your numeric data is never transmitted to any external API."
       }
     },
     "wordCounter": {
@@ -476,7 +676,46 @@
       "info": {
         "title": "Acerca del Contador de Palabras",
         "description": "Cuenta palabras, caracteres, oraciones y párrafos. También estima el tiempo de lectura."
-      }
+      },
+      "seo": {
+        "howToUseTitle": "How to Use Word Counter",
+        "howToUse": [
+          "Paste or type your text into the input area.",
+          "Check the statistics box for real-time updates on word, character, and line counts.",
+          "Use the 'Clear' button to start over with new text."
+        ],
+        "featuresTitle": "Key Features of Word Counter",
+        "features": [
+          "Real-time word and character counting.",
+          "Line and paragraph count detection.",
+          "Reading time and speaking time estimation.",
+          "100% Client-side processing for ultimate privacy."
+        ],
+        "privacyTitle": "Your Data is Safe",
+        "privacy": "Our Word Counter tool processes all text locally within your browser. We never upload your content to any server, ensuring your sensitive documents stay private and secure.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "How accurate is the word counter?",
+            "answer": "Our word counter splits text by whitespace and punctuation to give an accurate count. It handles multiple spaces, newlines, and hyphenated words correctly."
+          },
+          {
+            "question": "Does the word counter work offline?",
+            "answer": "Yes! All processing happens entirely in your browser. Once the page loads, you can use the word counter without an internet connection."
+          },
+          {
+            "question": "Can I count characters without spaces?",
+            "answer": "Absolutely. The tool displays both total characters (including spaces) and characters excluding spaces in the statistics panel."
+          },
+          {
+            "question": "Is my text saved anywhere?",
+            "answer": "No. Your text is never sent to any server. Everything is processed client-side, so your content remains completely private."
+          }
+        ]
+      },
+      "keywordDensityTitle": "Keyword Density",
+      "keywordDensityDescription": "Top keywords excluding common stop words.",
+      "noKeywords": "Not enough text to analyze."
     },
     "lineSorter": {
       "title": "Ordenador de Líneas",
@@ -491,6 +730,35 @@
       "info": {
         "title": "Acerca del Ordenador de Líneas",
         "description": "Ordena líneas de texto alfabética, numérica o aleatoriamente. También admite invertir y eliminar duplicados."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use Line Sorter?",
+        "howToUse": [
+          "Enter your list (one item per line) into the input area.",
+          "Select a sorting method: A-Z, Z-A, Numeric, or Random.",
+          "Use 'Reverse' to flip the current order.",
+          "Click 'Remove Duplicates' to clean up your list instantly."
+        ],
+        "featuresTitle": "Line Sorter Features",
+        "features": [
+          "Multiple sorting algorithms (Lexicographic, Numeric).",
+          "Random shuffle for generating unique sequences.",
+          "Integrated duplicate removal logic.",
+          "Ultra-fast processing for long lists."
+        ],
+        "privacyTitle": "Local List Management",
+        "privacy": "Your lists stay in your browser. We don't track, store, or see the data you sort.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Can I sort numbers correctly?",
+            "answer": "Yes, use the 'Numeric' sort button to ensure numbers like 10 appear after 2, instead of alphabetically."
+          },
+          {
+            "question": "How do I reverse a sorted list?",
+            "answer": "Simply click the 'Reverse' button after sorting to invert the order of all lines."
+          }
+        ]
       }
     },
     "duplicateRemover": {
@@ -507,6 +775,35 @@
       "info": {
         "title": "Acerca del Eliminador de Duplicados",
         "description": "Elimina líneas duplicadas del texto preservando el orden. Elige mantener la primera o última aparición."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use Duplicate Remover?",
+        "howToUse": [
+          "Paste your raw data into the input box.",
+          "Toggle 'Case Sensitive' if you want 'Apple' and 'apple' treated as different.",
+          "Choose whether to keep the 'First Occurred' or 'Last Occurred' line.",
+          "View the summary of lines removed and copy the unique result."
+        ],
+        "featuresTitle": "Duplicate Remover Features",
+        "features": [
+          "Smart case sensitivity toggle.",
+          "Occurrence management (Keep First vs Last).",
+          "Real-time statistics (Original vs Unique vs Removed).",
+          "One-click result copying."
+        ],
+        "privacyTitle": "Private Data Cleaning",
+        "privacy": "All duplicate detection happens locally in your browser. Your sensitive lists are never uploaded.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is the difference between Keep First and Keep Last?",
+            "answer": "'Keep First' retains the first time a duplicate appears and deletes subsequent ones. 'Keep Last' does the opposite, keeping the newest entry."
+          },
+          {
+            "question": "Can this handle white spaces?",
+            "answer": "The tool treats exact matches of lines. If lines have different leading or trailing spaces, they will be considered unique unless you trim them first."
+          }
+        ]
       }
     },
     "htmlEntityEncoder": {
@@ -521,6 +818,35 @@
       "info": {
         "title": "Acerca del Codificador de Entidades HTML",
         "description": "Convierte caracteres especiales a entidades HTML y viceversa. Útil para mostrar caracteres especiales en HTML."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use HTML Entity Encoder?",
+        "howToUse": [
+          "Paste text with special characters to 'Encode' them for HTML.",
+          "Paste encoded entities (like &amp;lt;) to 'Decode' them back to characters.",
+          "Use the Entity Reference table for quickly finding common codes.",
+          "Copy the resulting text for use in your web projects."
+        ],
+        "featuresTitle": "Entity Encoder Features",
+        "features": [
+          "Bidirectional processing (Encode & Decode).",
+          "Comprehensive reference table for common entities.",
+          "Supports special characters, symbols, and currency signs.",
+          "Instant processing without server roundtrips."
+        ],
+        "privacyTitle": "Secure Encoding",
+        "privacy": "Encoding and decoding happen entirely within your local browser environment. No text is sent to our servers.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Why do I need to encode HTML entities?",
+            "answer": "Special characters like < or > have meaning in HTML. Encoding them ensures they are displayed as text rather than being interpreted as tags."
+          },
+          {
+            "question": "Does it support all characters?",
+            "answer": "It supports standard HTML named entities and can decode any valid HTML entity back to its original character."
+          }
+        ]
       }
     },
     "jsonToCsv": {
@@ -554,7 +880,39 @@
       "info": {
         "title": "Acerca de CSV a JSON",
         "description": "Convierte datos CSV a formato JSON. Detecta automáticamente encabezados y delimitadores."
-      }
+      },
+      "seo": {
+        "howToUseTitle": "How to Use CSV to JSON Converter",
+        "howToUse": [
+          "Paste your CSV data into the input textarea.",
+          "Select the correct delimiter (comma, semicolon, or tab).",
+          "Confirm if the first row contains headers.",
+          "Click 'Convert' and copy the resulting JSON."
+        ],
+        "featuresTitle": "CSV to JSON Features",
+        "features": [
+          "Flexible delimiter support.",
+          "Automatic header detection.",
+          "Handles quoted strings and special characters.",
+          "Download results as a .json file."
+        ],
+        "privacyTitle": "Local CSV Processing",
+        "privacy": "All CSV data is parsed locally. Your data is never uploaded, ensuring confidential spreadsheets remain private.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Can it handle large CSV files?",
+            "answer": "The tool works entirely in your browser. For very large files (e.g., hundreds of megabytes), performance may vary based on your system memory."
+          },
+          {
+            "question": "Does it support different delimiters?",
+            "answer": "Yes, you can choose between Comma, Semicolon, and Tab as delimiters for your CSV data."
+          }
+        ]
+      },
+      "comma": "Virgül (,)",
+      "semicolon": "Noktalı Virgül (;)",
+      "tab": "Tab"
     },
     "yamlFormatter": {
       "title": "Formateador YAML",
@@ -588,6 +946,34 @@
       "info": {
         "title": "Acerca del Validador de Tarjetas",
         "description": "Valida números de tarjeta de crédito usando el algoritmo Luhn. No se almacenan ni transmiten datos."
+      },
+      "seo": {
+        "howToUseTitle": "How to Use Credit Card Validator",
+        "howToUse": [
+          "Enter the credit card number you wish to verify.",
+          "Click 'Validate' to perform the Luhn algorithm check.",
+          "Review the validity status and detected card type."
+        ],
+        "featuresTitle": "Credit Card Validator Features",
+        "features": [
+          "Uses the industry-standard Luhn algorithm.",
+          "Identifies major card brands (Visa, Mastercard, Amex, Discover).",
+          "Sample card numbers included for testing.",
+          "Completely private client-side validation."
+        ],
+        "privacyTitle": "Secure Validation",
+        "privacy": "Credit card numbers are processed only on your computer. We do not store, log, or transmit any card information.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Does this validator check the bank balance?",
+            "answer": "No. This tool only checks the mathematical validity of the card number using the Luhn algorithm. It does not contact any financial institution or check balances."
+          },
+          {
+            "question": "Is it safe to enter my card number here?",
+            "answer": "Yes, because the validation happens entirely in your browser using JavaScript. Your card number is never sent to our servers."
+          }
+        ]
       }
     },
     "textCompare": {
@@ -626,7 +1012,43 @@
     },
     "base64": {
       "title": "Codificador/Decodificador Base64",
-      "description": "Codificar y decodificar cadenas y archivos Base64"
+      "description": "Codificar y decodificar cadenas y archivos Base64",
+      "seo": {
+        "howToUseTitle": "How to Use Base64 Tool",
+        "howToUse": [
+          "Enter your plain text to encode or Base64 string to decode.",
+          "Use the 'Encode' button for text-to-binary or 'Decode' for binary-to-text.",
+          "Copy the result instantly using the copy button."
+        ],
+        "featuresTitle": "Reliable Base64 Processing",
+        "features": [
+          "Bidirectional encoding and decoding.",
+          "Support for special characters and emojis.",
+          "Real-time processing with instant results.",
+          "Secure and private browser-based execution."
+        ],
+        "privacyTitle": "Your Text Remains Private",
+        "privacy": "Our Base64 tool operates entirely within your browser's local environment. No data is transmitted over the internet, making it safe for encoding sensitive configuration values.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is Base64 encoding used for?",
+            "answer": "Base64 is widely used to encode binary data for safe transmission in text-based systems, such as embedding images in HTML/CSS, encoding file attachments in emails, and passing data in URL query parameters."
+          },
+          {
+            "question": "Can I decode any Base64 string?",
+            "answer": "Yes. Paste any valid Base64-encoded string into the input field and switch to 'Decode' mode to reveal the original content. The tool supports standard and URL-safe Base64 variants."
+          },
+          {
+            "question": "Can I encode files to Base64?",
+            "answer": "Yes! You can upload a file using the file picker and the tool will encode it to Base64, which you can then copy and embed directly in your code."
+          },
+          {
+            "question": "Is Base64 the same as encryption?",
+            "answer": "No. Base64 is an encoding scheme, not encryption. It does not protect your data — anyone who has the Base64 string can easily decode it. For security, use proper encryption methods."
+          }
+        ]
+      }
     },
     "urlEncoder": {
       "title": "Codificador/Decodificador URL",
@@ -651,7 +1073,43 @@
       "validate": "Validar",
       "validUuid": "¡UUID Válido!",
       "invalidUuid": "Formato UUID inválido",
-      "version": "Versión"
+      "version": "Versión",
+      "seo": {
+        "howToUseTitle": "How to Generate UUIDs",
+        "howToUse": [
+          "Select the number of UUIDs you want to generate using the slider.",
+          "Choose your formatting options like uppercase and hyphens.",
+          "Click 'Generate' to create new IDs and copy them to your clipboard."
+        ],
+        "featuresTitle": "Quick UUID Features",
+        "features": [
+          "RFC 4122 compliant v4 identifiers.",
+          "Bulk generation up to 1000 IDs at once.",
+          "One-click validation of existing UUIDs.",
+          "Instant copying for developer workflows."
+        ],
+        "privacyTitle": "Secure Randomness",
+        "privacy": "All UUIDs are generated using the cryptographically secure random number generator in your browser. No data is sent to any server during the generation process.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is a UUID v4?",
+            "answer": "UUID v4 (Universally Unique Identifier version 4) is a 128-bit identifier generated using random numbers. It follows the format xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx and is guaranteed to be practically unique."
+          },
+          {
+            "question": "How many UUIDs can I generate at once?",
+            "answer": "You can generate up to 1000 UUIDs in a single batch using the slider or number input in the generator settings."
+          },
+          {
+            "question": "Are the generated UUIDs truly unique?",
+            "answer": "UUID v4 uses cryptographically secure random numbers, making the probability of a collision astronomically low — statistically, you would need to generate quintillions of UUIDs before encountering a duplicate."
+          },
+          {
+            "question": "Can I copy all UUIDs at once?",
+            "answer": "Yes! After generating multiple UUIDs, click the 'Copy All' button to copy all of them to your clipboard as a newline-separated list."
+          }
+        ]
+      }
     },
     "colorConverter": {
       "title": "Convertidor de Color",
@@ -695,7 +1153,36 @@
       "rgbDescription": "Para pantallas digitales y diseño gráfico",
       "hslDescription": "Intuitivo para selección y manipulación de color",
       "hsvDescription": "Usado en herramientas de selector de color",
-      "cmykDescription": "Para impresión profesional"
+      "cmykDescription": "Para impresión profesional",
+      "seo": {
+        "howToUseTitle": "How to Use Color Converter",
+        "howToUse": [
+          "Select a color using the picker or enter a value in HEX, RGB, or HSL.",
+          "Instantly see the converted values in various formats.",
+          "Explore shades, complementary colors, and harmonies.",
+          "Copy any color value with a single click."
+        ],
+        "featuresTitle": "Color Converter Features",
+        "features": [
+          "Support for HEX, RGB, HSL, HSV, and CMYK.",
+          "Visual color picker and quick palette.",
+          "Generates 10% to 90% shades automatically.",
+          "Analogous, triadic, and complementary harmony suggestions."
+        ],
+        "privacyTitle": "Browser-Based Conversion",
+        "privacy": "Color selections are processed locally. No personal data or preferences are tracked on our servers.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is CMYK used for?",
+            "answer": "CMYK is primarily used for color printing. Unlike digital screens (RGB), printers use Cyan, Magenta, Yellow, and Black inks to create colors."
+          },
+          {
+            "question": "How do I choose a harmonious color scheme?",
+            "answer": "Use our harmony suggestions! Complementary colors create high contrast, while analogous colors provide a more harmonious and soothing look."
+          }
+        ]
+      }
     },
     "qrGenerator": {
       "title": "Generador de Código QR",
@@ -729,7 +1216,43 @@
       "useCase5": "Entradas para eventos",
       "useCase6": "Información y seguimiento de productos",
       "errorCorrectionInfo": "Corrección de Errores:",
-      "errorCorrectionDescription": "Un nivel de corrección de errores más alto permite que el código QR sea legible incluso cuando está dañado o parcialmente cubierto, pero crea un código más complejo."
+      "errorCorrectionDescription": "Un nivel de corrección de errores más alto permite que el código QR sea legible incluso cuando está dañado o parcialmente cubierto, pero crea un código más complejo.",
+      "seo": {
+        "howToUseTitle": "How to Create a QR Code",
+        "howToUse": [
+          "Enter the text or URL you want to encode into the input box.",
+          "Customize the size, colors, and error correction level in settings.",
+          "Download your finished QR code as a high-quality PNG or SVG file."
+        ],
+        "featuresTitle": "Customizable QR Codes",
+        "features": [
+          "Adjustable size and margin settings.",
+          "Custom foreground and background colors.",
+          "Multiple error correction levels (L, M, Q, H).",
+          "Export as vector SVG or pixel PNG."
+        ],
+        "privacyTitle": "Private QR Creation",
+        "privacy": "Our QR generator works locally in your browser. The data you encode is never transmitted to our servers, making it safe for private information.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What types of content can a QR code store?",
+            "answer": "QR codes can store URLs, plain text, email addresses, SMS messages, Wi-Fi credentials, vCard contact information, and more. Our generator accepts any text or URL."
+          },
+          {
+            "question": "Can I customize the colors of my QR code?",
+            "answer": "Yes! You can choose custom foreground and background colors for your QR code using the color pickers in the settings panel. Ensure sufficient contrast for reliable scanning."
+          },
+          {
+            "question": "What error correction level should I choose?",
+            "answer": "For most uses, 'Medium' (15%) is a good balance. Use 'High' (30%) if your QR code will be printed on surfaces that may get dirty or damaged, as it allows more of the code to be obscured while still being scannable."
+          },
+          {
+            "question": "Can I download the QR code as a vector file?",
+            "answer": "Yes, you can download your QR code as an SVG (vector) file for lossless scaling at any size, in addition to PNG for raster graphics."
+          }
+        ]
+      }
     },
     "passwordGenerator": {
       "title": "Generador de Contraseñas",
@@ -782,7 +1305,36 @@
       "tip4": "Usar diferentes contraseñas para cada cuenta",
       "tip5": "Considerar usar un gestor de contraseñas",
       "tip6": "Habilitar autenticación de dos factores",
-      "selectAtLeastOne": "Debes seleccionar al menos un tipo de carácter"
+      "selectAtLeastOne": "Debes seleccionar al menos un tipo de carácter",
+      "seo": {
+        "howToUseTitle": "How to Generate Secure Passwords?",
+        "howToUse": [
+          "Choose between 'Password' (random characters) or 'Passphrase' (random words).",
+          "Adjust the length slider and toggle character sets (Numbers, Symbols, etc.).",
+          "For passphrases, select the number of words and a separator.",
+          "Instantly copy your strong new password or generate multiple at once."
+        ],
+        "featuresTitle": "Secure Generator Features",
+        "features": [
+          "Cryptographically secure randomness using Web Crypto API.",
+          "Rich customization: Exclude similar (i, l, 1) or ambiguous characters.",
+          "Detailed strength analysis with entropy bits and time-to-crack estimates.",
+          "Passphrase mode for memorable yet highly secure keys."
+        ],
+        "privacyTitle": "Local Encryption Only",
+        "privacy": "Passwords are generated using your computer's entropy. They are never transmitted, logged, or visible to our team.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Which is better: Password or Passphrase?",
+            "answer": "Passwords are better for machines and password managers. Passphrases are easier for humans to remember while maintaining extreme security through length."
+          },
+          {
+            "question": "What is entropy?",
+            "answer": "Entropy is a measure of randomness. The higher the entropy (in bits), the more difficult it is for a hacker to guess your password using brute force."
+          }
+        ]
+      }
     },
     "hashGenerator": {
       "title": "Generador de Hash",
@@ -826,7 +1378,36 @@
       "strengthWeak": "No recomendado para propósitos de seguridad",
       "strengthDeprecated": "Obsoleto para propósitos de seguridad",
       "strengthStrong": "Recomendado para la mayoría de casos de uso",
-      "strengthVeryStrong": "Máxima seguridad"
+      "strengthVeryStrong": "Máxima seguridad",
+      "seo": {
+        "howToUseTitle": "How to Use Hash Generator?",
+        "howToUse": [
+          "Paste your text into the input field or upload a file.",
+          "Check the real-time hash results for MD5, SHA-1, SHA-256, and SHA-512.",
+          "Use the comparison tool to verify if two hashes match.",
+          "Enable HMAC to generate keyed-hash message authentication codes."
+        ],
+        "featuresTitle": "Hash Generator Features",
+        "features": [
+          "Supports multiple algorithms: MD5, SHA-1, SHA-256, SHA-512.",
+          "File hashing capability for integrity verification.",
+          "Built-in HMAC support for secure authentication.",
+          "Instant hash comparison and status indicators."
+        ],
+        "privacyTitle": "Zero-Upload Security",
+        "privacy": "All hashing calculations are performed locally in your browser. Your sensitive text and files never leave your computer.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "Is it safe to hash sensitive passwords here?",
+            "answer": "Yes, our tool runs 100% on the client side. We don't have a backend to receive your data, ensuring your secrets remain private."
+          },
+          {
+            "question": "Which algorithm is the most secure?",
+            "answer": "SHA-256 and SHA-512 are currently considered industry standard for security. MD5 and SHA-1 should only be used for non-security related integrity checks."
+          }
+        ]
+      }
     },
     "pdfToWord": {
       "title": "PDF to Word",
@@ -844,7 +1425,43 @@
       "feature1": "Preserves text formatting and layout",
       "feature2": "Supports files up to 50MB",
       "feature3": "OCR support for scanned documents",
-      "feature4": "Secure server-side processing"
+      "feature4": "Secure server-side processing",
+      "seo": {
+        "howToUseTitle": "How to Convert PDF to Word",
+        "howToUse": [
+          "Upload your PDF file using the drag-and-drop area or file selector.",
+          "Click the 'Convert' button to start the transformation process.",
+          "Download your editable .docx file once the conversion is complete."
+        ],
+        "featuresTitle": "Why Use Our PDF to Word Converter?",
+        "features": [
+          "High-quality conversion preserving the original layout.",
+          "Fast processing using advanced OCR technology.",
+          "Support for large PDF files with secure handling.",
+          "No registration or email required for free use."
+        ],
+        "privacyTitle": "Secure PDF Conversion",
+        "privacy": "We prioritize your security. Your files are processed on our secure servers and are automatically deleted after the conversion is complete. We do not store or share your documents.",
+        "faqTitle": "Frequently Asked Questions",
+        "faqs": [
+          {
+            "question": "What is the maximum PDF file size I can convert?",
+            "answer": "You can upload PDF files up to 50MB. For larger files, we recommend splitting the PDF before converting."
+          },
+          {
+            "question": "Will the formatting be preserved after conversion?",
+            "answer": "Our converter uses advanced technology to preserve text layout, fonts, and tables as accurately as possible. Complex graphics may have slight variations."
+          },
+          {
+            "question": "How long does it take to convert a PDF?",
+            "answer": "Most conversions complete within a few seconds to a minute, depending on the file size and complexity."
+          },
+          {
+            "question": "Are my files stored on the server?",
+            "answer": "No. Your uploaded files are automatically and permanently deleted from our servers immediately after processing is complete."
+          }
+        ]
+      }
     },
     "pdfMerge": {
       "title": "Merge PDFs",

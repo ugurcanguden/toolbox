@@ -4,9 +4,10 @@ import * as React from 'react';
 import { useTranslations } from 'next-intl';
 import { useTheme } from 'next-themes';
 import Editor from '@monaco-editor/react';
-import { Button, Card, CardHeader, CardTitle, CardContent, Textarea, JsonTreeViewer, PrivacyBadge } from '@/components';
+import { Button, Card, CardHeader, CardTitle, CardContent, Textarea, JsonTreeViewer, PrivacyBadge, JsonLdTool, ToolSeoContent, ToolFaqSection } from '@/components';
 import { Copy, Check, AlertCircle, Code2, TreePine, Download, FileJson, Search, ChevronsDownUp, ChevronsUpDown, CopyMinus } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
+import { useParams } from 'next/navigation';
 
 type ViewMode = 'formatted' | 'tree';
 
@@ -49,6 +50,9 @@ const SAMPLE_JSON = {
 export default function JsonFormatterPage() {
   const t = useTranslations('tools.jsonFormatter');
   const tc = useTranslations('common');
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+  
   const [input, setInput] = React.useState('');
   const [output, setOutput] = React.useState('');
   const [parsedJson, setParsedJson] = React.useState<any>(null);
@@ -214,40 +218,8 @@ export default function JsonFormatterPage() {
 
   const charCount = getCharCount();
 
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What is JSON?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "JSON (JavaScript Object Notation) is a lightweight data-interchange format that is easy for humans to read and write, and easy for machines to parse and generate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Why do I need to validate JSON?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Validating JSON ensures that your data structure follows the strict JSON syntax rules. Invalid JSON will cause parsing errors in your applications."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I format JSON automatically?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You can paste your JSON code into the editor and click the 'Format' button. You can also enable 'Auto-format on paste' for instant beautification."
-        }
-      }
-    ]
-  };
-
   return (
     <div className="container mx-auto px-4 py-8">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <div className="mb-8">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
@@ -482,45 +454,18 @@ export default function JsonFormatterPage() {
       {/* Ad - After Tool */}
       {/* <InArticleAd dataAdSlot="2222222222" /> */}
 
-      {/* SEO & Guide Section */}
-      <article className="mt-16 prose prose-slate dark:prose-invert max-w-none">
-        <h2 className="text-2xl font-bold mb-4">Ultimate JSON Formatter & Validator Guide</h2>
-        <p>
-          JSON (JavaScript Object Notation) has become the de facto standard for data interchange on the modern web. However, working with raw, minified JSON data can be a daunting task for developers. Our advanced <strong>JSON Formatter and Validator</strong> is designed to simplify your workflow by transforming unreadable strings into beautifully structured, syntax-highlighted code.
-        </p>
-
-        <h3 className="text-xl font-semibold mt-8 mb-3">Why Use a JSON Formatter?</h3>
-        <p>
-          When interacting with APIs, databases, or configuration files, you often encounter JSON data packed into a single, dense line to save bandwidth. While this is efficient for machines, humans need structure. A JSON Formatter instantly:
-        </p>
-        <ul className="list-disc pl-6 mb-6">
-          <li><strong>Beautifies Data:</strong> Adds proper indentation (usually 2 or 4 spaces) and line breaks, making the hierarchy of objects and arrays visually clear.</li>
-          <li><strong>Enhances Readability:</strong> With features like syntax highlighting, it becomes easier to distinguish between strings, numbers, booleans, and null values.</li>
-          <li><strong>Saves Time:</strong> Instead of manually tracking nested brackets and braces, the tool organizes everything instantly.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-8 mb-3">The Critical Role of JSON Validation</h3>
-        <p>
-          Syntax errors in JSON are a common source of bugs in software development. Even a single misplaced comma or a missing quotation mark can break an entire application parsing the payload. Our JSON Validator acts as your first line of defense:
-        </p>
-        <ul className="list-disc pl-6 mb-6">
-          <li><strong>Strict Syntax Checking:</strong> Adheres to RFC 8259 standards to ensure your JSON is 100% compliant.</li>
-          <li><strong>Detailed Error Reporting:</strong> Instead of a generic failure, our tool pinpoints the exact line number where the error occurred (e.g., &quot;Unexpected token ] at Line 42&quot;), drastically reducing debugging time.</li>
-          <li><strong>Confidence in Deployment:</strong> Always validate your JSON payloads here before committing them to configuration files or sending them through API requests.</li>
-        </ul>
-
-        <h3 className="text-xl font-semibold mt-8 mb-3">Advanced Features for Power Users</h3>
-        <p>
-          Beyond simple formatting and validation, our free online JSON tool offers several advanced capabilities:
-        </p>
-        <ul className="list-disc pl-6 mb-6">
-          <li><strong>Tree View Mode:</strong> Navigate massive JSON files effortlessly by collapsing and expanding object nodes. Perfect for exploring complex, deeply nested API responses.</li>
-          <li><strong>Auto-Format on Paste:</strong> Enable this toggle to instantly beautify your JSON the moment it hits the editor, streamlining your workflow.</li>
-          <li><strong>Minification:</strong> Need to compress your JSON for production? Our minify feature strips out all whitespace, minimizing the payload size for optimal transfer speeds.</li>
-          <li><strong>100% Client-Side Privacy:</strong> Your data never leaves your browser. All formatting and validation processes happen locally on your device, ensuring maximum security for your sensitive information.</li>
-        </ul>
-      </article>
+      <ToolSeoContent toolId="jsonFormatter" />
+      <ToolFaqSection toolId="jsonFormatter" />
+      
+      <JsonLdTool 
+        locale={locale}
+        tool={{
+          id: "json-formatter",
+          title: t('title'),
+          description: t('description'),
+          category: "formatters"
+        }}
+      />
     </div>
   );
 }
-

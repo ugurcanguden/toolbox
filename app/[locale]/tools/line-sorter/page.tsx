@@ -4,12 +4,21 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { ArrowDownAZ, ArrowUpAZ, Shuffle, ArrowUpDown, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
+import { useParams } from "next/navigation";
+import { 
+  ToolSeoContent, 
+  ToolFaqSection, 
+  JsonLdTool,
+  PrivacyBadge 
+} from "@/components";
 
 export default function LineSorterPage() {
   const t = useTranslations("tools.lineSorter");
   const tCommon = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
 
   const [input, setInput] = useState("");
   const [output, setOutput] = useState("");
@@ -52,9 +61,13 @@ export default function LineSorterPage() {
   return (
     <div className="container mx-auto py-8 px-4">
       <div className="max-w-7xl mx-auto space-y-6">
-        <div>
-          <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
-          <p className="text-muted-foreground">{t("description")}</p>
+        {/* Header */}
+        <div className="flex items-start justify-between">
+          <div>
+            <h1 className="text-3xl font-bold mb-2">{t("title")}</h1>
+            <p className="text-muted-foreground">{t("description")}</p>
+          </div>
+          <PrivacyBadge />
         </div>
 
         <Card>
@@ -112,12 +125,18 @@ export default function LineSorterPage() {
           </Card>
         </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>{t("info.title")}</CardTitle>
-            <CardDescription>{t("info.description")}</CardDescription>
-          </CardHeader>
-        </Card>
+        <ToolSeoContent toolId="lineSorter" />
+        <ToolFaqSection toolId="lineSorter" />
+
+        <JsonLdTool
+          locale={locale}
+          tool={{
+            id: "line-sorter",
+            title: t("title"),
+            description: t("description"),
+            category: "utilities"
+          }}
+        />
       </div>
     </div>
   );

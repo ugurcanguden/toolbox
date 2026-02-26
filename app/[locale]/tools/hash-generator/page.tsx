@@ -2,16 +2,31 @@
 
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
-import { Button, Card, CardHeader, CardTitle, CardContent, Textarea } from '@/components';
+import { 
+  Button, 
+  Card, 
+  CardHeader, 
+  CardTitle, 
+  CardContent, 
+  Textarea,
+  ToolSeoContent,
+  ToolFaqSection,
+  JsonLdTool,
+  PrivacyBadge
+} from '@/components';
 import { Copy, Check, Upload, Shield, ArrowRight } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
 import { md5, sha1, sha256, sha512, hmac, hashFile, compareHashes, getHashStrength } from '@/lib/crypto-utils';
+import { useParams } from 'next/navigation';
 
 type HashAlgorithm = 'MD5' | 'SHA-1' | 'SHA-256' | 'SHA-512';
 
 export default function HashGeneratorPage() {
   const t = useTranslations('tools.hashGenerator');
   const tc = useTranslations('common');
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+  
   const [input, setInput] = React.useState('');
   const [algorithm, setAlgorithm] = React.useState<HashAlgorithm>('SHA-256');
   const [hashes, setHashes] = React.useState<Record<HashAlgorithm, string>>({
@@ -203,9 +218,13 @@ export default function HashGeneratorPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
-        <p className="text-muted-foreground">{t('description')}</p>
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
+          <p className="text-muted-foreground">{t('description')}</p>
+        </div>
+        <PrivacyBadge />
       </div>
 
       {/* Input Card */}
@@ -381,64 +400,18 @@ export default function HashGeneratorPage() {
         </CardContent>
       </Card>
 
-      {/* Info Section */}
-      <div className="mt-8 p-4 bg-muted/30 rounded-lg">
-        <h3 className="font-semibold mb-2">💡 {t('aboutTitle')}</h3>
-        <p className="text-sm text-muted-foreground mb-4">
-          {t('aboutDescription')}
-        </p>
+      <ToolSeoContent toolId="hashGenerator" />
+      <ToolFaqSection toolId="hashGenerator" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-          <div>
-            <strong className="block mb-2">{t('algorithmComparison')}:</strong>
-            <div className="space-y-2 text-muted-foreground">
-              <div className="flex items-start gap-2">
-                <span className="text-red-500">●</span>
-                <div>
-                  <strong>MD5:</strong> {t('md5Description')}
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-orange-500">●</span>
-                <div>
-                  <strong>SHA-1:</strong> {t('sha1Description')}
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-green-500">●</span>
-                <div>
-                  <strong>SHA-256:</strong> {t('sha256Description')}
-                </div>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-blue-500">●</span>
-                <div>
-                  <strong>SHA-512:</strong> {t('sha512Description')}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <strong className="block mb-2">{t('useCases')}:</strong>
-            <ul className="list-disc list-inside space-y-1 text-muted-foreground">
-              <li>{t('useCase1')}</li>
-              <li>{t('useCase2')}</li>
-              <li>{t('useCase3')}</li>
-              <li>{t('useCase4')}</li>
-              <li>{t('useCase5')}</li>
-              <li>{t('useCase6')}</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-4 pt-4 border-t">
-          <strong className="block mb-2">{t('hmacInfo')}</strong>
-          <p className="text-sm text-muted-foreground">
-            {t('hmacDescription')}
-          </p>
-        </div>
-      </div>
+      <JsonLdTool
+        locale={locale}
+        tool={{
+          id: "hash-generator",
+          title: t("title"),
+          description: t("description"),
+          category: "utilities"
+        }}
+      />
     </div>
   );
 }

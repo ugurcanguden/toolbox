@@ -130,10 +130,10 @@ export default function WordCounterPage() {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-lg">
                   <BarChart2 className="w-5 h-5" />
-                  Keyword Density
+                  {t("keywordDensityTitle")}
                 </CardTitle>
                 <CardDescription>
-                  Top keywords excluding common stop words.
+                  {t("keywordDensityDescription")}
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -151,18 +151,9 @@ export default function WordCounterPage() {
                   </div>
                 ) : (
                   <div className="text-center text-sm text-muted-foreground py-8">
-                    Not enough text to analyze.
+                    {t("noKeywords")}
                   </div>
                 )}
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">{t("info.title")}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground">{t("info.description")}</p>
               </CardContent>
             </Card>
           </div>
@@ -178,12 +169,6 @@ export default function WordCounterPage() {
           description: t("description"),
           category: "utilities"
         }}
-        faqs={[
-          {
-            question: locale === 'tr' ? "Kelime sayacı nasıl çalışır?" : "How does the word counter work?",
-            answer: locale === 'tr' ? "Metninizi kutuya yapıştırdığınız anda kelime, karakter ve satır sayıları anlık olarak hesaplanır." : "As soon as you paste your text into the box, the word, character, and line counts are calculated instantly."
-          }
-        ]}
       />
       <ToolFaqSection toolId="wordCounter" />
     </div>
