@@ -3,15 +3,16 @@
 import { useState, useRef, useCallback } from "react";
 import { useTranslations } from "next-intl";
 import { FileUp, FileOutput, Download, AlertCircle, Loader2, X, FileText } from "lucide-react";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, Button, Progress, JsonLdTool, ToolSeoContent } from "@/components";
 import { convertToWord } from "@/app/actions/pdf-actions";
+import { useParams } from "next/navigation";
 import { toast } from "sonner";
 
 export default function PdfToWordPage() {
   const t = useTranslations("tools.pdfToWord");
   const tc = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
 
   const [file, setFile] = useState<File | null>(null);
   const [isDragging, setIsDragging] = useState(false);
@@ -290,6 +291,24 @@ export default function PdfToWordPage() {
           </ul>
         </CardContent>
       </Card>
+      
+      <ToolSeoContent toolId="pdfToWord" />
+      
+      <JsonLdTool 
+        locale={locale}
+        tool={{
+          id: "pdf-to-word",
+          title: t("title"),
+          description: t("description"),
+          category: "pdf"
+        }}
+        faqs={[
+          {
+            question: locale === 'tr' ? "PDF'i Word'e dönüştürmek ücretsiz mi?" : "Is it free to convert PDF to Word?",
+            answer: locale === 'tr' ? "Evet, tamamen ücretsizdir ve kayıt olmanıza gerek yoktur." : "Yes, it is completely free and no registration is required."
+          }
+        ]}
+      />
     </div>
   );
 }

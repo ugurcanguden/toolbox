@@ -35,8 +35,8 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/api/', '/_next/', '/admin/'],
       },
     ],
-          sitemap: 'https://free-dev-tools.net.tr/sitemap.xml',
-          host: 'https://free-dev-tools.net.tr',
+          sitemap: 'https://toolbox.curioboxapp.info/sitemap.xml',
+          host: 'https://toolbox.curioboxapp.info',
   };
 }
 

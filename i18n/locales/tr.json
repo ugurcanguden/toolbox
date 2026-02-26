@@ -462,6 +462,23 @@
     "wordCounter": {
       "title": "Kelime & Karakter Sayacı",
       "description": "Kelime, karakter, cümle ve paragraf sayısını hesaplayın",
+      "seo": {
+        "howToUseTitle": "Kelime Sayacı Nasıl Kullanılır?",
+        "howToUse": [
+          "Metninizi giriş alanına yapıştırın veya doğrudan yazın.",
+          "Kelime, karakter ve satır sayılarını anlık olarak takip edin.",
+          "Yeni bir metin için 'Temizle' butonuna tıklayarak baştan başlayın."
+        ],
+        "featuresTitle": "Kelime Sayacı Özellikleri",
+        "features": [
+          "Gerçek zamanlı kelime ve karakter sayımı.",
+          "Satır ve paragraf sayısı tespiti.",
+          "Tahmini okuma ve konuşma süresi hesaplama.",
+          "Gizlilik için %100 tarayıcı tabanlı (client-side) işlem."
+        ],
+        "privacyTitle": "Verileriniz Güvende",
+        "privacy": "Kelime Sayacı aracımız tüm işlemleri yerel olarak tarayıcınızda gerçekleştirir. İçeriğiniz asla bir sunucuya yüklenmez, böylece hassas dökümanlarınız tamamen gizli kalır."
+      },
       "textInput": "Metin Girdisi",
       "inputPlaceholder": "Metninizi buraya yazın veya yapıştırın...",
       "statistics": "İstatistikler",
@@ -596,6 +613,23 @@
     "pdfToWord": {
       "title": "PDF → Word",
       "description": "PDF dosyalarını düzenlenebilir Word belgelerine dönüştürün",
+      "seo": {
+        "howToUseTitle": "PDF'den Word'e Nasıl Dönüştürülür?",
+        "howToUse": [
+          "PDF dosyanızı sürükle-bırak veya dosya seçici ile yükleyin.",
+          "Dönüştürme işlemini başlatmak için 'Dönüştür' butonuna basın.",
+          "İşlem tamamlandığında düzenlenebilir .docx dosyanızı indirin."
+        ],
+        "featuresTitle": "Neden Bizim PDF - Word Dönüştürücümüz?",
+        "features": [
+          "Orijinal düzeni koruyan yüksek kaliteli dönüştürme.",
+          "Gelişmiş OCR teknolojisi ile hızlı işlem.",
+          "Güvenli işleme ile büyük PDF dosyası desteği.",
+          "Ücretsiz kullanım için kayıt veya e-posta zorunluluğu yok."
+        ],
+        "privacyTitle": "Güvenli PDF Dönüştürme",
+        "privacy": "Güvenliğinize önem veriyoruz. Dosyalarınız güvenli sunucularımızda işlenir ve işlem tamamlandıktan sonra otomatik olarak silinir. Belgelerinizi saklamıyor veya paylaşmıyoruz."
+      },
       "dropzone": "PDF dosyanızı buraya sürükleyin veya tıklayarak seçin",
       "dropzoneHint": "50MB'a kadar .pdf dosyalarını destekler",
       "convert": "Word'e Dönüştür",
@@ -715,7 +749,24 @@
     },
     "base64": {
       "title": "Base64 Kodlayıcı/Çözücü",
-      "description": "Base64 metinlerini ve dosyalarını kodlayın ve çözün"
+      "description": "Base64 metinlerini ve dosyalarını kodlayın ve çözün",
+      "seo": {
+        "howToUseTitle": "Base64 Aracı Nasıl Kullanılır?",
+        "howToUse": [
+          "Kodlamak için düz metninizi veya çözmek için Base64 dizini girin.",
+          "Metinden-binary'ye kodlamak için 'Kodla' veya tam tersi için 'Çöz' butonunu kullanın.",
+          "Sonucu kopyala butonuyla anında kopyalayın."
+        ],
+        "featuresTitle": "Güvenilir Base64 İşleme",
+        "features": [
+          "Çift yönlü kodlama ve kod çözme.",
+          "Özel karakterler ve emoji desteği.",
+          "Anlık sonuçlarla gerçek zamanlı işleme.",
+          "Güvenli ve gizli tarayıcı tabanlı yürütme."
+        ],
+        "privacyTitle": "Metniniz Gizli Kalır",
+        "privacy": "Base64 aracımız tamamen tarayıcınızın yerel ortamında çalışır. İnternet üzerinden veri iletilmez, hassas yapılandırma değerlerini kodlamak için güvenlidir."
+      }
     },
     "urlEncoder": {
       "title": "URL Kodlayıcı/Çözücü",
@@ -724,6 +775,23 @@
     "uuidGenerator": {
       "title": "UUID Oluşturucu",
       "description": "Benzersiz tanımlayıcılar oluşturun (UUID v4)",
+      "seo": {
+        "howToUseTitle": "UUID Nasıl Oluşturulur?",
+        "howToUse": [
+          "Kaydırıcıyı kullanarak oluşturmak istediğiniz UUID sayısını seçin.",
+          "Büyük harf ve kısa çizgi gibi biçimlendirme seçeneklerinizi belirleyin.",
+          "Yeni kimlikler oluşturmak için 'Oluştur'a tıklayın ve bunları panonuza kopyalayın."
+        ],
+        "featuresTitle": "Hızlı UUID Özellikleri",
+        "features": [
+          "RFC 4122 uyumlu v4 tanımlayıcılar.",
+          "Aynı anda 1000 kimliğe kadar toplu oluşturma.",
+          "Mevcut UUID'lerin tek tıklamayla doğrulanması.",
+          "Geliştirici iş akışları için anında kopyalama."
+        ],
+        "privacyTitle": "Güvenli Rastgelelik",
+        "privacy": "Tüm UUID'ler tarayıcınızdaki kriptografik olarak güvenli rastgele sayı üreteci kullanılarak oluşturulur. Oluşturma işlemi sırasında hiçbir veri sunucuya gönderilmez."
+      },
       "settings": "Oluşturucu Ayarları",
       "numberOfUuids": "UUID Sayısı",
       "uppercase": "Büyük Harf",
@@ -789,6 +857,23 @@
     "qrGenerator": {
       "title": "QR Kod Oluşturucu",
       "description": "Metin ve URL'ler için QR kodları oluşturun",
+      "seo": {
+        "howToUseTitle": "QR Kod Nasıl Oluşturulur?",
+        "howToUse": [
+          "Kodlamak istediğiniz metni veya URL'yi giriş kutusuna girin.",
+          "Boyutu, renkleri ve hata düzeltme seviyesini ayarlardan özelleştirin.",
+          "Biten QR kodunuzu yüksek kaliteli PNG veya SVG dosyası olarak indirin."
+        ],
+        "featuresTitle": "Özelleştirilebilir QR Kodları",
+        "features": [
+          "Ayarlanabilir boyut ve kenar boşluğu ayarları.",
+          "Özel ön plan ve arka plan renkleri.",
+          "Çoklu hata düzeltme seviyeleri (L, M, Q, H).",
+          "Vektörel SVG veya piksel tabanlı PNG olarak dışa aktarma."
+        ],
+        "privacyTitle": "Gizli QR Oluşturma",
+        "privacy": "QR oluşturucumuz yerel olarak tarayıcınızda çalışır. Kodladığınız veriler asla sunucularımıza iletilmez, bu da onu kişisel bilgiler için güvenli kılar."
+      },
       "input": "Metin veya URL",
       "inputPlaceholder": "QR kod için metin veya URL girin...",
       "generate": "QR Kod Oluştur",

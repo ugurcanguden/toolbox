@@ -7,7 +7,7 @@ export default function schema(): MetadataRoute.Manifest {
     "@type": "WebApplication",
     "name": "Toolbox - Developer Tools Collection",
     "alternateName": "Toolbox",
-    "url": "https://toolbox.dev",
+    "url": "https://toolbox.curioboxapp.info",
     "description": "A collection of 30+ useful tools for developers and everyone. JSON Formatter, Base64, UUID, Hash, Password, QR Code, Color Converter, Regex Tester, String Tools, Markdown Preview, JWT Decoder, Timestamp Converter and more!",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Any",
@@ -53,12 +53,12 @@ export default function schema(): MetadataRoute.Manifest {
     "author": {
       "@type": "Organization",
       "name": "Toolbox",
-      "url": "https://toolbox.dev"
+      "url": "https://toolbox.curioboxapp.info"
     },
     "inLanguage": ["en", "de", "tr", "fr", "pt"],
     "potentialAction": {
       "@type": "UseAction",
-      "target": "https://toolbox.dev"
+      "target": "https://toolbox.curioboxapp.info"
     }
   } as any
 }

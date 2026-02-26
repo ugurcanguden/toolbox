@@ -2,9 +2,10 @@
 
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
-import { Button, Card, CardHeader, CardTitle, CardContent, Textarea, InArticleAd } from '@/components';
+import { Button, Card, CardHeader, CardTitle, CardContent, Textarea, InArticleAd, JsonLdTool, ToolSeoContent } from '@/components';
 import { Copy, Check, AlertCircle, ArrowLeftRight, Upload, Download, FileText } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
+import { useParams } from 'next/navigation';
 
 type Mode = 'encode' | 'decode';
 
@@ -19,6 +20,8 @@ export default function Base64Page() {
   const [error, setError] = React.useState('');
   const [mode, setMode] = React.useState<Mode>('encode');
   const [fileName, setFileName] = React.useState('');
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
   const { copied: copiedInput, copy: copyInput } = useCopyToClipboard();
   const { copied: copiedOutput, copy: copyOutput } = useCopyToClipboard();
   const fileInputRef = React.useRef<HTMLInputElement>(null);
@@ -414,6 +417,23 @@ export default function Base64Page() {
 
       {/* Ad - After Info */}
       {/* <InArticleAd dataAdSlot="3333333333" /> */}
+
+      <ToolSeoContent toolId="base64" />
+      <JsonLdTool 
+        locale={locale}
+        tool={{
+          id: 'base64',
+          title: t('title'),
+          description: t('description'),
+          category: 'encoders'
+        }}
+        faqs={[
+          {
+            question: locale === 'tr' ? "Base64 güvenli mi?" : "Is Base64 secure?",
+            answer: locale === 'tr' ? "Base64 bir şifreleme değil, kodlama yöntemidir. Veriler kolayca geri çözülebilir." : "Base64 is an encoding method, not encryption. Data can be easily decoded back."
+          }
+        ]}
+      />
     </div>
   );
 }

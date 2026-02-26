@@ -145,6 +145,23 @@
     "jsonFormatter": {
       "title": "JSON Formatter",
       "description": "Format and validate JSON data",
+      "seo": {
+        "howToUseTitle": "How to Use JSON Formatter",
+        "howToUse": [
+          "Paste your raw JSON code into the editor.",
+          "Click 'Format' to beautify or 'Minify' to compress.",
+          "The 'Tree' view allows you to explore complex objects easily."
+        ],
+        "featuresTitle": "Advanced JSON Features",
+        "features": [
+          "Syntax highlighting and error detection.",
+          "Collapsible tree view for nested data.",
+          "One-click 'Escape' for stringified JSON.",
+          "Secure client-side validation."
+        ],
+        "privacyTitle": "Local Processing Only",
+        "privacy": "All JSON formatting and validation happens in your browser. Your data is never sent to our servers, ensuring your sensitive API responses and configuration files stay private."
+      },
       "input": "Input JSON",
       "output": "Formatted JSON",
       "format": "Format",
@@ -462,6 +479,23 @@
     "wordCounter": {
       "title": "Word & Character Counter",
       "description": "Count words, characters, sentences, and paragraphs",
+      "seo": {
+        "howToUseTitle": "How to Use Word Counter",
+        "howToUse": [
+          "Paste or type your text into the input area.",
+          "Check the statistics box for real-time updates on word, character, and line counts.",
+          "Use the 'Clear' button to start over with new text."
+        ],
+        "featuresTitle": "Key Features of Word Counter",
+        "features": [
+          "Real-time word and character counting.",
+          "Line and paragraph count detection.",
+          "Reading time and speaking time estimation.",
+          "100% Client-side processing for ultimate privacy."
+        ],
+        "privacyTitle": "Your Data is Safe",
+        "privacy": "Our Word Counter tool processes all text locally within your browser. We never upload your content to any server, ensuring your sensitive documents stay private and secure."
+      },
       "textInput": "Text Input",
       "inputPlaceholder": "Enter or paste your text here...",
       "statistics": "Statistics",
@@ -593,6 +627,23 @@
     "pdfToWord": {
       "title": "PDF to Word",
       "description": "Convert PDF files to editable Word documents",
+      "seo": {
+        "howToUseTitle": "How to Convert PDF to Word",
+        "howToUse": [
+          "Upload your PDF file using the drag-and-drop area or file selector.",
+          "Click the 'Convert' button to start the transformation process.",
+          "Download your editable .docx file once the conversion is complete."
+        ],
+        "featuresTitle": "Why Use Our PDF to Word Converter?",
+        "features": [
+          "High-quality conversion preserving the original layout.",
+          "Fast processing using advanced OCR technology.",
+          "Support for large PDF files with secure handling.",
+          "No registration or email required for free use."
+        ],
+        "privacyTitle": "Secure PDF Conversion",
+        "privacy": "We prioritize your security. Your files are processed on our secure servers and are automatically deleted after the conversion is complete. We do not store or share your documents."
+      },
       "dropzone": "Drop your PDF file here or click to browse",
       "dropzoneHint": "Supports .pdf files up to 50MB",
       "convert": "Convert to Word",
@@ -712,7 +763,24 @@
     },
     "base64": {
       "title": "Base64 Encoder/Decoder",
-      "description": "Encode and decode Base64 strings and files"
+      "description": "Encode and decode Base64 strings and files",
+      "seo": {
+        "howToUseTitle": "How to Use Base64 Tool",
+        "howToUse": [
+          "Enter your plain text to encode or Base64 string to decode.",
+          "Use the 'Encode' button for text-to-binary or 'Decode' for binary-to-text.",
+          "Copy the result instantly using the copy button."
+        ],
+        "featuresTitle": "Reliable Base64 Processing",
+        "features": [
+          "Bidirectional encoding and decoding.",
+          "Support for special characters and emojis.",
+          "Real-time processing with instant results.",
+          "Secure and private browser-based execution."
+        ],
+        "privacyTitle": "Your Text Remains Private",
+        "privacy": "Our Base64 tool operates entirely within your browser's local environment. No data is transmitted over the internet, making it safe for encoding sensitive configuration values."
+      }
     },
     "urlEncoder": {
       "title": "URL Encoder/Decoder",
@@ -721,6 +789,23 @@
     "uuidGenerator": {
       "title": "UUID Generator",
       "description": "Generate unique identifiers (UUID v4)",
+      "seo": {
+        "howToUseTitle": "How to Generate UUIDs",
+        "howToUse": [
+          "Select the number of UUIDs you want to generate using the slider.",
+          "Choose your formatting options like uppercase and hyphens.",
+          "Click 'Generate' to create new IDs and copy them to your clipboard."
+        ],
+        "featuresTitle": "Quick UUID Features",
+        "features": [
+          "RFC 4122 compliant v4 identifiers.",
+          "Bulk generation up to 1000 IDs at once.",
+          "One-click validation of existing UUIDs.",
+          "Instant copying for developer workflows."
+        ],
+        "privacyTitle": "Secure Randomness",
+        "privacy": "All UUIDs are generated using the cryptographically secure random number generator in your browser. No data is sent to any server during the generation process."
+      },
       "settings": "Generator Settings",
       "numberOfUuids": "Number of UUIDs",
       "uppercase": "Uppercase",
@@ -786,6 +871,23 @@
     "qrGenerator": {
       "title": "QR Code Generator",
       "description": "Generate QR codes for text and URLs",
+      "seo": {
+        "howToUseTitle": "How to Create a QR Code",
+        "howToUse": [
+          "Enter the text or URL you want to encode into the input box.",
+          "Customize the size, colors, and error correction level in settings.",
+          "Download your finished QR code as a high-quality PNG or SVG file."
+        ],
+        "featuresTitle": "Customizable QR Codes",
+        "features": [
+          "Adjustable size and margin settings.",
+          "Custom foreground and background colors.",
+          "Multiple error correction levels (L, M, Q, H).",
+          "Export as vector SVG or pixel PNG."
+        ],
+        "privacyTitle": "Private QR Creation",
+        "privacy": "Our QR generator works locally in your browser. The data you encode is never transmitted to our servers, making it safe for private information."
+      },
       "input": "Text or URL",
       "inputPlaceholder": "Enter text or URL for QR code...",
       "generate": "Generate QR Code",

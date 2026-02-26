@@ -1,1 +1,3 @@
-export { Canonical } from './canonical';
+export * from './canonical';
+export * from './json-ld-tool';
+export * from './tool-seo-content';

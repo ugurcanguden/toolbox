@@ -3,9 +3,9 @@
 import { useState, useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { FileText, BarChart2 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
-import { Progress } from "@/components/ui/progress";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Progress, JsonLdTool, ToolSeoContent, Textarea } from "@/components";
+import { useParams } from "next/navigation";
+import * as React from "react";
 
 const STOP_WORDS = new Set([
   'a', 'an', 'and', 'are', 'as', 'at', 'be', 'but', 'by', 'for', 'if', 'in', 'into', 'is', 'it',
@@ -16,6 +16,8 @@ const STOP_WORDS = new Set([
 export default function WordCounterPage() {
   const t = useTranslations("tools.wordCounter");
   const tc = useTranslations("common");
+  const params = useParams();
+  const locale = (params.locale as string) || "en";
 
   const [text, setText] = useState("");
 
@@ -76,7 +78,7 @@ export default function WordCounterPage() {
                 <Textarea
                   placeholder={t("inputPlaceholder")}
                   value={text}
-                  onChange={(e) => setText(e.target.value)}
+                  onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setText(e.target.value)}
                   className="min-h-[300px]"
                 />
               </CardContent>
@@ -165,7 +167,24 @@ export default function WordCounterPage() {
             </Card>
           </div>
         </div>
+        
+        <ToolSeoContent toolId="wordCounter" />
       </div>
+      <JsonLdTool 
+        locale={locale}
+        tool={{
+          id: "word-counter",
+          title: t("title"),
+          description: t("description"),
+          category: "utilities"
+        }}
+        faqs={[
+          {
+            question: locale === 'tr' ? "Kelime sayacı nasıl çalışır?" : "How does the word counter work?",
+            answer: locale === 'tr' ? "Metninizi kutuya yapıştırdığınız anda kelime, karakter ve satır sayıları anlık olarak hesaplanır." : "As soon as you paste your text into the box, the word, character, and line counts are calculated instantly."
+          }
+        ]}
+      />
     </div>
   );
 }

@@ -4,7 +4,7 @@ import { locales } from '@/i18n/request';
 import fs from 'fs';
 import path from 'path';
 
-const baseUrl = 'https://free-dev-tools.net.tr';
+const baseUrl = 'https://toolbox.curioboxapp.info';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes: MetadataRoute.Sitemap = [];

@@ -2,9 +2,10 @@
 
 import * as React from 'react';
 import { useTranslations } from 'next-intl';
-import { Button, Card, CardHeader, CardTitle, CardContent } from '@/components';
+import { Button, Card, CardHeader, CardTitle, CardContent, JsonLdTool, ToolSeoContent } from '@/components';
 import { Copy, Check, RefreshCw, Trash2, Sparkles, AlertCircle } from 'lucide-react';
 import { useCopyToClipboard } from '@/hooks';
+import { useParams } from 'next/navigation';
 
 export default function UuidGeneratorPage() {
   const t = useTranslations('tools.uuidGenerator');
@@ -14,6 +15,9 @@ export default function UuidGeneratorPage() {
   const [withHyphens, setWithHyphens] = React.useState(true);
   const [copiedIndex, setCopiedIndex] = React.useState<number | null>(null);
   const { copied: copiedAll, copy: copyAll } = useCopyToClipboard();
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
+
   
   // Validation states
   const [validateInput, setValidateInput] = React.useState('');
@@ -412,6 +416,23 @@ export default function UuidGeneratorPage() {
           </div>
         </div>
       </div>
+
+      <ToolSeoContent toolId="uuidGenerator" />
+      <JsonLdTool 
+        locale={locale}
+        tool={{
+          id: 'uuid-generator',
+          title: t('title'),
+          description: t('description'),
+          category: 'utilities'
+        }}
+        faqs={[
+          {
+            question: locale === 'tr' ? "UUID v4 nedir?" : "What is UUID v4?",
+            answer: locale === 'tr' ? "UUID v4, tamamen rastgele sayılardan oluşan bir benzersiz tanımlayıcı versiyonudur." : "UUID v4 is a version of unique identifier consisting of completely random numbers."
+          }
+        ]}
+      />
     </div>
   );
 }

@@ -3,7 +3,8 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'sonner';
 import { Inter } from 'next/font/google';
-import { ThemeProvider, Header, Footer, CookieConsent, GlobalLoading, NavigationListener, Sidebar, SmartRedirectListener } from '@/components';
+import { ThemeProvider, Header, Footer, CookieConsent, GlobalLoading, NavigationListener, Sidebar, SmartRedirectListener } from '@/components/layout';
+import { GoogleAnalytics } from '@/components/analytics/google-analytics';
 import { LoadingProvider } from '@/contexts';
 import { locales, type Locale } from '@/i18n/request';
 import '@/styles/globals.css';
@@ -80,10 +81,10 @@ export async function generateMetadata({
       locale: ogLocaleMap[locale] || 'en_US',
       alternateLocale: Object.values(ogLocaleMap).filter(l => l !== ogLocaleMap[locale]),
       siteName: t('appName'),
-            url: `https://free-dev-tools.net.tr/${locale}`,
-            images: [
-              {
-                url: 'https://free-dev-tools.net.tr/og-image.svg',
+      url: `https://toolbox.curioboxapp.info/${locale}`,
+      images: [
+        {
+          url: 'https://toolbox.curioboxapp.info/og-image.svg',
           width: 1200,
           height: 630,
           alt: 'Toolbox - 30+ Free Developer Tools',
@@ -96,22 +97,22 @@ export async function generateMetadata({
       description: t('appDescription'),
       creator: '@toolbox',
       site: '@toolbox',
-      images: ['https://free-dev-tools.net.tr/og-image.svg'],
+      images: ['https://toolbox.curioboxapp.info/og-image.svg'],
     },
     alternates: {
-      canonical: `https://free-dev-tools.net.tr/${locale}`,
+      canonical: `https://toolbox.curioboxapp.info/${locale}`,
       languages: {
-        'en': 'https://free-dev-tools.net.tr/en',
-        'de': 'https://free-dev-tools.net.tr/de',
-        'tr': 'https://free-dev-tools.net.tr/tr',
-        'fr': 'https://free-dev-tools.net.tr/fr',
-        'pt': 'https://free-dev-tools.net.tr/pt',
-        'es': 'https://free-dev-tools.net.tr/es',
-        'it': 'https://free-dev-tools.net.tr/it',
-        'nl': 'https://free-dev-tools.net.tr/nl',
-        'ja': 'https://free-dev-tools.net.tr/ja',
-        'ru': 'https://free-dev-tools.net.tr/ru',
-        'x-default': 'https://free-dev-tools.net.tr/en',
+        'en': 'https://toolbox.curioboxapp.info/en',
+        'de': 'https://toolbox.curioboxapp.info/de',
+        'tr': 'https://toolbox.curioboxapp.info/tr',
+        'fr': 'https://toolbox.curioboxapp.info/fr',
+        'pt': 'https://toolbox.curioboxapp.info/pt',
+        'es': 'https://toolbox.curioboxapp.info/es',
+        'it': 'https://toolbox.curioboxapp.info/it',
+        'nl': 'https://toolbox.curioboxapp.info/nl',
+        'ja': 'https://toolbox.curioboxapp.info/ja',
+        'ru': 'https://toolbox.curioboxapp.info/ru',
+        'x-default': 'https://toolbox.curioboxapp.info/en',
       },
     },
      // Google Site Verification
@@ -141,7 +142,18 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//www.google-analytics.com" />
+        <link rel="dns-prefetch" href="//pagead2.googlesyndication.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" />
+      </head>
       <body className={inter.className}>
+        <GoogleAnalytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

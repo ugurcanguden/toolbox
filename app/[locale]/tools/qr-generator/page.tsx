@@ -13,9 +13,12 @@ import {
   Slider,
   Checkbox,
   Label,
-  Input
-} from '@/components/ui';
+  Input,
+  JsonLdTool,
+  ToolSeoContent
+} from '@/components';
 import { Download, Trash2, QrCode, Info } from 'lucide-react';
+import { useParams } from 'next/navigation';
 
 interface QROptions {
   size: number;
@@ -28,6 +31,8 @@ interface QROptions {
 export default function QRGeneratorPage() {
   const t = useTranslations('tools.qrGenerator');
   const tc = useTranslations('common');
+  const params = useParams();
+  const locale = (params.locale as string) || 'en';
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
   const [text, setText] = useState('');
@@ -406,6 +411,23 @@ export default function QRGeneratorPage() {
           </Card>
         </div>
       </div>
+      
+      <ToolSeoContent toolId="qrGenerator" />
+      <JsonLdTool 
+        locale={locale}
+        tool={{
+          id: 'qr-generator',
+          title: t('title'),
+          description: t('description'),
+          category: 'utilities'
+        }}
+        faqs={[
+          {
+            question: locale === 'tr' ? "QR kodları güvenli mi?" : "Are QR codes safe?",
+            answer: locale === 'tr' ? "QR kodun kendisi güvenlidir, ancak yönlendirdiği URL veya içerik her zaman kontrol edilmelidir." : "The QR code itself is safe, but the URL or content it directs to should always be checked."
+          }
+        ]}
+      />
     </div>
   );
 }
