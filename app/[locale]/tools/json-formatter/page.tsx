@@ -235,7 +235,7 @@ export default function JsonFormatterPage() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
           <div>
             <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
-            <p className="text-muted-foreground">{t('description')}</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-2">{t('description')}</p>
           </div>
           <div className="flex flex-col sm:items-end gap-2">
             <PrivacyBadge />

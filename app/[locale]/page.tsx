@@ -29,7 +29,7 @@ import {
 import { CSS } from '@dnd-kit/utilities';
 
 // Wrapper component for draggable items
-function DraggableToolCard({ tool, isFavorite, onToggleFavorite, onCardClick }: any) {
+function DraggableToolCard({ tool, isFavorite, onToggleFavorite, onCardClick, dragTitle }: any) {
   const {
     attributes,
     listeners,
@@ -42,27 +42,37 @@ function DraggableToolCard({ tool, isFavorite, onToggleFavorite, onCardClick }: 
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    opacity: isDragging ? 0.5 : 1,
-    zIndex: isDragging ? 10 : 1,
+    opacity: isDragging ? 0.9 : 1,
+    zIndex: isDragging ? 50 : 1,
     position: 'relative' as const,
   };
 
   return (
-    <div ref={setNodeRef} style={style} className="h-full">
+    <div ref={setNodeRef} style={style} className="h-full relative group">
+      {/* Obvious Drag Handle Pill */}
       <div 
         {...attributes} 
         {...listeners} 
-        className="absolute top-2 left-2 p-1.5 cursor-grab active:cursor-grabbing z-20 text-muted-foreground/50 hover:text-foreground bg-background/60 hover:bg-background/90 rounded-md border border-border/50 hover:border-border transition-all"
-        title="Sürükleyerek sırala"
+        className={`absolute top-4 left-1/2 -translate-x-1/2 px-3 py-1.5 cursor-grab active:cursor-grabbing z-30 flex items-center gap-1.5 rounded-full border shadow-sm transition-all duration-300 ${
+          isDragging 
+            ? 'bg-primary text-primary-foreground border-primary shadow-lg scale-110' 
+            : 'bg-background/95 backdrop-blur text-muted-foreground border-border hover:text-primary hover:border-primary/50 hover:bg-primary/5 opacity-90 group-hover:opacity-100 hover:scale-105'
+        }`}
+        title={dragTitle}
+        onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
       >
         <GripHorizontal className="w-4 h-4" />
+        <span className="text-[10px] font-bold tracking-wider uppercase whitespace-nowrap">{dragTitle}</span>
       </div>
-      <ToolCard
-        tool={tool}
-        isFavorite={isFavorite}
-        onToggleFavorite={onToggleFavorite}
-        onCardClick={onCardClick}
-      />
+      
+      <div className={`h-full transition-all duration-300 ${isDragging ? 'shadow-2xl rounded-xl ring-2 ring-primary/40 scale-[1.03]' : ''}`}>
+        <ToolCard
+          tool={tool}
+          isFavorite={isFavorite}
+          onToggleFavorite={onToggleFavorite}
+          onCardClick={onCardClick}
+        />
+      </div>
     </div>
   );
 }
@@ -232,7 +242,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
 
         {/* Results Count */}
         <div className="text-center">
-          <p className="text-sm font-medium text-muted-foreground/80">
+          <p className="text-sm font-medium text-slate-600 dark:text-slate-400">
             {filteredTools.length === tools.length
               ? `${tools.length} tools available`
               : `Showing ${filteredTools.length} of ${tools.length} tools`}
@@ -323,6 +333,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
                       isFavorite={isFavorite(tool.id)}
                       onToggleFavorite={toggleFavorite}
                       onCardClick={addToRecent}
+                      dragTitle={t('common.dragToSort')}
                     />
                   </div>
                 ))}

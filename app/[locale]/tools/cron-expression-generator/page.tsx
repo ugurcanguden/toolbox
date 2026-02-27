@@ -136,7 +136,7 @@ export default function CronExpressionGeneratorPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
-        <p className="text-muted-foreground">{t('description')}</p>
+        <p className="text-slate-600 dark:text-slate-400 mt-2">{t('description')}</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

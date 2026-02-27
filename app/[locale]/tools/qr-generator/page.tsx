@@ -153,7 +153,7 @@ export default function QRGeneratorPage() {
         <div className="flex items-start justify-between">
           <div>
             <h1 className="text-4xl font-bold mb-2">{t('title')}</h1>
-            <p className="text-muted-foreground">{t('description')}</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-2">{t('description')}</p>
           </div>
           <div className="flex flex-col items-end gap-2">
             <PrivacyBadge />

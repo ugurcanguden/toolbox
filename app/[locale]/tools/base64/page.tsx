@@ -207,7 +207,7 @@ export default function Base64Page() {
         <div className="flex items-start justify-between mb-4">
           <div>
             <h1 className="text-3xl font-bold mb-2">{t('title')}</h1>
-            <p className="text-muted-foreground">{t('description')}</p>
+            <p className="text-slate-600 dark:text-slate-400 mt-2">{t('description')}</p>
           </div>
           <div className="flex gap-2">
             <Button onClick={loadSample} variant="outline" size="sm" className="gap-2">

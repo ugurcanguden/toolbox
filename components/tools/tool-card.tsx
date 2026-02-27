@@ -66,7 +66,7 @@ export function ToolCard({ tool, isFavorite = false, onToggleFavorite, onCardCli
           <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors leading-tight mb-1.5">
             {tool.title}
           </CardTitle>
-          <CardDescription className="line-clamp-2 text-sm text-muted-foreground/80 leading-relaxed">
+          <CardDescription className="line-clamp-2 text-sm font-medium text-slate-600 dark:text-slate-400 leading-relaxed">
             {tool.description}
           </CardDescription>
         </CardHeader>

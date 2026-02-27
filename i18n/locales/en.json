@@ -37,7 +37,8 @@
     "searchTools": "Search tools",
     "privacyClientSideOnly": "100% Client-Side Only (No Server Tracking)",
     "home": "Home",
-    "tools": "Tools"
+    "tools": "Tools",
+    "dragToSort": "Drag to sort"
   },
   "cookieConsent": {
     "title": "🍪 We Use Cookies",
