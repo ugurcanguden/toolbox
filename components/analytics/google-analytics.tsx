@@ -19,6 +19,10 @@ function getRuntimeAnalyticsIds() {
   };
 }
 
+function isValidGtmContainerId(id?: string) {
+  return Boolean(id && /^GTM-[A-Z0-9]+$/i.test(id));
+}
+
 function AnalyticsTracker({ enabled }: { enabled: boolean }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -125,7 +129,7 @@ export function GoogleAnalytics() {
           `,
         }}
       />
-      {ids.gtmContainerId && (
+      {isValidGtmContainerId(ids.gtmContainerId) && (
         <Script
           id="gtm-loader"
           strategy="lazyOnload"

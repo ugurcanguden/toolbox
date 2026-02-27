@@ -19,8 +19,13 @@ export function CookieConsent() {
     // Check if user has already given consent
     const consent = localStorage.getItem(COOKIE_CONSENT_KEY);
     if (!consent) {
-      // Show banner after a small delay for better UX
-      setTimeout(() => setShowBanner(true), 1000);
+      // Delay banner so it does not compete with above-the-fold LCP content.
+      if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
+        const id = (window as any).requestIdleCallback(() => setShowBanner(true), { timeout: 4000 });
+        return () => (window as any).cancelIdleCallback?.(id);
+      }
+      const timer = setTimeout(() => setShowBanner(true), 4000);
+      return () => clearTimeout(timer);
     }
   }, []);
 

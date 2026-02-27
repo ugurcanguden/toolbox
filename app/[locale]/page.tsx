@@ -1,81 +1,20 @@
 "use client";
 
 import { useState, useMemo, useEffect, use } from 'react';
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
-import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { Search, Star, Clock, X, GripHorizontal } from 'lucide-react';
-import { ToolCard, AdBanner } from '@/components';
+import { Search, Star, Clock, X } from 'lucide-react';
+import { ToolCard } from '@/components';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useFavorites, useTools } from '@/hooks';
 import type { Tool } from '@/types';
-import { 
-  DndContext, 
-  closestCenter,
-  KeyboardSensor,
-  PointerSensor,
-  useSensor,
-  useSensors,
-  DragEndEvent
-} from '@dnd-kit/core';
-import {
-  arrayMove,
-  SortableContext,
-  sortableKeyboardCoordinates,
-  rectSortingStrategy,
-  useSortable
-} from '@dnd-kit/sortable';
-import { CSS } from '@dnd-kit/utilities';
 
-// Wrapper component for draggable items
-function DraggableToolCard({ tool, isFavorite, onToggleFavorite, onCardClick, dragTitle }: any) {
-  const {
-    attributes,
-    listeners,
-    setNodeRef,
-    transform,
-    transition,
-    isDragging
-  } = useSortable({ id: tool.id });
-
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-    opacity: isDragging ? 0.9 : 1,
-    zIndex: isDragging ? 50 : 1,
-    position: 'relative' as const,
-  };
-
-  return (
-    <div ref={setNodeRef} style={style} className="h-full relative group">
-      {/* Obvious Drag Handle Pill */}
-      <div 
-        {...attributes} 
-        {...listeners} 
-        className={`absolute top-4 left-1/2 -translate-x-1/2 px-3 py-1.5 cursor-grab active:cursor-grabbing z-30 flex items-center gap-1.5 rounded-full border shadow-sm transition-all duration-300 ${
-          isDragging 
-            ? 'bg-primary text-primary-foreground border-primary shadow-lg scale-110' 
-            : 'bg-background/95 backdrop-blur text-muted-foreground border-border hover:text-primary hover:border-primary/50 hover:bg-primary/5 opacity-90 group-hover:opacity-100 hover:scale-105'
-        }`}
-        title={dragTitle}
-        onClick={(e) => { e.preventDefault(); e.stopPropagation(); }}
-      >
-        <GripHorizontal className="w-4 h-4" />
-        <span className="text-[10px] font-bold tracking-wider uppercase whitespace-nowrap">{dragTitle}</span>
-      </div>
-      
-      <div className={`h-full transition-all duration-300 ${isDragging ? 'shadow-2xl rounded-xl ring-2 ring-primary/40 scale-[1.03]' : ''}`}>
-        <ToolCard
-          tool={tool}
-          isFavorite={isFavorite}
-          onToggleFavorite={onToggleFavorite}
-          onCardClick={onCardClick}
-        />
-      </div>
-    </div>
-  );
-}
+const DraggableToolsGrid = dynamic(
+  () => import('@/components/tools/draggable-tools-grid').then((mod) => mod.DraggableToolsGrid),
+  { ssr: false }
+);
 
 export default function HomePage({ params }: { params: Promise<{ locale: string }> }) {
   const t = useTranslations();
@@ -138,29 +77,9 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
     return recent.map((id) => tools.find((tool) => tool.id === id)).filter(Boolean) as Tool[];
   }, [tools, recent]);
 
-  // DnD Sensors
-  const sensors = useSensors(
-    useSensor(PointerSensor, {
-      activationConstraint: {
-        distance: 8, // Require 8px movement before drag starts so clicking still works
-      },
-    }),
-    useSensor(KeyboardSensor, {
-      coordinateGetter: sortableKeyboardCoordinates,
-    })
-  );
-
-  const handleDragEnd = (event: DragEndEvent) => {
-    const { active, over } = event;
-
-    if (over && active.id !== over.id) {
-      const oldIndex = filteredTools.findIndex(t => t.id === active.id);
-      const newIndex = filteredTools.findIndex(t => t.id === over.id);
-
-      const newOrderIds = arrayMove(filteredTools.map(t => t.id), oldIndex, newIndex);
-      setOrderedToolIds(newOrderIds);
-      localStorage.setItem('curiobox-tool-order', JSON.stringify(newOrderIds));
-    }
+  const handleReorder = (newOrderIds: string[]) => {
+    setOrderedToolIds(newOrderIds);
+    localStorage.setItem('curiobox-tool-order', JSON.stringify(newOrderIds));
   };
 
   return (
@@ -311,35 +230,14 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
       <div className="mb-12">
         <h2 className="text-2xl font-semibold mb-6">{t('common.allTools')}</h2>
         {filteredTools.length > 0 ? (
-          <DndContext 
-            id="dashboard-dnd"
-            sensors={sensors}
-            collisionDetection={closestCenter}
-            onDragEnd={handleDragEnd}
-          >
-            <SortableContext 
-              items={filteredTools.map(t => t.id)}
-              strategy={rectSortingStrategy}
-            >
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {filteredTools.map((tool, index) => (
-                  <div
-                    key={tool.id}
-                    className="relative animate-in fade-in slide-in-from-bottom-4 group"
-                    style={{ animationDelay: `${index * 50}ms`, animationFillMode: 'backwards' }}
-                  >
-                    <DraggableToolCard
-                      tool={tool}
-                      isFavorite={isFavorite(tool.id)}
-                      onToggleFavorite={toggleFavorite}
-                      onCardClick={addToRecent}
-                      dragTitle={t('common.dragToSort')}
-                    />
-                  </div>
-                ))}
-              </div>
-            </SortableContext>
-          </DndContext>
+          <DraggableToolsGrid
+            tools={filteredTools}
+            isFavorite={isFavorite}
+            onToggleFavorite={toggleFavorite}
+            onCardClick={addToRecent}
+            onReorder={handleReorder}
+            dragTitle={t('common.dragToSort')}
+          />
         ) : (
           <div className="text-center py-12 animate-in fade-in duration-500">
             <Search className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
