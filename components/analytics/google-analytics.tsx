@@ -7,6 +7,18 @@ import { pageview, GA_MEASUREMENT_ID, GTM_CONTAINER_ID } from '@/lib/analytics';
 
 const COOKIE_CONSENT_KEY = 'toolbox-cookie-consent';
 
+function getRuntimeAnalyticsIds() {
+  if (typeof window === 'undefined') {
+    return { gaMeasurementId: GA_MEASUREMENT_ID, gtmContainerId: GTM_CONTAINER_ID };
+  }
+
+  const runtime = (window as any).__APP_PUBLIC_ENV || {};
+  return {
+    gaMeasurementId: runtime.NEXT_PUBLIC_GA_MEASUREMENT_ID || runtime.NEXT_PUBLIC_GA_ID || GA_MEASUREMENT_ID,
+    gtmContainerId: runtime.NEXT_PUBLIC_GTM_ID || GTM_CONTAINER_ID,
+  };
+}
+
 function AnalyticsTracker() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -14,7 +26,10 @@ function AnalyticsTracker() {
   useEffect(() => {
     if (pathname) {
       const url = pathname + (searchParams?.toString() ? `?${searchParams.toString()}` : '');
-      const run = () => pageview(url);
+      const run = () => {
+        const { gaMeasurementId } = getRuntimeAnalyticsIds();
+        pageview(url, gaMeasurementId);
+      };
       if (typeof window !== 'undefined' && 'requestIdleCallback' in window) {
         const id = (window as any).requestIdleCallback(run, { timeout: 2000 });
         return () => (window as any).cancelIdleCallback?.(id);
@@ -30,6 +45,7 @@ function AnalyticsTracker() {
 export function GoogleAnalytics() {
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [ids, setIds] = useState(() => getRuntimeAnalyticsIds());
 
   useEffect(() => {
     const readConsent = () => {
@@ -47,6 +63,7 @@ export function GoogleAnalytics() {
     };
 
     readConsent();
+    setIds(getRuntimeAnalyticsIds());
     setMounted(true);
     window.addEventListener('storage', readConsent);
     window.addEventListener('cookie-consent-changed', readConsent);
@@ -56,7 +73,7 @@ export function GoogleAnalytics() {
     };
   }, []);
 
-  if (!mounted || !analyticsEnabled || !GA_MEASUREMENT_ID) {
+  if (!mounted || !analyticsEnabled || !ids.gaMeasurementId) {
     return null;
   }
 
@@ -64,18 +81,18 @@ export function GoogleAnalytics() {
     <>
       <Script
         id="ga-loader"
-        strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${ids.gaMeasurementId}`}
       />
       <Script
         id="google-analytics"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${GA_MEASUREMENT_ID}', {
+            gtag('config', '${ids.gaMeasurementId}', {
               page_path: window.location.pathname,
               send_page_view: false,
               transport_type: 'beacon',
@@ -83,11 +100,11 @@ export function GoogleAnalytics() {
           `,
         }}
       />
-      {GTM_CONTAINER_ID && (
+      {ids.gtmContainerId && (
         <Script
           id="gtm-loader"
           strategy="lazyOnload"
-          src={`https://www.googletagmanager.com/gtm.js?id=${GTM_CONTAINER_ID}`}
+          src={`https://www.googletagmanager.com/gtm.js?id=${ids.gtmContainerId}`}
         />
       )}
       <Suspense fallback={null}>

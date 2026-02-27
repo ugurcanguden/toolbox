@@ -147,12 +147,23 @@ export default async function LocaleLayout({
   }
 
   const messages = await getMessages();
+  const publicRuntimeEnv = {
+    NEXT_PUBLIC_GA_MEASUREMENT_ID:
+      process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA_ID || '',
+    NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID || '',
+    NEXT_PUBLIC_GTM_ID: process.env.NEXT_PUBLIC_GTM_ID || '',
+  };
 
   return (
     <html lang={locale} suppressHydrationWarning className={plusJakartaSans.variable}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.__APP_PUBLIC_ENV = ${JSON.stringify(publicRuntimeEnv)};`,
+          }}
+        />
       </head>
       <body className="font-sans antialiased min-h-screen">
         <GoogleAnalytics />

@@ -1,13 +1,14 @@
 // Google Analytics helper functions
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || process.env.NEXT_PUBLIC_GA_ID || '';
 export const GTM_CONTAINER_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // https://developers.google.com/analytics/devguides/collection/gtagjs/pages
-export const pageview = (url: string) => {
-  if (!GA_MEASUREMENT_ID) return;
+export const pageview = (url: string, measurementId = GA_MEASUREMENT_ID) => {
+  if (!measurementId) return;
   if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('config', GA_MEASUREMENT_ID, {
+    (window as any).gtag('config', measurementId, {
       page_path: url,
     });
   }
@@ -19,8 +20,8 @@ export const event = ({ action, category, label, value }: {
   category: string;
   label?: string;
   value?: number;
-}) => {
-  if (!GA_MEASUREMENT_ID) return;
+}, measurementId = GA_MEASUREMENT_ID) => {
+  if (!measurementId) return;
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', action, {
       event_category: category,
