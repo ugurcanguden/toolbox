@@ -36,7 +36,8 @@
     "pleaseWait": "Bitte warten Sie einen Moment...",
     "searchTools": "Search tools",
     "privacyClientSideOnly": "100% Client-Side Only (No Server Tracking)",
-    "home": "Home"
+    "home": "Home",
+    "tools": "Tools"
   },
   "cookieConsent": {
     "title": "🍪 Wir Verwenden Cookies",

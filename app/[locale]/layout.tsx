@@ -2,7 +2,7 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Toaster } from 'sonner';
-import { Inter } from 'next/font/google';
+import { Plus_Jakarta_Sans } from 'next/font/google';
 import { ThemeProvider, Header, Footer, CookieConsent, GlobalLoading, NavigationListener, SmartRedirectListener } from '@/components/layout';
 import { SidebarClient } from '@/components/layout/sidebar-client';
 import { GoogleAnalytics } from '@/components/analytics/google-analytics';
@@ -11,11 +11,11 @@ import { locales, type Locale } from '@/i18n/request';
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
 
-const inter = Inter({
+const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
   display: 'swap',
   preload: true,
-  variable: '--font-inter',
+  variable: '--font-plus-jakarta-sans',
   fallback: ['system-ui', 'Arial', 'sans-serif'],
   adjustFontFallback: true,
 });
@@ -149,7 +149,7 @@ export default async function LocaleLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale} suppressHydrationWarning className={inter.variable}>
+    <html lang={locale} suppressHydrationWarning className={plusJakartaSans.variable}>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <meta name="google-adsense-account" content="ca-pub-9339461513261360" />
@@ -168,9 +168,9 @@ export default async function LocaleLayout({
               <GlobalLoading />
               <div className="flex h-screen flex-col overflow-hidden">
                 <Header locale={locale as Locale} />
-                <div className="flex flex-1 min-h-0 overflow-hidden">
+                <div className="flex flex-col lg:flex-row flex-1 min-h-0 overflow-hidden">
                   <SidebarClient locale={locale} />
-                  <main className="flex-1 h-full overflow-y-auto">{children}</main>
+                  <main className="flex-1 h-full overflow-y-auto w-full">{children}</main>
                 </div>
                 <Footer />
               </div>

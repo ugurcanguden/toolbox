@@ -4,21 +4,23 @@ import { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Search, History, FolderOpen, PanelLeftClose, PanelLeftOpen } from 'lucide-react';
+import { Search, History, FolderOpen, PanelLeftClose, PanelLeftOpen, Menu, X } from 'lucide-react';
 import * as LucideIcons from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { useTools, useFavorites } from '@/hooks';
 import { Tool } from '@/types';
 
-export function Sidebar({ locale }: { locale: string }) {
+export function Sidebar({ locale, className, isMobile }: { locale: string; className?: string; isMobile?: boolean }) {
   const tCommon = useTranslations('common');
+  const tNav = useTranslations('navigation');
   const { tools, categories } = useTools(locale);
   const { recent } = useFavorites();
   const pathname = usePathname();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [collapsed, setCollapsed] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const filteredTools = useMemo(() => {
     if (!searchQuery) return tools;
@@ -43,9 +45,24 @@ export function Sidebar({ locale }: { locale: string }) {
   }, [filteredTools]);
 
   return (
-    <aside
-      className={`border-r border-border hidden lg:flex flex-col h-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-200 ${collapsed ? 'w-20' : 'w-72'}`}
-    >
+    <>
+      <div className={`lg:hidden flex w-[calc(100%-2rem)] mx-auto mt-6 rounded-2xl items-center justify-between px-4 py-3 border border-border/60 bg-background/80 backdrop-blur z-40 shadow-sm relative`}>
+        <span className="font-bold text-sm text-foreground tracking-wide">{tCommon('tools') ?? 'Tools'}</span>
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Close tools menu' : 'Open tools menu'}
+          className="rounded-full shadow-sm bg-background/50 backdrop-blur-md h-9 w-9"
+        >
+          {mobileOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+        </Button>
+      </div>
+      <aside
+        className={`flex-col h-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300 ${
+          mobileOpen ? 'fixed inset-x-0 top-[152px] bottom-0 z-[100] flex w-full border-t border-border/50 animate-in slide-in-from-top-2 shadow-2xl rounded-t-3xl overflow-hidden' : `hidden lg:flex border-r border-border ${collapsed ? 'w-20' : 'w-72'}`
+        } ${className || ''}`}
+      >
       <div className="p-4 border-b border-border space-y-4">
         {!collapsed && (
           <div className="relative">
@@ -71,6 +88,7 @@ export function Sidebar({ locale }: { locale: string }) {
                   <Link
                     href={tool.href}
                     title={tool.title}
+                    onClick={() => setMobileOpen(false)}
                     className={`flex items-center justify-center text-xs font-semibold h-9 rounded-md transition-colors ${isActive ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-muted'}`}
                   >
                     <Icon className="h-4 w-4" />
@@ -93,7 +111,7 @@ export function Sidebar({ locale }: { locale: string }) {
                 const Icon = (LucideIcons as any)[tool.icon] || FolderOpen;
                 return (
                   <li key={tool.id}>
-                    <Link href={tool.href} className={`flex items-center text-sm px-3 py-2 rounded-md transition-colors ${isActive ? 'bg-primary/10 text-primary font-medium' : 'text-foreground hover:bg-muted'}`}>
+                    <Link href={tool.href} onClick={() => setMobileOpen(false)} className={`flex items-center text-sm px-3 py-2 rounded-md transition-colors ${isActive ? 'bg-primary/10 text-primary font-medium' : 'text-foreground hover:bg-muted'}`}>
                       <Icon className="mr-2 h-4 w-4 flex-shrink-0" />
                       <span className="truncate">{tool.title}</span>
                     </Link>
@@ -119,7 +137,7 @@ export function Sidebar({ locale }: { locale: string }) {
                   const Icon = (LucideIcons as any)[tool.icon] || FolderOpen;
                   return (
                     <li key={tool.id}>
-                      <Link href={tool.href} className={`flex items-center text-sm px-3 py-2 rounded-md transition-colors ${isActive ? 'bg-primary/10 text-primary font-medium' : 'text-foreground hover:bg-muted'}`}>
+                      <Link href={tool.href} onClick={() => setMobileOpen(false)} className={`flex items-center text-sm px-3 py-2 rounded-md transition-colors ${isActive ? 'bg-primary/10 text-primary font-medium' : 'text-foreground hover:bg-muted'}`}>
                         <Icon className="mr-2 h-4 w-4 flex-shrink-0" />
                         <span className="truncate">{tool.title}</span>
                       </Link>
@@ -133,12 +151,12 @@ export function Sidebar({ locale }: { locale: string }) {
           </>
         )}
       </div>
-      <div className="border-t border-border p-2 pb-4">
+      <div className={`border-t border-border p-2 pb-4 ${mobileOpen ? 'hidden' : 'block'}`}>
         <Button
           variant="ghost"
           size="icon"
           onClick={() => setCollapsed((prev) => !prev)}
-          className="w-full h-9"
+          className="w-full h-9 hidden lg:flex"
           aria-label={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
           title={collapsed ? 'Expand sidebar' : 'Collapse sidebar'}
         >
@@ -146,5 +164,6 @@ export function Sidebar({ locale }: { locale: string }) {
         </Button>
       </div>
     </aside>
+    </>
   );
 }

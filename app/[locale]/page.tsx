@@ -156,22 +156,28 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Hero Section */}
-      <div className="mb-12 text-center">
-        <Image
-          src="/icon.svg"
-          alt={t('common.appName')}
-          width={96}
-          height={96}
-          priority
-          fetchPriority="high"
-          className="mx-auto mb-4 h-20 w-20 sm:h-24 sm:w-24"
-        />
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-          {t('common.appName')}
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          {t('common.appDescription')}
-        </p>
+      <div className="relative mb-20 text-center py-16 px-4 sm:py-24 overflow-hidden rounded-[2rem] bg-gradient-to-b from-primary/5 via-background to-background border border-border/50 shadow-sm">
+        {/* Decorative background glows */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 blur-[120px] rounded-full pointer-events-none" />
+        <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-blue-500/10 blur-[100px] rounded-full pointer-events-none" />
+        
+        <div className="relative z-10">
+          <Image
+            src="/icon.svg"
+            alt={t('common.appName')}
+            width={96}
+            height={96}
+            priority
+            fetchPriority="high"
+            className="mx-auto mb-6 h-20 w-20 sm:h-24 sm:w-24 drop-shadow-lg"
+          />
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-7xl mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/70 bg-clip-text text-transparent">
+            {t('common.appName')}
+          </h1>
+          <p className="text-xl sm:text-2xl text-muted-foreground max-w-2xl mx-auto font-medium leading-relaxed">
+            {t('common.appDescription')}
+          </p>
+        </div>
       </div>
 
       {/* Ad - Top Banner (after hero) */}
@@ -181,34 +187,42 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
       /> */}
 
       {/* Search & Filter Section */}
-      <div className="mb-12 space-y-6">
+      <div className="mb-16 space-y-8">
         {/* Search Bar */}
         <div className="max-w-2xl mx-auto">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <div className="relative group">
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-muted-foreground transition-colors group-focus-within:text-primary" />
             <Input
               type="text"
               placeholder={t('common.search')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-12 text-lg"
+              className="pl-12 h-14 text-lg rounded-2xl shadow-sm border-border/50 bg-background/50 backdrop-blur-sm transition-all focus:bg-background focus:shadow-md"
             />
           </div>
         </div>
 
         {/* Category Filters */}
-        <div className="flex flex-wrap justify-center gap-2">
+        <div className="flex flex-wrap justify-center gap-3">
           {categories.map((category) => (
             <Button
               key={category.id}
               variant={selectedCategory === category.id ? "default" : "outline"}
               size="sm"
               onClick={() => setSelectedCategory(category.id)}
-              className="transition-all"
+              className={`transition-all duration-200 rounded-full px-5 py-2 ${
+                selectedCategory === category.id 
+                  ? 'shadow-md scale-105' 
+                  : 'hover:border-primary/50 hover:bg-primary/5'
+              }`}
             >
               {category.label}
               {category.id === 'all' && (
-                <span className="ml-2 px-2 py-0.5 rounded-full bg-primary-foreground text-primary text-xs font-bold">
+                <span className={`ml-2 px-2 py-0.5 rounded-full text-xs font-bold ${
+                  selectedCategory === category.id
+                    ? 'bg-primary-foreground/20 text-primary-foreground'
+                    : 'bg-primary/10 text-primary'
+                }`}>
                   {tools.length}
                 </span>
               )}
@@ -218,7 +232,7 @@ export default function HomePage({ params }: { params: Promise<{ locale: string 
 
         {/* Results Count */}
         <div className="text-center">
-          <p className="text-sm text-muted-foreground">
+          <p className="text-sm font-medium text-muted-foreground/80">
             {filteredTools.length === tools.length
               ? `${tools.length} tools available`
               : `Showing ${filteredTools.length} of ${tools.length} tools`}

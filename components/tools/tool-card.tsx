@@ -39,13 +39,13 @@ export function ToolCard({ tool, isFavorite = false, onToggleFavorite, onCardCli
 
   return (
     <Link href={tool.href} className="block h-full group" onClick={handleCardClick} aria-label={`Open ${tool.title}`}>
-      <Card className="h-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border-border/50 hover:border-primary/30 relative overflow-hidden bg-gradient-to-br from-background to-muted/20">
+      <Card className="h-full transition-all duration-300 hover:shadow-lg hover:scale-[1.02] border-border/50 hover:border-primary/50 relative overflow-hidden bg-background">
         {/* Favorite Button */}
         {onToggleFavorite && (
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-2 right-2 z-10 opacity-0 group-hover:opacity-100 transition-opacity"
+            className="absolute top-3 right-3 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-background/50 hover:bg-background/80"
             onClick={handleFavoriteClick}
             title={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}
             aria-label={isFavorite ? t('removeFromFavorites') : t('addToFavorites')}

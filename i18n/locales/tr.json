@@ -36,7 +36,8 @@
     "pleaseWait": "Lütfen bekleyin...",
     "searchTools": "Araç ara",
     "privacyClientSideOnly": "100% İstemci Taraflı (Sunucu İzlemesi Yok)",
-    "home": "Ana Sayfa"
+    "home": "Ana Sayfa",
+    "tools": "Araçlar"
   },
   "cookieConsent": {
     "title": "🍪 Çerez Kullanımı",

@@ -40,14 +40,14 @@ export function CommandPalette({ locale }: { locale: string }) {
     <>
       <Button
         variant="outline"
-        className="relative h-9 w-full justify-start rounded-[0.5rem] bg-background text-sm font-normal text-muted-foreground shadow-none sm:pr-12 md:w-40 lg:w-64"
+        className="relative h-9 w-9 p-0 rounded-full bg-background/50 hover:bg-background/80 text-sm font-normal text-muted-foreground shadow-sm transition-all lg:w-48 lg:px-3 lg:justify-start"
         onClick={() => setOpen(true)}
         aria-label={t("searchTools")}
         aria-keyshortcuts="Meta+K"
       >
+        <Search className="h-4 w-4 lg:mr-2" />
         <span className="hidden lg:inline-flex">{t("searchTools")}...</span>
-        <span className="inline-flex lg:hidden">{t("search")}...</span>
-        <kbd className="pointer-events-none absolute right-[0.3rem] top-[0.3rem] hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+        <kbd className="pointer-events-none absolute right-[0.3rem] top-1/2 -translate-y-1/2 hidden h-6 select-none items-center gap-1 rounded-full border bg-muted/50 px-1.5 font-mono text-[10px] font-medium opacity-100 lg:flex">
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>
