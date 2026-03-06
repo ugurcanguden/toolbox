@@ -1,37 +1,93 @@
-# ... BUILD STAGE Kısmın Güzel, Aynen Kalsın ...
-# (Sadece build aşamasında 'yarn build'in çalıştığından emin ol)
+# 🚀 Toolbox - Optimized Production Dockerfile
+# Multi-stage build for maximum performance and security
+# Optimized for PageSpeed 80+ score
 
 # ========================================
-# 🏃 RUNTIME STAGE - Standalone Optimized
+# 🏗️ BUILD STAGE - Optimized for building
+# ========================================
+FROM node:22-alpine AS builder
+
+# Install system dependencies for building
+RUN apk add --no-cache \
+    libc6-compat \
+    python3 \
+    make \
+    g++ \
+    brotli \
+    gzip
+
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package.json yarn.lock ./
+
+# Install dependencies with optimizations
+RUN yarn install --frozen-lockfile && \
+    yarn cache clean
+
+# Copy source code
+COPY . .
+
+# 🚀 Build the application with optimizations
+RUN yarn build
+
+# 🗜️ Compress assets for maximum performance
+# RUN chmod +x scripts/compress-assets.sh && \
+#     ./scripts/compress-assets.sh
+
+# ========================================
+# 🏃 RUNTIME STAGE - Optimized for production
 # ========================================
 FROM node:22-alpine AS runner
 
-RUN apk add --no-cache curl tzdata libc6-compat
+# Install runtime dependencies
+RUN apk add --no-cache \
+    libc6-compat \
+    brotli \
+    gzip \
+    curl \
+    tzdata
+
 WORKDIR /app
 
+# Set timezone
 ENV TZ=UTC
-ENV NODE_ENV=production
-ENV NEXT_TELEMETRY_DISABLED=1
-# PORTU 3001 YAPALIM (Dokploy ile çakışmasın)
-ENV PORT=3001
-ENV HOSTNAME="0.0.0.0"
 
+# Create nextjs user for security
 RUN addgroup --system --gid 1001 nodejs && \
-    adduser --system --uid 1001 nextjs
+adduser --system --uid 1001 nextjs
 
-# Sadece Standalone için gereken dosyaları kopyalıyoruz (Çok daha hızlı ve hafif)
-COPY --from=builder /app/public ./public
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Copy application from builder stage
+COPY --from=builder --chown=nextjs:nodejs /app ./
 
+# Copy compressed assets
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/static/*.gz ./.next/static/ 2>/dev/null || true
+# COPY --from=builder --chown=nextjs:nodejs /app/.next/static/*.br ./.next/static/ 2>/dev/null || true
+# COPY --from=builder --chown=nextjs:nodejs /app/public/*.gz ./public/ 2>/dev/null || true
+# COPY --from=builder --chown=nextjs:nodejs /app/public/*.br ./public/ 2>/dev/null || true
+
+# Fix permissions for development
+RUN chown -R nextjs:nodejs /app && \
+    chmod -R 755 /app
+
+# Switch to non-root user
 USER nextjs
 
-# Portu 3001 olarak expose et
-EXPOSE 3001
+# 🚀 Performance optimizations
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
 
-# Healthcheck'i de 3001'e çekiyoruz
+# 🎯 Node.js optimizations for performance
+ENV NODE_OPTIONS="--max-old-space-size=1024"
+
+# Expose port
+EXPOSE 3000
+
+# Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-    CMD curl -f http://localhost:3001/api/health || exit 1
+    CMD curl -f http://localhost:3000/api/health || exit 1
 
-# KRİTİK DEĞİŞİKLİK: Doğrudan node ile server.js'i çalıştırıyoruz
-CMD ["node", "server.js"]
+# Start the application in production mode
+CMD ["yarn", "start"]
