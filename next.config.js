@@ -212,10 +212,7 @@ const nextConfig = {
   // 📄 REWRITES FOR CLEAN URLs
   async rewrites() {
     return [
-      {
-        source: '/sitemap.xml',
-        destination: '/api/sitemap',
-      },
+
       // TODO: Stirling-PDF proxy (uncomment when ready)
       // {
       //   source: '/pdf/api/:path*',
